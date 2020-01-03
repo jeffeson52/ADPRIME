@@ -550,6 +550,7 @@
 
 	.homepage #logo {
 		display: none;
+		color: white;
 	}
 
 	.homepage #nav {

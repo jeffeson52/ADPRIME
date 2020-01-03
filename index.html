@@ -12,6 +12,8 @@
 	<script src="js/skel.min.js"></script>
 	<script src="js/skel-layers.min.js"></script>
 	<script src="js/init.js"></script>
+	<script src="js/arquivo.js"></script>
+		
 	<noscript>
 		<link rel="stylesheet" href="css/skel.css" />
 		<link rel="stylesheet" href="css/style.css" />
@@ -31,7 +33,7 @@
 				<!-- Logo -->
 				<h1><a href="#" id="logo">AD Prime</a></h1>
 
-				<!-- Nav -->
+				<!-- menu -->
 				<nav id="nav">
 					<ul>
 						<li class="active"><a href="index.html">Home</a></li>
@@ -69,7 +71,7 @@
 		</div>
 	</div>
 
-	<!-- Section One -->
+	<!-- Texto apresentação -->
 	<div class="wrapper style2">
 		<section class="container">
 			<div class="row double">
@@ -116,7 +118,10 @@
 						dos dirigentes e fundadores, seria a forma mais viável para se chegar a um objetivo, sobretudo
 						porque pessoas associadas prestam apoio e solidariedade recíprocos, tanto no aspecto emocional,
 						pela motivação, quanto no aspecto financeiro, pela cotização de recursos financeiros.</p>
-					<p><a href="#" class="button">Proposta associativa para WS Kriptacoin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></p>
+
+					<!-- botões proposta -->
+					<p><a href="#" class="button">Proposta associativa para WS
+							Kriptacoin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></p>
 					<p><a href="#" class="button" id="butasoci">&nbsp;Proposta associativa para AWS
 							Mining&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></p>
 					<p><a href="#" class="button" id="butasoci">Proposta associativa para outras empresas&nbsp;</a></p>
@@ -125,7 +130,7 @@
 		</section>
 	</div>
 
-	<!-- Section Three -->
+	<!-- Objetivos -->
 	<div class="wrapper style4">
 		<section class="container">
 			<header class="major">
@@ -188,7 +193,7 @@
 		</section>
 	</div>
 
-	<!-- Team -->
+	<!-- Equipe -->
 	<div class="wrapper style5">
 		<section id="team" class="container">
 			<header class="major">
@@ -197,22 +202,22 @@
 			</header>
 			<div class="row">
 				<div class="3u">
-					<a href="#" class="image"><img src="images/roberto.png" alt=""></a>
+					<a class="image"><img src="images/roberto.png" alt=""></a>
 					<h3>Roberto Carlos de Azevedo</h3>
 					<p>Presidente</p>
 				</div>
 				<div class="3u">
-					<a href="#" class="image"><img src="images/vice.png" alt=""></a>
+					<a class="image"><img src="images/vice.png" alt=""></a>
 					<h3>Carlos Eduardo Soares de Oliveira</h3>
 					<p>Vice presidente</p>
 				</div>
 				<div class="3u">
-					<a href="#" class="image"><img src="images/jhonny.jpg" alt=""></a>
+					<a class="image"><img src="images/jhonny.jpg" alt=""></a>
 					<h3>Jhonny da Silva Coelho &nbsp;&nbsp;</h3>
 					<p>Diretor de comunicações</p>
 				</div>
 				<div class="3u">
-					<a href="#" class="image"><img src="images/marco.jpg" alt=""></a>
+					<a class="image"><img src="images/marco.jpg" alt=""></a>
 					<h3>Marco Aurélio Alves Custódio</h3>
 					<p>Diretor financeiro</p>
 				</div>
@@ -220,7 +225,7 @@
 		</section>
 	</div>
 
-	<!-- Footer -->
+	<!-- Entre em Contato-->
 	<div id="footer">
 		<section class="container">
 			<header class="major">
@@ -232,14 +237,15 @@
 					<li><a href="#" class="fa fa-phone">&nbsp;&nbsp;(34) 99999-9999</a></li>
 					<div class="buttoncnpj">
 						<a href="https://www.adprime.com.br/wa_files/cnpj.jpg" class="button" id="CNPJ">CNPJ</a>
-						<a href="https://www.adprime.com.br/wa_files/adprime%20estatuto.pdf" class="button" id="estatuto">Estatuto da AD Prime</a>
+						<a href="https://www.adprime.com.br/wa_files/adprime%20estatuto.pdf" class="button"
+							id="estatuto">Estatuto da AD Prime</a>
 					</div>
 				</div>
 			</ul>
 		</section>
 
 		<!--formulário-->
-		<form>
+		<form name="formuser" action="enviar.php">
 			<header class="major">
 				<p><span class="byline">Use o formulário para enviar mensagens</span>
 					<div class="textform">
@@ -253,29 +259,28 @@
 					</div><br /><br />
 					<div>
 						<label for="name" class="textform">Nome:</label>
-						<input type="text" id="name" name="nome" placeholder="Digite seu nome aqui" />
+						<input type="text" id="name" name="nome" placeholder="Digite seu nome aqui"/>
 					</div>
 					<div>
-						<label for="mail" class="textform">E-mail:</label>
-						<input type="email" id="mail" name="email" placeholder="Digite seu e-mail aqui" />
-
+						<label for="text" class="textform">E-mail:</label>
+						<input type="text" id="mail" name="email" placeholder="Digite seu e-mail aqui"/>
 					</div>
 					<div>
 						<label for="assunto" class="textform">Assunto:</label>
-						<input type="text" id="assunto" name="assunto" placeholder="Digite seu assunto aqui" />
+						<input type="text" id="assunto" name="assunto" placeholder="Digite seu assunto aqui"/>
 					</div>
 					<div>
 						<label for="msg" class="textform">Mensagem:</label>
-						<textarea id="text" placeholder="Digite sua mensagem aqui"></textarea>
+						<textarea id="text" name ="mensagem"placeholder="Digite sua mensagem aqui"></textarea>
 					</div>
 					<div>
-						<a href="#" class="button" id="enviar">Enviar</a>
+						<input type="submit" class="button" id="enviar" value="Enviar" onclick="return validar()">
 					</div>
 			</header>
 		</form>
 	</div>
 
-	<!-- button -->
+	<!-- botão inicio-->
 	<div class="buttonup">
 		<p><a href="#"><button class="button" id="buttonup"><i class="fa fa-angle-up"
 						aria-hidden="true"></i></button></a></p>
