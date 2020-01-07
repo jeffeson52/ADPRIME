@@ -83,62 +83,64 @@
             <header class="major">
                 <p><span class="byline">Cadastro seguro, preencha os dados corretamente para melhor análise</span>
                     <div>
-                        <label for="name" class="textform">NOME Completo:</label>
+                        <label for="name" class="textform"><i class="fa fa-minus"></i> NOME Completo:</label>
                         <input type="text" id="name" name="nome" placeholder="Digite seu nome completo aqui" />
                     </div>
-                    <div>
-                        <label for="mail" class="textform">RG:</label>
-                        <input type="email" id="mail" name="email"
-                            placeholder="Digite seu RG aqui (digitar somente números sem pontos ou traços)" />
+                    <div class="row">
+                        <div class="col">
+                            <label for="mail" class="textform"><i class="fa fa-minus"></i> RG:</label>
+                            <input type="email" id="mail" name="email"
+                                placeholder="Digite seu RG aqui (digitar somente números sem pontos ou traços)" />
 
+                        </div>
+                        <div class="col">
+                            <label for="assunto" class="textform"><i class="fa fa-minus"></i> CPF:</label>
+                            <input type="text" id="assunto" name="assunto"
+                                placeholder="Digite seu CPF aqui (digitar somente números sem pontos ou traços)" />
+                        </div>
                     </div>
                     <div>
-                        <label for="assunto" class="textform">CPF:</label>
-                        <input type="text" id="assunto" name="assunto"
-                            placeholder="Digite seu CPF aqui (digitar somente números sem pontos ou traços)" />
-                    </div>
-                    <div>
-                        <label for="assunto" class="textform">Data de Nascimento:</label>
+                        <label for="assunto" class="textform"><i class="fa fa-minus"></i> Data de Nascimento:</label>
                         <input type="text" id="assunto" name="assunto"
                             placeholder="Digite sua data de nascimento aqui (digitar somente números sem traços)" />
                     </div>
                     <div>
-                        <label for="assunto" class="textform">E-mail:</label>
+                        <label for="assunto" class="textform"><i class="fa fa-minus"></i> E-mail:</label>
                         <input type="text" id="assunto" name="assunto" placeholder="Digite seu email aqui" />
                     </div>
                     <div>
-                        <label for="assunto" class="textform">Telefone:</label>
+                        <label for="assunto" class="textform"><i class="fa fa-minus"></i> Telefone:</label>
                         <input type="text" id="assunto" name="assunto"
                             placeholder="Digite seu telefone aqui (digitar somente números sem traços) " />
                     </div>
                     <div>
-                        <label for="assunto" class="textform">Celular:</label>
+                        <label for="assunto" class="textform"><i class="fa fa-minus"></i> Celular:</label>
                         <input type="text" id="assunto" name="assunto"
                             placeholder="Digite seu telefone aqui (digitar somente números sem traços) " />
                     </div>
                     <div>
-                        <label for="assunto" class="textform">Endereço:</label>
+                        <label for="assunto" class="textform"><i class="fa fa-minus"></i> Endereço:</label>
                         <input type="text" id="assunto" name="assunto" placeholder="Digite seu endereço aqui" />
                     </div>
                     <div>
-                        <label for="assunto" class="textform">Número da residência:</label>
+                        <label for="assunto" class="textform"><i class="fa fa-minus"></i> Número da residência:</label>
                         <input type="text" id="assunto" name="assunto"
                             placeholder="Digite o número da residência aqui" />
                     </div>
                     <div>
-                        <label for="assunto" class="textform">Complemento:</label>
+                        <label for="assunto" class="textform"><i class="fa fa-minus"></i> Complemento:</label>
                         <input type="text" id="assunto" name="assunto" placeholder="Digite o complemento aqui" />
                     </div>
                     <div>
-                        <label for="assunto" class="textform" class="fa fa-square">Bairro:</label>
+                        <label for="assunto" class="textform"><i class="fa fa-minus"></i> Bairro:</label>
                         <input type="text" id="assunto" name="assunto" placeholder="Digite seu bairro aqui" />
                     </div>
                     <div>
-                        <label for="assunto" class="textform" class="fa fa-square">Cidade:</label>
+                        <label for="assunto" class="textform"><i class="fa fa-minus"></i> Cidade:</label>
                         <input type="text" id="assunto" name="assunto" placeholder="Digite sua cidade aqui" />
                     </div>
                     <div class="textform">
-                        <label for="name">Estado:</label>
+                        <label for="name"><i class="fa fa-minus"></i> Estado:</label>
                         <select id="estado" type="option" name="estado"
                             style="background-color: #222222; color:white; border-color:#555555;">
                             <option>AC</option>
@@ -171,26 +173,28 @@
                         </select>
                     </div><br /><br />
                     <div>
-                        <label for="assunto" class="textform">País:</label>
+                        <label for="assunto" class="textform"><i class="fa fa-minus"></i> País:</label>
                         <input type="text" id="assunto" name="assunto" placeholder="Digite seu pais aqui" />
                     </div>
                     <div>
-                        <label for="assunto" class="textform">CEP:</label>
+                        <label for="assunto" class="textform"><i class="fa fa-minus"></i> CEP:</label>
                         <input type="text" id="assunto" name="assunto"
                             placeholder="Digite seu CEP aqui (digitar somente números sem traços)" />
                     </div>
                     <div>
-                        <label for="assunto" class="textform">Como você comprovará o investimento?</label>
+                        <label for="assunto" class="textform"><i class="fa fa-minus"></i> Como você comprovará o
+                            investimento?</label>
                         <br></br><select id="estado" type="option" name="poder"
-                        style="background-color: #222222; color:white; border-color:#555555; float: left;"><br></br>
-                        <br><option>E-mail</option><br>
-                        <option>Prints</option>
-                        <option>Depósitos bancários</option>
-                        <option>Caso sejá mais de um item descreva no campo abaixo</option>
-                    </select>
-                </div><br /></br />
+                            style="background-color: #222222; color:white; border-color:#555555; float: left;"><br></br>
+                            <br>
+                            <option>E-mail</option><br>
+                            <option>Prints</option>
+                            <option>Depósitos bancários</option>
+                            <option>Caso sejá mais de um item descreva no campo abaixo</option>
+                        </select>
+                    </div><br /></br />
                     <div>
-                        <label for="msg" class="textform">Mensagem:</label>
+                        <label for="msg" class="textform"><i class="fa fa-minus"></i> Mensagem:</label>
                         <textarea id="text" placeholder="Digite sua mensagem aqui"></textarea>
                     </div>
                     <div>

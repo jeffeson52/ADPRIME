@@ -1,33 +1,41 @@
+
+//formulario contato pagina home
+
 function validar() {
     var nome = formuser.nome.value;
     var email = formuser.email.value;
     var assunto = formuser.assunto.value;
-    var mensagem = formuser.mensagem.value;
+    var msg = formuser.msg.value;
 
-    if(nome==""){
-        alert('Preencha o campo nome.');
-        formuser.nome.focus();
+    if (nome == "") {
+        alert('Preencha o campo Nome.');
+        formuser.email.focus();
         return false;
-
     }
 
-    if(email == "" || email.indexOf('@') == -1 ){
+    if (email == "" || email.indexOf('@') == -1) {
         alert('Preencha o campo E-mail.');
         formuser.email.focus();
         return false;
     }
-        
-    if(assunto==""){
+
+    if (assunto == "") {
         alert('Preencha o campo Assunto.');
         formuser.assunto.focus();
         return false;
 
     }
 
-    if(mensagem==""){
+    if (msg == "") {
         alert('Preencha o campo Mensagem.');
-        formuser.mensagem,focus();
+        formuser.msg.focus();
         return false;
 
+    }
+
+    else {
+
+        alert('Mensagem enviada com sucesso');
+        location.reload();
     }
 }

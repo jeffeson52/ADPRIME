@@ -1,11 +1,6 @@
 @import url("font-awesome.min.css");
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
 
-/*
-	Solarize by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
-*/
 
 /* Basic */
 
@@ -115,7 +110,24 @@
 		padding-top: 3em;
 	}
 
-/* Form */
+/* Formulário */
+	form{
+		width: 45%;
+		margin-left: 27.5%;
+		margin-right: 27.5%;
+		padding-left: 1%;
+		padding-right: 1%;
+		border: 1px solid dodgerblue;
+		}
+
+	.textform
+				{
+					color:dodgerblue;
+					float: left;
+					margin-top: 1em; 
+					min-height:10%;
+					margin-bottom:3 em;
+				}
 
 	input[type="text"],
 	input[type="password"],
@@ -175,7 +187,7 @@
 		color: rgba(85, 85, 85, 0.5) !important;
 	}
 
-/* Image */
+/* Imagens */
 
 	.image {
 		border: 0;
@@ -745,35 +757,14 @@
 		text-align: center;
 		padding: 2em 0em 3em 0em;
 		color: white;
-        opacity: .50;
+		opacity: .50;
+		background-color: black;
 	}
 
 		#copyright a {
 			text-decoration: none;
 			color: inherit;
 		}
-
-/* Extra */
-
-	#extra1 h2 {
-		display: block;
-		margin-bottom: 1em;
-		letter-spacing: 1px;
-		line-height: 1.4em;
-		text-transform: uppercase;
-		font-size: 1.8em;
-		font-weight: 400;
-	}
-
-	#extra1 h3 {
-		display: block;
-		margin-bottom: 1em;
-		letter-spacing: 1px;
-		line-height: 1.4em;
-		text-transform: uppercase;
-		font-size: 1.6em;
-		font-weight: 400;
-	}
 
 /* team */
 
@@ -783,47 +774,11 @@
 		text-transform: uppercase;
 		font-weight: 700;
 	}
+	
+/*botão subir*/
 
-/*formulario */
-
-        form{
-            width: 45%;
-            margin-left: 27.5%;
-            margin-right: 27.5%;
-            padding-left: 1%;
-            padding-right: 1%;
-            border: 1px solid dodgerblue;
-            }
-        form textarea
-                    {
-                    min-height:10%;
-                    margin-bottom: 3em;
-                    width: 100%;
-                    }
-            .textform
-                    {
-                        color:dodgerblue;
-                        float: left;
-                        margin-top: 1em;
-                    }
-            #contactinfo
-                    {
-                        color:white;
-                    }
-            #buttonup{
-
-                margin-top: 5%;
-                margin-bottom: 0.5%;
-                margin-left: 46.5%;
-                margin-right: 46.5%;
-                padding-top: 1.5%;
-                padding-bottom: 1.5%;
-                padding-left: 1.5%;
-                padding-right: 1.5%;
-                width: 7%;
-				font-size: 2.5em;
-                    }
+	.buttonup {
+		margin-left: 47.5%;
+		width: 5%;
+			}
                 
-            .buttoncnpj{
-                        margin-top: 5%;
-                }
