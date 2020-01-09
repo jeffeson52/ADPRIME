@@ -1,4 +1,3 @@
-
 //formulario contato pagina home
 
 function validar() {
@@ -31,11 +30,26 @@ function validar() {
         formuser.msg.focus();
         return false;
 
-    }
-
-    else {
+    } else {
 
         alert('Mensagem enviada com sucesso');
         location.reload();
     }
 }
+
+jQuery(document).ready(function() {
+    // Exibe ou oculta o botão
+    jQuery(window).scroll(function() {
+        if (jQuery(this).scrollTop() > 3600) {
+            jQuery('.voltar-ao-topo').fadeIn(0);
+        } else {
+            jQuery('.voltar-ao-topo').fadeOut(0);
+        }
+    });
+
+    // Faz animação para subir
+    jQuery('.voltar-ao-topo').click(function(event) {
+        event.preventDefault();
+        jQuery('html, body').animate({ scrollTop: 0 }, 800);
+    })
+});
