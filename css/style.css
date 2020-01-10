@@ -805,7 +805,7 @@ input[type="email"] {
     border-color: black;
     color: white;
     cursor: pointer;
-    padding: 0.90em 1.2em;
+    padding: 0.90em 1em;
     letter-spacing: 1px;
     text-align: center;
     text-decoration: none;
