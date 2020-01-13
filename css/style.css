@@ -569,6 +569,7 @@ input[type="button"].small,
     text-align: center;
     text-transform: uppercase;
     color: white;
+    line-height: 1.2;
 }
 
 #banner .container {
@@ -653,8 +654,6 @@ input[type="button"].small,
     border-bottom: 1px solid;
     border-color: inherit;
 }
-
-#footer .major h2 {}
 
 #footer .major .byline {
     opacity: .4;
