@@ -1,0 +1,175 @@
+@import url("font-awesome.min.css");
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
+/*basic*/
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Botão */
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+.button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -o-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background: none;
+    border-radius: none;
+    border: 2px solid;
+    border-color: dodgerblue;
+    color: dodgerblue;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.90em 1.2em;
+    letter-spacing: 1px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.4em;
+    -moz-transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+    -ms-transition: all 0.35s ease-in-out;
+    transition: all 0.35s ease-in-out;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:hover {
+    background: dodgerblue;
+    color: white;
+}
+
+input[type="submit"].alt,
+input[type="reset"].alt,
+input[type="button"].alt,
+.button.alt {
+    border-color: inherit;
+    color: inherit;
+}
+
+input[type="submit"].alt:hover,
+input[type="reset"].alt:hover,
+input[type="button"].alt:hover,
+.button.alt:hover {
+    background: white;
+    color: dodgerblue;
+}
+
+input[type="submit"].fit,
+input[type="reset"].fit,
+input[type="button"].fit,
+.button.fit {
+    width: 100%;
+}
+
+input[type="submit"].small,
+input[type="reset"].small,
+input[type="button"].small,
+.button.small {
+    font-size: 0.8em;
+}
+
+  /*menu lateral*/
+  .sidebar {
+    margin: 0;
+    padding: 0;
+    width: 17%;
+    background-color: #222222;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    display: block;
+  }
+  
+  .sidebar a {
+    display: block;
+    color: #777777;
+    padding: 16px;
+    text-decoration: none;
+  }
+   
+  .sidebar a.active {
+    background-color: dodgerblue;
+    color: white;
+  }
+  
+  .sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+   /*barra top da página (ao lado do campo home)*/
+   .barup {
+    background-color: dodgerblue;
+    color:white;
+    height: 53.5px;
+    display: block;
+}
+/*campo aonde está escrito o nome da página*/
+.nomepage {
+background-color: #555555;
+color: White;
+font-size: 2em;
+text-transform: uppercase;
+font-weight: 700;
+display: block;
+padding: 3%;
+}
+
+.textpage {
+  padding: 2% 3% 2% 3%;
+}
+  /*página do conteudo*/
+  div.content {
+    margin-left: 17%;
+    height: 1000px;
+    width: 83%;
+    padding: 0;
+  }
+  
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0; width: 100%;}
+  }
+  
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align:left;
+      float: none;
+    }
+  }
+ 
+/*risco divisor rodapé*/
+  #divisaorodape {
+    background-color:black;
+    height: 1px;
+    margin-bottom: 2%;
+    width: 100%;
+}
+/*botão scroll*/
+.voltar-ao-topo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+}
+/* Copyright */
+
+.Copyright {
+    text-transform: uppercase;
+    text-align: center;
+    color: black;
+    margin-bottom: 3%;
+}
