@@ -4,7 +4,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-  <link rel="stylesheet" href="css/usuario.css">
+  <link rel="stylesheet" href="css/enviados.css">
   <script src="js/arquivo.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
@@ -14,61 +14,155 @@
   <!--menu lateral-->
   <div class="sidebar">
     <a class="active" href="usuario.html"><i class="fas fa-home"></i>&emsp;Home</a>
-    <a href="enviados.html"><i class="fas fa-upload"></i>&emsp;Arquivos Enviados</a>
-    <a href="recebidos.html"><i class="fas fa-download"></i>&emsp;Arquivos Recebidos</a>
-    <a href="#news"><i class="fas fa-file-upload"></i>&emsp;Enviar Arquivos</a>
-    <a href="#news"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
-    <a href="#about"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
+    <a class="menuleft" href="enviados.html"><i class="fas fa-upload"></i>&emsp;Arquivos Enviados</a>
+    <a class="menuleft" href="recebidos.html"><i class="fas fa-download"></i>&emsp;Arquivos Recebidos</a>
+    <a class="menuleft" id="enviar"><i class="fas fa-file-upload"></i>&emsp;Enviar Arquivos</a>
+    <a class="menuleft" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
+    <a class="deslogar" href="index.html"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
   </div>
   <!--barra azul do inicio-->
   <div class="content">
     <div class="barup">&nbsp;</div>
     <!-- nome da página barra cinza-->
-    <div class="nomepage">Arquivos Recebidos</div>
+    <div class="nomepage">
+      <h4>Arquivos Recebidos</h4><br>
+      <h5>Lista de todos os arquivos que você recebeu.</h5>
+    </div>
+    <div id="divisaorodape">&nbsp;</div>
+
 
     <!-- conteúdo da página-->
-    <div class="textpage">
-      <h2>AD PRIME</h2>
-      <p style="text-align: justify;">1. Investidores anjos que investiram na sociedade empresarial <b>WS
-          CORPORATE SOLUÇÕES EM TECNOLOGIA LTDA – ME (“WS CORPORATE”)</b>;</p>
-      <p style="text-align: justify;">2. Aqueles que demonstrarem legítimo interesse na apuração, elucidação,
-        conhecimento e divulgação dos fatos ocorridos em torno da execução do plano de investimento e das atividades
-        exercidas pela aludida sociedade empresarial;</p>
-      <p style="text-align: justify;">3. Pessoas que de alguma forma sofreram ou ainda sofrem prejuízos, de ordem
-        material ou não material, uma vez que, ao que tudo indica, assim como os diretores e fundadores da associação e
-        tantos outros, também acreditaram ou foram
-        levados a acreditar na viabilidade da proposta de investimento de seus recursos na <b>WS CORPORATE</b>, na
-        seriedade do negócio e na sinceridade de propósitos de seus representantes.</p>
-      <p style="text-align: justify;">4. Orientar e defender os investidores em empreendimentos de
-        <b>BLOCK CHAIN</b>, em especial investidores em mineradoras de criptomoedas, em empresas que operam em
-        plataformas de trading de criptomoedas e/ou corretoras de criptomoedas</p>
-      <p style="text-align: justify;">Representar investidores em projetos que envolvam criptomoedas, a fim de evitar
-        que sejam lesados por empreendedores de má fé.</p>
+      <section class="container grid grid-template-columns-3">
+        <div class="item subgrid">
+          <div>ID</div>
+          <div>NOME</div>
+          <div>AÇÃO</div>
+        </div>
+      </section>
+      <section class="container grid grid-template-columns-3">
+        <div class="item subgrid">
+          <div>ID</div>
+          <div>NOME</div>
+          <div><a class="popupbt"><i class="far fa-eye"></i></a> <a class="popupbt"><i class="fas fa-download"></i></a> <a class="popupbt"><i class="fas fa-trash-alt"></i></a> </div>
+        </div>
+      </section>
+      <section class="container grid grid-template-columns-3">
+        <div class="item subgrid">
+          <div>ID</div>
+          <div>NOME</div>
+          <div><a class="popupbt"><i class="far fa-eye"></i></a> <a class="popupbt"><i class="fas fa-download"></i></a> <a class="popupbt"><i class="fas fa-trash-alt"></i></a> </div>
+        </div>
+      </section>
+      <section class="container grid grid-template-columns-3">
+        <div class="item subgrid">
+          <div>ID</div>
+          <div>NOME</div>
+          <div><a class="popupbt"><i class="far fa-eye"></i></a> <a class="popupbt"><i class="fas fa-download"></i></a> <a class="popupbt"><i class="fas fa-trash-alt"></i></a> </div>
+        </div>
+      </section>
+      <section class="container grid grid-template-columns-3">
+        <div class="item subgrid">
+          <div>ID</div>
+          <div>NOME</div>
+          <div><a class="popupbt"><i class="far fa-eye"></i></a> <a class="popupbt"><i class="fas fa-download"></i></a> <a class="popupbt"><i class="fas fa-trash-alt"></i></a> </div>
+        </div>
+      </section>
+      <section class="container grid grid-template-columns-3">
+        <div class="item subgrid">
+          <div>ID</div>
+          <div>NOME</div>
+          <div><a class="popupbt"><i class="far fa-eye"></i></a> <a class="popupbt"><i class="fas fa-download"></i></a> <a class="popupbt"><i class="fas fa-trash-alt"></i></a> </div>
+        </div>
+      </section>
+      <section class="container grid grid-template-columns-3">
+        <div class="item subgrid">
+          <div>ID</div>
+          <div>NOME</div>
+          <div><a class="popupbt"><i class="far fa-eye"></i></a> <a class="popupbt"><i class="fas fa-download"></i></a> <a class="popupbt"><i class="fas fa-trash-alt"></i></a> </div>
+        </div>
+      </section>
+      <section class="container grid grid-template-columns-3">
+        <div class="item subgrid">
+          <div>ID</div>
+          <div>NOME</div>
+          <div><a class="popupbt"><i class="far fa-eye"></i></a> <a class="popupbt"><i class="fas fa-download"></i></a> <a class="popupbt"><i class="fas fa-trash-alt"></i></a> </div>
+        </div>
+      </section>
+      <section class="container grid grid-template-columns-3">
+        <div class="item subgrid">
+          <div>ID</div>
+          <div>NOME</div>
+          <div><a class="popupbt"><i class="far fa-eye"></i></a> <a class="popupbt"><i class="fas fa-download"></i></a> <a class="popupbt"><i class="fas fa-trash-alt"></i></a> </div>
+        </div>
+      </section>
+      <section class="container grid grid-template-columns-3">
+        <div class="item subgrid">
+          <div>ID</div>
+          <div>NOME</div>
+          <div><a class="popupbt"><i class="far fa-eye"></i></a> <a class="popupbt"><i class="fas fa-download"></i></a> <a class="popupbt"><i class="fas fa-trash-alt"></i></a> </div>
+        </div>
+      </section>
+      <section class="container grid grid-template-columns-3">
+        <div class="item subgrid">
+          <div>ID</div>
+          <div>NOME</div>
+          <div><a class="popupbt"><i class="far fa-eye"></i></a> <a class="popupbt"><i class="fas fa-download"></i></a> <a class="popupbt"><i class="fas fa-trash-alt"></i></a> </div>
+        </div>
+      </section>
+      <section class="container grid grid-template-columns-3">
+        <div class="item subgrid">
+          <div>ID</div>
+          <div>NOME</div>
+          <div><a class="popupbt"><i class="far fa-eye"></i></a> <a class="popupbt"><i class="fas fa-download"></i></a> <a class="popupbt"><i class="fas fa-trash-alt"></i></a> </div>
+        </div>
+      </section>
+      <section class="container grid grid-template-columns-3">
+        <div class="item subgrid">
+          <div>ID</div>
+          <div>NOME</div>
+          <div><a class="popupbt"><i class="far fa-eye"></i></a> <a class="popupbt"><i class="fas fa-download"></i></a> <a class="popupbt"><i class="fas fa-trash-alt"></i></a> </div>
+        </div>
+      </section>
+      <div class="final">&nbsp;</div>
 
-      <p style="text-align: justify;">Destacando os riscos aos quais estão expostos todos os interessados, sobretudo
-        diante da real possibilidade de consequências negativas nos círculos de relacionamentos profissionais ou
-        pessoais e, principalmente, nos danos irreparáveis
-        que podem causar à estrutura emocional dos lares e à unidade das famílias, a <b>AD PRIME</b> surge para que
-        todos os associados não percam a esperança e mantenham a serenidade e clareza de pensamento.
-      </p>
+    <!-- POP UP-->
+    <!--pop up conteúdo enviar arquivos-->
+    <div id="modal-promocao" class="modal-container">
+      <div class="modal">
+        <button class="fechar">X</button>
+        <h3 class="subtitulo">Enviar Arquivo</h3>
+        <div id="divisaorodape" style="opacity: .3;">&nbsp;</div>
 
-      <p style="text-align: justify;">Avaliando os fatos, ficamos convencidos de que era necessário abandonar premissas
-        equivocadas e seguir com a vida que segue. Assim temos feito, porém ainda permanece conosco o desejo de lançar
-        luz sobre a escuridão e enxergar a verdade
-        com nossos próprios olhos. Percebemos que poderiam haver pessoas que compartilhassem o mesmo objetivo, inclusive
-        o de buscar as devidas reparações, e compreendemos que em qualquer jornada o mais importante é ter com quem
-        dividir
-        os desafios da caminhada</p>
+        <form>
+          <label type="text">Nome do Arquivo</label><br><br>
+          <input type="text" class="input" style="width: 80%; padding: 1.5% 1%;"
+            placeholder="Informe o nome do arquivo."><br><br>
+          <p><b>Arquivo:</b>
+            Somente (jpg, png, pdf, docx, doc, jpeg)</p>
+          <a class="popupbt"><i class="fas fa-file-upload"></i>&emsp;Escolher Arquivo</a><br><br>
 
-      <p style="text-align: justify;">Assim, tivemos a iniciativa no sentido de aglutinar pessoas em torno de uma
-        associação para fins de defesa de interesses comuns.</p>
-
-      <p style="text-align: justify;">Ressaltamos a importância do movimento associativo, que na opinião dos dirigentes
-        e fundadores, seria a forma mais viável para se chegar a um objetivo, sobretudo porque pessoas associadas
-        prestam apoio e solidariedade recíprocos, tanto
-        no aspecto emocional, pela motivação, quanto no aspecto financeiro, pela cotização de recursos financeiros.</p>
-      <p>Ad prime é uma associação</p>
+          <input class="popupbt" value="Enviar" style="background-color: red; padding: 2% 0 2% 0; border-radius: 5px;">
+        </form>
+      </div>
     </div>
+    <!--JAVA DO POP UP ENVIAR ARQUIVO-->
+    <script>
+      function iniciaModal(modalID) {
+        const modal = document.getElementById(modalID);
+        if (modal) {
+          modal.classList.add('mostrar');
+          modal.addEventListener('click', (e) => {
+            if (e.target.id == modalID || e.target.className == 'fechar') {
+              modal.classList.remove('mostrar');
+            }
+          });
+        }
+      }
+      const logo = document.querySelector('#enviar');
+      logo.addEventListener('click', () => iniciaModal('modal-promocao'));
+    </script>
+
+
     <!-- rodapé-->
     <div id="divisaorodape">&nbsp;</div>
 
@@ -77,7 +171,7 @@
               aria-hidden="true"></i></button></a></p>
     </div>
     <div class="Copyright">
-    <p style="font-size: 0.7em; margin-bottom: -2%;"> &#174 2020 Copyright Todos os direitos reservados AD Prime</p>
+      <p style="font-size: 0.7em; margin-bottom: -2%;"> &#174 2020 Copyright Todos os direitos reservados AD Prime</p>
     </div>
   </div>
 </body>
