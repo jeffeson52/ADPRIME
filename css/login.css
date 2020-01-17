@@ -1,0 +1,214 @@
+@import url("font-awesome.min.css");
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: dodgerblue;
+   }
+   .voltar {
+       float: left;
+       line-height: 0.1em;
+       font-size: 0.7em;
+       margin-top: -15%;
+       margin-left: 3%;
+   }
+
+   .voltar h1 {
+       margin-bottom: -14px;
+       margin-left: 5px;
+   }
+   .login {
+    width: 32%;
+    max-height: 75%;
+    border: 2px solid #000;
+    border-radius: 80px 0px 80px 0px;
+    color: #fff;
+    background-color: rgba(0,0,5,0.8);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 68px 28px; 
+   }
+   
+   .usuario {
+    border-radius: 100%;
+    position: absolute;
+    top: -10%;
+    left: 37%;
+   }
+   
+   h1 {
+    margin: 0;
+    padding-top: 0;
+    padding-left: 0;
+    padding-bottom: 20px;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 25px;
+   }
+   
+   .login p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+   }
+   
+   .login input {
+    width: 80%;
+    margin-bottom: 21px; 
+   }
+   
+   .login input[type="text"] {
+    border: none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: white;
+    font-size: 16px;
+   }
+
+.login input[type="password"]{
+    border: none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: white;
+    font-size: 16px;
+    width:80%;
+   }
+   
+   .login input[type="submit"] {
+    width: 40%;
+    border: none;
+    outline: none;
+    height: 20%;
+    color: #000;
+    background: #fff;
+    border-radius: 20px;
+    transition: 0.2s;
+   }
+   
+   .login input[type="submit"]:hover {
+    cursor: pointer;
+    background: dodgerblue;
+    transition: 0.2s;
+   }
+   
+   .login a {
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: white;
+    transition: 0.2s;
+   }
+   
+   .login a:hover {
+    transition: 0.2s;
+    color: dodgerblue;
+   }
+
+
+  /* Botão pop*/
+
+  input[type="submit"],
+  input[type="reset"],
+  input[type="button"],
+  .popupbt {
+      margin-top: 2%;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      -o-appearance: none;
+      -ms-appearance: none;
+      appearance: none;
+      background: none;
+      border-radius: 5px;
+      background-color:dodgerblue;
+
+      cursor: pointer;
+      display: inline-block;
+      padding: 1em 1em;
+      letter-spacing: 1px;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 0.7em;
+      height: 5%;
+      width: 5%;
+      -moz-transition: all 0.35s ease-in-out;
+      -webkit-transition: all 0.35s ease-in-out;
+      -o-transition: all 0.35s ease-in-out;
+      -ms-transition: all 0.35s ease-in-out;
+      transition: all 0.35s ease-in-out;
+  }
+  
+  input[type="submit"]:hover,
+  input[type="reset"]:hover,
+  input[type="button"]:hover,
+  .popupbt:hover {
+      background: dodgerblue;
+      color: white;
+  }
+  
+  input[type="submit"].alt,
+  input[type="reset"].alt,
+  input[type="button"].alt,
+  .popupbt.alt {
+      border-color: inherit;
+      color: dodgerblue;
+  }
+  
+  input[type="submit"].alt:hover,
+  input[type="reset"].alt:hover,
+  input[type="button"].alt:hover,
+  .popupbt.alt:hover {
+      background: white;
+      color: dodgerblue;
+  }
+  
+  input[type="submit"].fit,
+  input[type="reset"].fit,
+  input[type="button"].fit,
+  .popupbt.fit {
+      width: 100%;
+  }
+  
+  input[type="submit"].small,
+  input[type="reset"].small,
+  input[type="button"].small,
+  .popupbt.small {
+      font-size: 0.5em;
+  }
+
+#mostrarsenha {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -o-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background: none;
+    color:white;
+    border: none;
+    position: absolute;
+    font-size: 10em;
+    margin-left: -12%;
+    cursor: pointer;
+    display: inline-block;
+    padding: 1em 1em;
+    letter-spacing: 1px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.7em;
+    -moz-transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+    -ms-transition: all 0.35s ease-in-out;
+    transition: all 0.35s ease-in-out;   
+}

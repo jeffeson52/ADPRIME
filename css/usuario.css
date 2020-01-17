@@ -126,19 +126,33 @@ input[type="button"].small,
 }
 /*campo aonde está escrito o nome da página*/
 .nomepage {
-background-color: #555555;
-color: White;
-font-size: 0.8em;
+  line-height: 0.2;
+}
+.nomepage  h4{
+background-color: MintCream;
+color: #555555;
+font-size: 1em;
 text-transform: uppercase;
 display: block;
+padding-top: 3%;
+padding-left: 2%;
+padding-bottom: 0;
 margin-top: 0;
 height: 10%;
+padding-bottom: 1%4;
 }
-.nomepage h5 {
-    font-size: 2em;
-text-transform: uppercase;
-font-weight: 700;
-}
+.nomepage h5{
+  padding-top: 0;
+  background-color: MintCream;
+  color: black;
+  opacity:0.4;
+  font-size: .8em;
+  display: block;
+  padding-left: 2%;
+  margin-top: 0;
+  height: 10%;
+  }
+
 
 .textpage {
   padding: 2% 3% 2% 3%;

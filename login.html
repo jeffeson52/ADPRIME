@@ -1,156 +1,59 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
 
 <head>
-    <title>AD Prime</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" lang="pt-br" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="css/awsmining.css" />
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.dropotron.min.js"></script>
-    <script src="js/skel.min.js"></script>
-    <script src="js/skel-layers.min.js"></script>
-    <script src="js/init.js"></script>
+    <link rel="Stylesheet" type="text/css" href="css/login.css">
+    <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="Stylesheet">
+    
     <script src="js/arquivo.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-    <noscript>
-        <link rel="stylesheet" href="css/skel.css" />
-        <link rel="stylesheet" href="css/awsmining.css" />
-    </noscript>
-    <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+    <meta charset="utf-8">
+    <title>Tela de Login</title>
 </head>
 
-<body class="homepage">
+<body>
+    <div class="login">
 
-    <!-- Header Wrapper -->
-    <div class="wrapper style1">
+        <img src="images/login.png" class="usuario" width="100" height="100" alt="">
+        <div class="voltar">
+            <a href="index.html">
+                <h1><i class="fas fa-sign-out-alt"></i></h1>
+            </a>
+            <p>voltar</p>
+        </div>
+        <h1>Login</h1>
 
-        <!-- Header -->
-        <div id="header">
-            <div class="container">
+        <form>
+            <br>
+            <p>Usuário</p>
+            <a class="popupbt"><i class="far fa-user"></i></a>&nbsp;&nbsp;<input type="text" id="name" name="usuario"
+                placeholder="Insira seu nome de Usuário " />
+            <p>Senha</p>
+            <a class="popupbt"><i class="fas fa-lock"></i></a>&nbsp;&nbsp;<input type="password" id="senha" name="senha"
+                placeholder="Insira sua senha" />
+            
+            <button id="mostrarsenha" type="button" onclick="mostrarSenha()"
+                style="position: absolute;font-size:1.3em;"><i class="far fa-eye"></i></button>
 
-                <!-- Logo -->
-                <h1><a href="#" id="logo">AD Prime</a></h1>
 
-                <!-- menu -->
-                <nav id="nav">
-                    <ul>
-                        <li class="active"><a href="./index.html"><i class="fas fa-home"></i>Home</a></li>
-                        <li><a href="#"><i class="far fa-handshake"></i>Associado</a>
-                            <ul>
-                                <li><a href="./login.html"><i class="fas fa-sign-in-alt"></i>Entrar</a></li>
-                                <li><a href="https://usuario.gerencianet.com.br/segunda-via"><i
-                                            class="fas fa-angle-double-right"></i>2ª&nbsp;via boletos</a>
-                                </li>
-                                <li><a href="#"><i class="fas fa-question"></i>Faq</a></li>
-                            </ul>
-                        </li>
-                        <li><a href=""><i class="fas fa-handshake"></i>Associe-se</a>
-                            <ul>
-                                <li><a href="wscriptacoin.html"><i class="fas fa-handshake"></i>WS Kriptacoin</a></li>
-                                <li><a href="awsmining.html"><i class="fas fa-handshake"></i>AWS Mining</a></li>
-                                <li><a href="outrasEmpresas.html"><i class="fas fa-handshake"></i>Outras Empresas</a>
-                                </li>
-                            </ul>
-                    </ul>
-                </nav>
+            <input type="submit" id="enviar" value="Login"><br>
+            <div style="opacity: 0.4">
+                <a href="#">Esqueceu sua senha?</a><br>
+                <a href="#">Ainda não possui uma conta?</a>
             </div>
-        </div>
-
-        <!-- Banner -->
-        <div id="banner">
-            <section class="container">
-                <h2>AD Prime</h2>
-                <span>
-                    <h3>&nbsp;</h3>
-                </span>
-                <span>
-                    <h3>ASSOCIAÇÃO DE DEFESA E PROTEÇÃO AOS INTERESSES DOS INVESTIDORES EM MICRO EMPREENDIMENTOS EM
-                        BLOCK CHAIN</h3>
-                </span>
-            </section>
-        </div>
+        </form>
     </div>
-
-
-
-    <!-- Entre em Contato-->
-
-    <div id="footer">
-        <section class="container">
-            <header class="major">
-                <h2>LOGIN</h2>
-            </header>
-            <!--formulário-->
-            <form style="border-radius: 10px 10px 10px;
-            -webkit-border-radius: 10px;
-            -moz-border-radius: 10px; width: 50%; margin-left: 25%; padding: 2% 8%" action="conexaoLogin.php" method="POST">
-                  <header class="major">
-                      <Br>
-                          <div>
-                              <label for="assunto" class="textform">&nbsp;</label>
-                              <input type="text" id="name" name="usuario" placeholder="Usuário" />
-                          </div>
-                          <div>
-                              <label for="assunto" class="textform" style="width: 100%;">&nbsp;</label>
-                              <input type="text" id="assunto" name="senha" placeholder="Senha" />
-                          </div>
-                      <div><br><br>
-                          <input  type="submit" class="button" id="enviar" placeholder="Enviar">
-                      </div>
-                  </header>
-              </form><br>
-    </div><br>
-    </div><br>
-
-
-    <!-- rodapé -->
-
-    <div id="copyright">
-        <div class="diplay">
-            <div class="row double">
-                <div class="4u">
-                    <div class="logoinf">
-                        <H2>AD PRIME</H2>
-                    </div>
-                    <div class="textoinf">
-                        <p>ASSOCIAÇÃO DE DEFESA E PROTEÇÃO AOS INTERESSES DOS INVESTIDORES EM MICRO EMPREENDIMENTOS EM
-                            BLOCK CHAIN</p>
-                    </div>
-                </div>
-                <div class="4u">
-                    <div class="menuinferior">
-                        <li>Links Importantes</li>
-                        <li><a href="./index.html"><button class="buttoninf">HOME</button></a></li>
-                        <li><a href="./login.html"><button class="buttoninf">ENTRAR</button></a></li>
-                        <li><a href="#"><button class="buttoninf">FAQ</button></a></li>
-                    </div>
-                </div>
-                <div class="4u">
-                    <div class="menuinferiortwo">
-                        <li>Associe-se</li>
-                        <li><a href="./wscriptacoin.html"><button class="buttoninf">KRIPTACOIN</button></a></li>
-                        <li><a href="./awsmining.html"><button class="buttoninf">awsmining</button></a></li>
-                        <li><a href="./outrasEmpresas.html"><button class="buttoninf">Outras Empresas</button></a></li>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <p style="font-size: 0.9em;">A Associação está expressamente proibida de representar pessoas que tenham
-                    relação com os investigados.</p>
-            </div>
-        </div>
-        <div id="divisaorodape">&nbsp;</div>
-
-        <div class="voltar-ao-topo">
-            <p><a href="#"><button class="button" id="voltar-ao-topo"><i class="fa fa-angle-up"
-                            aria-hidden="true"></i></button></a></p>
-        </div>
-        <p style="font-size: 0.7em; margin-bottom: -2%;"> &#174 2020 Copyright Todos os direitos reservados AD Prime</p>
-    </div>
+    <script>
+        function mostrarSenha() {
+            var tipo = document.getElementById("senha");
+            if (tipo.type == "password") {
+                tipo.type = "text";
+            } else {
+                tipo.type = "password";
+            }
+        }
+    </script>
 </body>
 
 </html>
