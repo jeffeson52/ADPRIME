@@ -1,14 +1,17 @@
 @import url("font-awesome.min.css");
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
+
 /*basic*/
+
 body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
     width: 100%;
     height: 100%;
-  }
+}
 
-  /* Botão */
+
+/* Botão */
 
 input[type="submit"],
 input[type="reset"],
@@ -77,8 +80,10 @@ input[type="button"].small,
     font-size: 0.8em;
 }
 
-  /*menu lateral*/
-  .sidebar {
+
+/*menu lateral*/
+
+.sidebar {
     margin: 0;
     padding: 0;
     width: 17%;
@@ -87,115 +92,137 @@ input[type="button"].small,
     height: 100%;
     overflow: auto;
     display: block;
-  }
-  
-  .sidebar a {
+}
+
+.sidebar a {
     display: block;
     color: #777777;
     padding: 16px;
     text-decoration: none;
-  }
-   
-  .sidebar a.active {
+}
+
+.sidebar a.active {
     background-color: dodgerblue;
-
     color: white;
-  }
+}
 
-  .sidebar a.active:hover  { 
-    background-image: linear-gradient(to right, slateblue,royalblue, dodgerblue);
-  }
+.sidebar a.active:hover {
+    background-image: linear-gradient(to right, slateblue, royalblue, dodgerblue);
+}
 
-  .sidebar a.deslogar:hover {
-     background-image: linear-gradient(to right,red,orangered);
-  }
+.sidebar a.deslogar:hover {
+    background-image: linear-gradient(to right, red, orangered);
+}
 
-  .sidebar a.menuleft:hover {
-    background-image: linear-gradient(to right,dodgerblue,#222222);
-  }
-  .sidebar a:hover:not(.active) {
+.sidebar a.menuleft:hover {
+    background-image: linear-gradient(to right, dodgerblue, #222222);
+}
+
+.sidebar a:hover:not(.active) {
     background-color: #555;
     color: white;
-  }
-   /*barra top da página (ao lado do campo home)*/
-   .barup {
+}
+
+
+/*barra top da página (ao lado do campo home)*/
+
+.barup {
     background-color: dodgerblue;
-    color:white;
+    color: white;
     height: 53.5px;
     display: block;
 }
-/*campo aonde está escrito o nome da página*/
-.nomepage {
-  line-height: 0.2;
-}
-.nomepage  h4{
-background-color: MintCream;
-color: #555555;
-font-size: 1em;
-text-transform: uppercase;
-display: block;
-padding-top: 3%;
-padding-left: 2%;
-padding-bottom: 0;
-margin-top: 0;
-height: 10%;
-padding-bottom: 1%4;
-}
-.nomepage h5{
-  padding-top: 0;
-  background-color: MintCream;
-  color: black;
-  opacity:0.4;
-  font-size: .8em;
-  display: block;
-  padding-left: 2%;
-  margin-top: 0;
-  height: 10%;
-  }
 
+
+/*campo aonde está escrito o nome da página*/
+
+.nomepage {
+    line-height: 0.2;
+}
+
+.nomepage h4 {
+    background-color: MintCream;
+    color: #555555;
+    font-size: 1em;
+    text-transform: uppercase;
+    display: block;
+    padding-top: 3%;
+    padding-left: 2%;
+    padding-bottom: 0;
+    margin-top: 0;
+    height: 10%;
+    padding-bottom: 1%4;
+}
+
+.nomepage h5 {
+    padding-top: 0;
+    background-color: MintCream;
+    color: black;
+    opacity: 0.4;
+    font-size: .8em;
+    display: block;
+    padding-left: 2%;
+    margin-top: 0;
+    height: 10%;
+}
 
 .textpage {
-  padding: 2% 3% 2% 3%;
+    padding: 2% 3% 2% 3%;
 }
-  /*página do conteudo*/
-  div.content {
+
+
+/*página do conteudo*/
+
+div.content {
     margin-left: 17%;
     height: 1000px;
     width: 83%;
     padding: 0;
-  }
-  
-  @media screen and (max-width: 700px) {
+}
+
+@media screen and (max-width: 700px) {
     .sidebar {
-      width: 100%;
-      height: auto;
-      position: relative;
+        width: 100%;
+        height: auto;
+        position: relative;
     }
-    .sidebar a {float: left;}
-    div.content {margin-left: 0; width: 100%;}
-  }
-  
-  @media screen and (max-width: 400px) {
     .sidebar a {
-      text-align:left;
-      float: none;
+        float: left;
     }
-  }
- 
+    div.content {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .sidebar a {
+        text-align: left;
+        float: none;
+    }
+}
+
+
 /*risco divisor rodapé*/
-  #divisaorodape {
-    background-color:black;
+
+#divisaorodape {
+    background-color: black;
     height: 1px;
     margin-bottom: 2%;
     width: 100%;
 }
+
+
 /*botão scroll*/
+
 .voltar-ao-topo {
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 0.8em;
 }
+
+
 /* Copyright */
 
 .Copyright {
@@ -204,130 +231,212 @@ padding-bottom: 1%4;
     color: black;
     margin-bottom: 3%;
 }
+
+
 /*pop up*/
+
 .modal-container {
-			width: 100vw;
-			height: 100vh;
-			background: rgba(0,0,0,.5);
-			position: fixed;
-			top: 0px;
-			left: 0px;
-			z-index: 2000;
-			display: none;
-			justify-content: center;
-			align-items: center;
-		}
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 2000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
 
-		.modal-container.mostrar {
-			display: flex;
-		}
+.modal-container.mostrar {
+    display: flex;
+}
 
-		.modal {
-			background: white;
-			width: 40%;
-			min-width: 300px;
-			padding: 3%;
-			box-shadow: 0 0 0 10px white;
-			position: relative;
-		}
+.modal {
+    background: white;
+    width: 40%;
+    min-width: 300px;
+    padding: 3%;
+    box-shadow: 0 0 0 10px white;
+    position: relative;
+}
 
-		@keyframes modal {
-			from {
-				opacity: 0;
-				transform: translate3d(0, -60px, 0);
-			}
-			to {
-				opacity: 1;
-				transform: translate3d(0, 0, 0);
-			}
-		}
-
-		.mostrar .modal {
-			animation: modal .3s;
-		}
-
-		.fechar {
-			position: absolute;
-			font-size: 1.8em;
-			top: 0px;
-			right: 0px;
-			width: 50px;
-      height: 50px;
-      border: none;
-			background: white;
-			color: red;
-      cursor: pointer;
-      font-weight: 900;
-      -webkit-user-select: none;
-      -moz-user-select: -moz-none;
-      -ms-user-select: none;
-       user-select: none;
+@keyframes modal {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -60px, 0);
     }
-    
-  /* Botão pop*/
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
 
-  input[type="submit"],
-  input[type="reset"],
-  input[type="button"],
-  .popupbt {
-      -moz-appearance: none;
-      -webkit-appearance: none;
-      -o-appearance: none;
-      -ms-appearance: none;
-      appearance: none;
-      background: none;
-      border-radius: 5px;
-      background-color:dodgerblue;
-      color: white;
-      cursor: pointer;
-      display: inline-block;
-      padding: 1em 1em;
-      letter-spacing: 1px;
-      text-align: center;
-      text-decoration: none;
-      text-transform: uppercase;
-      font-size: 0.7em;
-      -moz-transition: all 0.35s ease-in-out;
-      -webkit-transition: all 0.35s ease-in-out;
-      -o-transition: all 0.35s ease-in-out;
-      -ms-transition: all 0.35s ease-in-out;
-      transition: all 0.35s ease-in-out;
-  }
-  
-  input[type="submit"]:hover,
-  input[type="reset"]:hover,
-  input[type="button"]:hover,
-  .button:hover {
-      background: dodgerblue;
-      color: white;
-  }
-  
-  input[type="submit"].alt,
-  input[type="reset"].alt,
-  input[type="button"].alt,
-  .button.alt {
-      border-color: inherit;
-      color: inherit;
-  }
-  
-  input[type="submit"].alt:hover,
-  input[type="reset"].alt:hover,
-  input[type="button"].alt:hover,
-  .button.alt:hover {
-      background: white;
-      color: dodgerblue;
-  }
-  
-  input[type="submit"].fit,
-  input[type="reset"].fit,
-  input[type="button"].fit,
-  .button.fit {
-      width: 100%;
-  }
-  
-  input[type="submit"].small,
-  input[type="reset"].small,
-  input[type="button"].small,
-  .button.small {
-      font-size: 0.5em;
-  }
+.mostrar .modal {
+    animation: modal .3s;
+}
+
+.fechar {
+    position: absolute;
+    font-size: 1.8em;
+    top: 0px;
+    right: 0px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: white;
+    color: red;
+    cursor: pointer;
+    font-weight: 900;
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/* Botão pop*/
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+.popupbt {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -o-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background: none;
+    border-radius: 5px;
+    background-color: dodgerblue;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    padding: 1em 1em;
+    letter-spacing: 1px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.7em;
+    -moz-transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+    -ms-transition: all 0.35s ease-in-out;
+    transition: all 0.35s ease-in-out;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:hover {
+    background: dodgerblue;
+    color: white;
+}
+
+input[type="submit"].alt,
+input[type="reset"].alt,
+input[type="button"].alt,
+.button.alt {
+    border-color: inherit;
+    color: inherit;
+}
+
+input[type="submit"].alt:hover,
+input[type="reset"].alt:hover,
+input[type="button"].alt:hover,
+.button.alt:hover {
+    background: white;
+    color: dodgerblue;
+}
+
+input[type="submit"].fit,
+input[type="reset"].fit,
+input[type="button"].fit,
+.button.fit {
+    width: 100%;
+}
+
+input[type="submit"].small,
+input[type="reset"].small,
+input[type="button"].small,
+.button.small {
+    font-size: 0.5em;
+}
+
+.imagens {
+    width: 500px;
+    height: 300px;
+    margin-left: 3%;
+    margin-bottom: 1%;
+    display: block;
+    float: left;
+    display: block;
+}
+
+.textimagens {
+    display: block;
+    text-decoration: none;
+    width: 500px;
+    height: 300px;
+    margin-left: 50%;
+    margin-bottom: 1%;
+    color: #555555;
+    display: block;
+}
+
+@media screen and (max-width: 700px) {
+    .imagens {
+        display: inline-block;
+        margin-left: 5%;
+        margin-right: 5%;
+        width: 100%;
+    }
+    .textimagens {
+        display: inline-block;
+        margin-left: 5%;
+        margin-right: 5%;
+        width: 90%;
+        text-decoration: none;
+    }
+    .avaliacao {
+        margin-top: 4%;
+        width: 92%;
+        margin-right: 5%;
+    }
+}
+
+.textimagens h3 {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.textimagens span {
+    color: #555555;
+    opacity: 0.8;
+    font-size: 0.8em;
+    text-decoration: none;
+}
+
+.textimagens p {
+    text-decoration: none;
+    text-align: justify;
+    font-size: 1em;
+}
+
+.avaliacao {
+    background-color: rgb(245, 239, 239);
+    margin-bottom: 5%;
+    margin-left: 3%;
+    padding: 1%;
+    color: #555555;
+}
+
+.mostrarsenha2 {
+    position: absolute;
+    margin-right: 1%;
+    color: red;
+}
+
+.mostrarsenha1 {}
