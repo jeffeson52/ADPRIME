@@ -5,7 +5,6 @@
     <link rel="Stylesheet" type="text/css" href="css/login.css">
     <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="Stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/arquivo.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <meta charset="utf-8">
@@ -14,8 +13,11 @@
 
 <body>
     <div class="login">
+        <!--imagem person login-->
 
-        <img src="images/login.png" class="usuario" width="100" height="100" alt="">
+        <img src="images/login.png" class="usuario" width="22%" height="22%" alt="">
+
+        <!--botão voltar para home-->
         <div class="voltar">
             <a href="index.html">
                 <h1><i class="fas fa-sign-out-alt"></i></h1>
@@ -23,34 +25,110 @@
             <p>voltar</p>
         </div>
         <h1>Login</h1>
-
+        <!-- formulário login-->
         <form>
             <br>
             <p>Usuário</p>
-            <a class="popupbt"><i class="far fa-user"></i></a>&nbsp;&nbsp;<input type="text" id="name" name="usuario"
-                placeholder="Insira seu nome de Usuário " />
+            <a class="buticon"><i class="far fa-user"></i></a>&nbsp;&nbsp;<input type="text" id="usuario" name="usuario" placeholder="Insira seu nome de Usuário " />
             <p>Senha</p>
-            <a class="popupbt"><i class="fas fa-lock"></i></a>&nbsp;&nbsp;<input type="password" id="senha" name="senha"
-                placeholder="Insira sua senha" />
-            
-            <button id="mostrarsenha" type="button" onclick="mostrarSenha()"
-                style="position: absolute;font-size:1.3em;"><i class="far fa-eye"></i></button>
+            <a class="buticon"><i class="fas fa-lock"></i></a>&nbsp;&nbsp;<input type="password" id="senhalog" name="senha" placeholder="Insira sua senha" />
+
+            <button id="mostrarsenha1" type="button" onclick="mostrarSenha()" style="position: absolute;font-size:1.3em;"><i class="far fa-eye"></i></button>
 
 
-            <input type="submit" id="enviar" value="Login"><br>
+            <input type="submit" id="enviar" href="usuario.html" value="Login">
             <div style="opacity: 0.4">
-                <a href="#">Esqueceu sua senha?</a><br>
-                <a href="#">Ainda não possui uma conta?</a>
+                <div id="trocarusuario"><a href="#">Esqueceu sua senha?</a><br></div>
             </div>
         </form>
     </div>
+    <!--pop up usuário-->
+    <div id="trocar-usuario" class="modal-container">
+        <div class="modal">
+            <button class="fechar">X</button>
+            <h3 class="subtitulo">Usuário</h3>
+            <div id="divisaorodape" style="opacity: .3;">&nbsp;</div>
+
+            <form>
+                <label type="text">Informe o Usuário</label><br><br>
+                <input type="text" class="input" style="width: 80%; padding: 1.5% 1%;" placeholder="Informe o seu usuário."><br><br>
+                <input class="popupbt" type="submit" id="trocarsenha" value="Enviar" style="background-color: red; padding: 2% 0 2% 0; border-radius: 5px;">
+            </form>
+        </div>
+    </div>
+    <!--pop up alterar senha-->
+    <div id="trocar-senha" class="modal-container">
+        <div class="modal">
+            <button class="fechar">X</button>
+            <h3 class="subtitulo">Alterar Senha</h3>
+            <div id="divisaorodape" style="opacity: .3;">&nbsp;</div>
+
+            <form>
+                <label type="text">Nova Senha</label><br><br>
+                <input type="password" id="show1" class="input" style="width: 80%; padding: 1.5% 1%;" placeholder="Informe a nova senha."><br><br>
+                <button id="mostrarsenha2" type="button" onclick="mostrarSenha2()"><i class="far fa-eye"></i></button>
+                <label type="text">Confirmar Senha</label><br><br>
+                <input type="password" id="show2" class="input" style="width: 80%; padding: 1.5% 1%;" placeholder="Confirme a nova senha."><br><br>
+                <input class="popupbt" type="submit" value="Alterar" style="background-color: red; padding: 2% 0 2% 0; border-radius: 5px;">
+            </form>
+        </div>
+    </div>
     <script>
+        //mostrar senha formulário do login
         function mostrarSenha() {
-            var tipo = document.getElementById("senha");
+            var tipo = document.getElementById("senhalog");
             if (tipo.type == "password") {
                 tipo.type = "text";
             } else {
                 tipo.type = "password";
+            }
+        }
+
+        // abrir pop up alterar usuário
+        function iniciaUsuario(usuarioID) {
+            const usuario = document.getElementById(usuarioID);
+            if (usuario) {
+                usuario.classList.add('mostrar');
+                usuario.addEventListener('click', (e) => {
+                    if (e.target.id == usuarioID || e.target.className == 'fechar') {
+                        usuario.classList.remove('mostrar');
+                    }
+                });
+            }
+        }
+
+        const usuario = document.querySelector('#trocarusuario');
+        usuario.addEventListener('click', () => iniciaUsuario('trocar-usuario'));
+
+        // senha 
+        function iniciaSenha(senhaID) {
+            const senha = document.getElementById(senhaID);
+            if (senha) {
+                senha.classList.add('mostrar');
+                senha.addEventListener('click', (e) => {
+                    if (e.target.id == senhaID || e.target.className == 'fechar') {
+                        senha.classList.remove('mostrar');
+                    }
+                });
+            }
+        }
+        const trc = document.querySelector('#trocarsenha');
+        trc.addEventListener('click', () => iniciaSenha('trocar-senha'));
+
+        // botão mostrar senha 
+        function mostrarSenha2() {
+            var tipo1 = document.getElementById("show1");
+            var tipo2 = document.getElementById("show2");
+            if (tipo1.type == "password") {
+                tipo1.type = "text";
+            } else {
+                tipo1.type = "password";
+            }
+
+            if (tipo2.type == "password") {
+                tipo2.type = "text";
+            } else {
+                tipo2.type = "password";
             }
         }
     </script>
