@@ -1,0 +1,111 @@
+<?php
+    require_once '../tela_login/usuarios.php';
+    $u = new Usuario;
+?>
+
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+
+<head>
+    <link rel="Stylesheet" type="text/css" href="../css/login.css">
+    <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="Stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../js/arquivo.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <meta charset="utf-8">
+    <title>Cadastrar novo usuário</title>
+</head>
+
+<body>
+    <div class="login">
+
+        <img src="../images/login.png" class="usuario" width="100" height="100" alt="">
+        <div class="voltar">
+            <a href="./usuario.php">
+                <h1><i class="fas fa-sign-out-alt"></i></h1>
+            </a>
+            <p>Voltar</p>
+        </div>
+        <h1>Cadastrar</h1>
+
+        <form method="POST">
+            <!-- não apaga sa porra GABRIEL -->
+            <br>
+            <p>Nome</p>
+            <a class="popupbt"><i class="far fa-user"></i></a>&nbsp;&nbsp;<input type="text" id="name" name="nome"
+                placeholder="Insira seu nome de Usuário " maxlength="40" />
+            <p>Usuário</p>
+            <a class="popupbt"><i class="far fa-user"></i></a>&nbsp;&nbsp;<input type="text" id="name" name="email"
+                placeholder="Insira seu nome de Usuário " maxlength="30" />
+            <p>Telefone</p>
+            <a class="popupbt"><i class="far fa-user"></i></a>&nbsp;&nbsp;<input type="text" id="name" name="telefone"
+                placeholder="Insira seu nome de Usuário " maxlength="15" />
+            <p>Senha</p>
+            <a class="popupbt"><i class="fas fa-lock"></i></a>&nbsp;&nbsp;<input type="password" id="senha" name="senha"
+                placeholder="Insira sua senha" maxlength="15" />
+            <p>Confirma Senha</p>
+            <a class="popupbt"><i class="fas fa-lock"></i></a>&nbsp;&nbsp;<input type="password" id="senha" name="Csenha"
+                placeholder="Insira sua senha" maxlength="15" />
+
+
+            <input type="submit" id="enviar" value="Cadastrar"><br>
+
+<?php
+    if(isset($_POST['nome'])){
+        $nome = addslashes($_POST['nome']);
+        $telefone = addslashes($_POST['telefone']);
+        $email = addslashes($_POST['email']);
+        $senha = addslashes($_POST['senha']);
+        $Csenha = addslashes($_POST['Csenha']);
+
+        //verifica se está tudo preenchido
+        if(!empty($nome) && !empty($telefone) && !empty($email) && !empty($senha) && !empty($Csenha)){
+            $u->conectar("adprime", "localhost", "root", "");
+            if($u->msgErro == ""){
+                if($senha == $Csenha)
+                {
+                    if($u->cadastrar($nome, $telefone, $email, $senha)){
+                        ?>
+                        <!--Nesta parte tudo é HTML, o PHP em nada interfere, você pode fazer seu CSS normalmente, apenas nas DIV-->
+                        <div style="margin: 10px auto; padding: 10px; background-color: rgba(50, 205, 50, .2); border: 1px solid rgb(34, 139,34);">
+                            Cadastrado com sucesso
+                        </div>
+                        <?php
+                    }else{
+                        ?>
+                        <div style="margin: 10px auto; padding: 10px; background-color: rgba(250, 128, 114, .2); border: 1px solid rgb(165, 42,42);">
+                            Email já cadastrado
+                        </div>
+                        <?php
+                    }
+                }else{
+                    ?>
+                    <div style="margin: 10px auto; padding: 10px; background-color: rgba(250, 128, 114, .2); border: 1px solid rgb(165, 42,42);">
+                        As senhas não correspondem
+                    </div>
+                    <?php
+                }
+            }else{
+                ?>
+                <div style="margin: 10px auto; padding: 10px; background-color: rgba(250, 128, 114, .2); border: 1px solid rgb(165, 42,42);">
+                    <?php echo "Erro: ".$u->msgErro; ?>
+                </div>
+                <?php
+            }
+        }else{
+            ?>
+            <div style="margin: 10px auto; padding: 10px; background-color: rgba(250, 128, 114, .2); border: 1px solid rgb(165, 42,42);">
+                Preencha todos os Campos
+            </div>
+            <?php
+        }
+    }
+?>
+
+        </form>
+    </div>
+
+</body>
+
+</html>
