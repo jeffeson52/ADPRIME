@@ -1,23 +1,34 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['id_usuario'])){
+        header("location: ../tela_login/login.php");
+        exit;
+    }
+?>
+
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-    <link rel="stylesheet" href="css/usuario.css">
-    <script src="js/arquivo.js"></script>
+    <link rel="stylesheet" href="../css/usuario.css">
+    <script src="../js/arquivo.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"></script>
 </head>
 
 <body>
+    <form action="../tela_login/verificaUsuario.php" method="POST">
     <!--menu lateral-->
     <div class="sidebar">
-        <a class="active" href="usuario.html"><i class="fas fa-home"></i>&emsp;Home</a>
+        <a class="active" href="usuario.php"><i class="fas fa-home"></i>&emsp;Home</a>
         <a class="menuleft" href="enviados.html"><i class="fas fa-upload"></i>&emsp;Arquivos Enviados</a>
         <a class="menuleft" href="recebidos.html"><i class="fas fa-download"></i>&emsp;Arquivos Recebidos</a>
         <a class="menuleft" id="enviar"><i class="fas fa-file-upload"></i>&emsp;Enviar Arquivos</a>
+        <a class="menuleft" href="./cadastrarUsuario.php" id="enviar"><i class="fas fa-file-upload"></i>&emsp;Cadastrar Usuário</a>
         <a class="menuleft" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
-        <a class="deslogar" href="index.html"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
+        <a class="deslogar" href="./logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
     </div>
     <!--barra azul do inicio-->
     <div class="content">
@@ -34,9 +45,9 @@
         <!-- GRID NOTICIAS-->
         <div class="noticias">
             <div class="imagens">
-                <a href="index.html"><img src="images/download.jpg" width="90%" height="100%"></a>
+                <a href="../index.html"><img src="../images/download.jpg" width="90%" height="100%"></a>
             </div>
-            <div class="textimagens"><a href="index.html"><span><i class="far fa-clock"></i> 20/01/2020</span>
+            <div class="textimagens"><a href="../index.html"><span><i class="far fa-clock"></i> 20/01/2020</span>
           <h3>ESTE É O TITULO DA NOTICIA</h3>
           <p>Aqueles que demonstrarem legítimo interesse na apuração, elucidação, conhecimento e divulgação dos fatos
             ocorridos em torno da execução do plano de investimento e das atividades exercidas pela aludida sociedade
@@ -141,6 +152,7 @@
             <p style="font-size: 0.7em; margin-bottom: -2%;"> &#174 2020 Copyright Todos os direitos reservados AD Prime</p>
         </div>
     </div>
+</form>
 </body>
 
 <!-- final-->
