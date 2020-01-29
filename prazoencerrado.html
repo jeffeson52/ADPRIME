@@ -12,6 +12,8 @@
     <script src="js/skel.min.js"></script>
     <script src="js/skel-layers.min.js"></script>
     <script src="js/init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <noscript>
         <link rel="stylesheet" href="css/skel.css" />
         <link rel="stylesheet" href="css/style.css" />
@@ -34,20 +36,20 @@
                 <!-- Nav -->
                 <nav id="nav">
                     <ul>
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="#">Associado</a>
+                        <li class="active"><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+                        <li><a href="#"><i class="far fa-handshake"></i>Associado</a>
                             <ul>
-                                <li><a href="#">Entrar</a></li>
-                                <li><a href="https://usuario.gerencianet.com.br/segunda-via">2ª&nbsp;via boletos</a>
+                                <li><a href="./tela_login/login.php"><i class="fas fa-sign-in-alt"></i>Entrar</a></li>
+                                <li><a href="https://usuario.gerencianet.com.br/segunda-via"><i class="fas fa-angle-double-right"></i>2ª&nbsp;via boletos</a>
                                 </li>
-                                <li><a href="#">Faq</a></li>
+                                <li><a href="#"><i class="fas fa-question"></i>Faq</a></li>
                             </ul>
                         </li>
-                        <li><a href="">Associe-se</a>
+                        <li><a href=""><i class="fas fa-handshake"></i>Associe-se</a>
                             <ul>
-                                <li><a href="wscriptacoin.html">WS Kriptacoin</a></li>
-                                <li><a href="awsmining.html">AWS Mining</a></li>
-                                <li><a href="outrasEmpresas.html">Outras Empresas</a></li>
+                                <li><a href="wscriptacoin.html"><i class="fas fa-handshake"></i>WS Kriptacoin</a></li>
+                                <li><a href="awsmining.html"><i class="fas fa-handshake"></i>AWS Mining</a></li>
+                                <li><a href="outrasEmpresas.html"><i class="fas fa-handshake"></i>Outras Empresas</a></li>
                             </ul>
                     </ul>
                 </nav>
@@ -73,23 +75,62 @@
         <section class="container">
             <header class="major">
                 <h2>PRAZO ENCERRADO!</h2>
-                <span style="color:white;" class="byline">O período de cadastro para esse projeto expirou em 31/09/2019,
+                <Br>
+                <span style="color:white;" class="byline" style=" color: white; text-decoration:none;">O período de
+                    cadastro para esse projeto expirou em 31/09/2019,
                     conforme cronograma
                     amplamante divulgado pela AD PRIME. Caso tenha dúvida favor encaminhar mensagem para
-                    cadastro@adprime.com.br</span>
+                    <a href="#" style="text-decoration: none; color:white ">contato@adprime.com.br</a>
             </header>
+        </section>
+    </div>
+    <!-- rodapé -->
 
-            <!-- Copyright -->
-            <div id="copyright">
-                <p> A Associação está expressamente proibida de representar pessoas que tenham relação com os
-                    investigados.</p>
-                &#174 Copyright Todos os direitos reservados AD Prime
+    <div id="copyright">
+        <div class="diplay">
+            <div class="row double">
+                <div class="4u">
+                    <div class="logoinf">
+                        <H2>AD PRIME</H2>
+                    </div>
+                    <div class="textoinf">
+                        <p>ASSOCIAÇÃO DE DEFESA E PROTEÇÃO AOS INTERESSES DOS INVESTIDORES EM MICRO EMPREENDIMENTOS EM
+                            BLOCK CHAIN</p>
+                    </div>
+                </div>
+                <div class="4u">
+                    <div class="menuinferior">
+                        <li>Links Importantes</li>
+                        <li><a href="#"><button class="buttoninf">HOME</button></a></li>
+                        <li><a href="#"><button class="buttoninf">ENTRAR</button></a></li>
+                        <li><a href="#"><button class="buttoninf">FAQ</button></a></li>
+                    </div>
+                </div>
+                <div class="4u">
+                    <div class="menuinferiortwo">
+                        <li>Associe-se</li>
+                        <li><a href="#"><button class="buttoninf">KRIPTACOIN</button></a></li>
+                        <li><a href="#"><button class="buttoninf">awsmining</button></a></li>
+                        <li><a href="#"><button class="buttoninf">Outras Empresas</button></a></li>
+                    </div>
+                </div>
             </div>
+            <div>
+                <p style="font-size: 0.9em;">A Associação está expressamente proibida de representar pessoas que tenham
+                    relação com os investigados.</p>
+            </div>
+        </div>
+        <div id="divisaorodape">&nbsp;</div>
+
+        <div class="voltar-ao-topo">
+            <p><a href="#"><button class="button" id="voltar-ao-topo"><i class="fa fa-angle-up"
+                            aria-hidden="true"></i></button></a></p>
+        </div>
+        <p style="font-size: 0.7em; margin-bottom: -2%;"> &#174 2020 Copyright Todos os direitos reservados AD Prime</p>
+    </div>
 </body>
 
 </html>
-
-
 
 
 

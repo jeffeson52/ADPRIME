@@ -654,6 +654,8 @@ input[type="button"].small,
     border-color: inherit;
 }
 
+#footer .major h2 {}
+
 #footer .major .byline {
     opacity: .4;
 }
@@ -673,6 +675,7 @@ form {
     padding: 0% 2% 2% 2%;
     border-radius: 10px;
     border: 1px solid dodgerblue;
+    display: block;
 }
 
 .textform {
