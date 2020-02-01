@@ -1,6 +1,6 @@
 <?php
-require_once 'usuarios.php';
-$u = new Usuario;
+    require_once 'usuarios.php';
+    $u = new Usuario;
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +19,6 @@ $u = new Usuario;
 
 <body>
     <div class="login">
-
         <img src="../images/login.png" class="usuario" width="100" height="100" alt="">
         <div class="voltar">
             <a href="../index.html">
@@ -29,55 +28,57 @@ $u = new Usuario;
         </div>
         <h1>Login</h1>
 
-        <form method="POST">
-            <!-- não apaga sa porra GABRIEL -->
+       <form method="POST"> <!-- não apaga sa porra GABRIEL -->
             <br>
             <p>Usuário</p>
-            <a class="popupbt"><i class="far fa-user"></i></a>&nbsp;&nbsp;<input type="text" id="name" name="email" placeholder="Insira seu nome de Usuário " maxlength="30" />
+            <a class="popupbt"><i class="far fa-user"></i></a>&nbsp;&nbsp;<input type="text" id="name" name="email"
+                placeholder="Insira seu nome de Usuário " maxlength="30" />
             <p>Senha</p>
-            <a class="popupbt"><i class="fas fa-lock"></i></a>&nbsp;&nbsp;<input type="password" id="senha" name="senha" placeholder="Insira sua senha" maxlength="15" />
-
-            <button id="mostrarsenha" type="button" onclick="mostrarSenha()" style="position: absolute;font-size:1.3em;"><i class="far fa-eye"></i></button>
+            <a class="popupbt"><i class="fas fa-lock"></i></a>&nbsp;&nbsp;<input type="password" id="senha" name="senha"
+                placeholder="Insira sua senha" maxlength="15"/>
+            
+            <button id="mostrarsenha" type="button" onclick="mostrarSenha()"
+                style="position: absolute;font-size:1.3em;"><i class="far fa-eye"></i></button>
 
 
             <input type="submit" id="enviar" value="Login"><br>
 
 
-            <?php
+<?php
 
-            if (isset($_POST['email'])) {
-                $email = addslashes($_POST['email']);
-                $senha = addslashes($_POST['senha']);
+    if(isset($_POST['email'])){
+        $email = addslashes($_POST['email']);
+        $senha = addslashes($_POST['senha']);
 
-                if (!empty($email) && !empty($senha)) {
-                    $u->conectar("adprime", "localhost", "root", "");
-                    if ($u->msgErro == "") {
-                        if ($u->logar($email, $senha)) {
-                            header("location: ../tela_usuario/usuario.php");
-                        } else {
-            ?>
-                            <div style="background-color:darkred; padding:2%; border-radius:10px; color: white; font-weight:400; text-align:center; margin-top:2%;" >
-                                    Email ou senha incorretos!
-                                </div>
-                        <?php
-                        }
-                    } else {
-                        ?>
-                        <div style="margin: 10px auto; padding: 10px; background-color: rgba(250, 128, 114, .2); border: 1px solid rgb(165, 42,42);">
-                            <?php echo "Erro: " . $u->msgErro; ?>
-                        </div>
-                    <?php
-                    }
-                } else {
+        if(!empty($email) && !empty($senha)){
+            $u->conectar("adprime", "localhost", "root", "");
+            if($u->msgErro == ""){
+                if($u->logar($email, $senha)){
+                    header("location: ../tela_usuario/usuario.php");
+                }else{
                     ?>
-                         <div style="background-color:#AAAA00; padding:2%; border-radius:10px; color: white; font-weight:400; text-align:center; margin-top:2%;" >
-                            Preencha todos os campos!
-                        </div>
-            <?php
+                    <div style=" border-radius:10px;margin: 10px auto; padding: 10px; background-color: rgba(250, 128, 114, .2); border: 1px solid rgb(165, 42,42);">
+                        Email ou senha incorretos
+                    </div>
+                    <?php
                 }
+            }else{
+                ?>
+                <div style=" border-radius:10px; margin: 10px auto; padding: 10px; background-color: rgba(250, 128, 114, .2); border: 1px solid rgb(165, 42,42);">
+                    <?php echo "Erro: ".$u->msgErro; ?>
+                </div>
+                <?php
             }
-
+        }else{
             ?>
+            <div style="border-radius:10px; margin: 10px auto; padding: 10px; background-color: rgba(250, 128, 114, .2); border: 1px solid rgb(165, 42,42);">
+                Preencha todos os campos
+            </div>
+            <?php
+        }
+    }
+
+?>
 
 
         </form>
@@ -92,9 +93,6 @@ $u = new Usuario;
             }
         }
     </script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 
 </html>
