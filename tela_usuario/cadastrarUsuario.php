@@ -7,7 +7,7 @@ $u = new Usuario;
 <html lang="pt-BR" dir="ltr">
 
 <head>
-    <link rel="Stylesheet" type="text/css" href="../css/login.css">
+    <link rel="Stylesheet" type="text/css" href="../css/cadastrar.css">
     <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="Stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../js/arquivo.js"></script>
@@ -46,7 +46,7 @@ $u = new Usuario;
 
             <button id="mostrarsenha" type="button" onclick="mostrarSenha()" style="position: absolute;font-size:1.3em;"><i class="far fa-eye"></i></button>
             <p>Confirma Senha</p>
-            <a class="popupbt"><i class="fas fa-lock"></i></a>&nbsp;&nbsp;<input type="password" id="senha2" name="senha2" placeholder="Confirme sua senha" maxlength="15" />
+            <a class="popupbt"><i class="fas fa-lock"></i></a>&nbsp;&nbsp;<input type="password" id="senha2" name="Csenha" placeholder="Confirme sua senha" maxlength="15" />
 
 
             <input type="submit" id="enviar" value="Cadastrar"><br>
