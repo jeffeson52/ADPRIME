@@ -34,20 +34,21 @@ $u = new Usuario;
             <br>
             <p>Nome</p>
             <a class="popupbt"><i class="far fa-user"></i></a>&nbsp;&nbsp;<input type="text" id="name" name="nome" placeholder="Insira seu nome" maxlength="40" />
-            <p>Usuário</p>
-            <a class="popupbt"><i class="fas fa-user"></i></a>&nbsp;&nbsp;<input type="text" id="name" name="email" placeholder="Insira seu nome de usuário " maxlength="30" />
             <p>E-mail</p>
             <a class="popupbt"><i class="fas fa-envelope"></i></a>&nbsp;&nbsp;<input type="text" id="name" name="email" placeholder="Insira seu email" maxlength="30" />
-
             <p>Telefone</p>
             <a class="popupbt"><i class="fas fa-phone"></i></a>&nbsp;&nbsp;<input type="text" id="name" name="telefone" placeholder="Insira seu telefone " maxlength="15" />
             <p>Senha</p>
             <a class="popupbt"><i class="fa fa-lock"></i></a>&nbsp;&nbsp;<input type="password" id="senha" name="senha" placeholder="Insira sua senha" maxlength="15" />
-
             <button id="mostrarsenha" type="button" onclick="mostrarSenha()" style="position: absolute;font-size:1.3em;"><i class="far fa-eye"></i></button>
             <p>Confirma Senha</p>
             <a class="popupbt"><i class="fas fa-lock"></i></a>&nbsp;&nbsp;<input type="password" id="senha2" name="Csenha" placeholder="Confirme sua senha" maxlength="15" />
 
+            <select name="nivel">
+                <option value="">Selecione</option>
+                <option value="2">Usuario Comum</option>
+                <option value="1">Administrador</option>
+            </select><br />
 
             <input type="submit" id="enviar" value="Cadastrar"><br>
 
@@ -58,13 +59,14 @@ $u = new Usuario;
                 $email = addslashes($_POST['email']);
                 $senha = addslashes($_POST['senha']);
                 $Csenha = addslashes($_POST['Csenha']);
+                $nivel = addslashes($_POST['nivel']);
 
                 //verifica se está tudo preenchido
-                if (!empty($nome) && !empty($telefone) && !empty($email) && !empty($senha) && !empty($Csenha)) {
+                if (!empty($nome) && !empty($telefone) && !empty($email) && !empty($senha) && !empty($Csenha) && !empty($nivel)) {
                     $u->conectar("adprime", "localhost", "root", "");
                     if ($u->msgErro == "") {
                         if ($senha == $Csenha) {
-                            if ($u->cadastrar($nome, $telefone, $email, $senha)) {
+                            if ($u->cadastrar($nome, $telefone, $email, $senha, $nivel)) {
             ?>
                                 <!--Nesta parte tudo é HTML, o PHP em nada interfere, você pode fazer seu CSS normalmente, apenas nas DIV-->
                                 <div style=" border-radius:10px; margin: 10px auto; padding: 10px; background-color: rgba(50, 205, 50, .2); border: 1px solid rgb(34, 139,34);">
