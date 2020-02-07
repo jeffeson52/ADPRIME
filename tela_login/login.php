@@ -51,7 +51,7 @@ $u = new Usuario;
                     $u->conectar("adprime", "localhost", "root", "");
                     if ($u->msgErro == "") {
                         if ($u->logar($email, $senha)) {
-                            header("location: ../tela_usuario/usuario.php");
+                            
                         } else {
             ?>
                             <div style=" border-radius:10px;margin: 10px auto; padding: 10px; background-color: rgba(250, 128, 114, .2); border: 1px solid rgb(165, 42,42);">
