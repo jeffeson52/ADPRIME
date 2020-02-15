@@ -1,129 +1,162 @@
 <?php
-require_once '../tela_login/usuarios.php';
-$u = new Usuario;
+    session_start();
+    if(!isset($_SESSION['id_usuario'])){
+        header("location: ../tela_login/login.php");
+        exit;
+    }
 ?>
 
+
 <!DOCTYPE html>
-<html lang="pt-BR" dir="ltr">
+<html>
 
 <head>
-    <link rel="Stylesheet" type="text/css" href="../css/cadastrar.css">
-    <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="Stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="../css/usuario.css">
     <script src="../js/arquivo.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-    <meta charset="utf-8">
-    <title>Cadastrar novo usuário</title>
 </head>
 
 <body>
-    <div class="login">
+    <form method="POST">
+    <!--menu lateral-->
+    <div class="sidebar">
+        <a class="active" href="administrador.php"><i class="fas fa-home"></i>&emsp;Home</a>
+        <a class="menuleft" href="#"><i class="fas fa-upload"></i>&emsp;Agenda</a>
+        <a class="menuleft" href="#" id="enviar"><i class="fas fa-download"></i>&emsp;Imagens</a> 
+        <a class="menuleft" href="#" id="enviar"><i class="fas fa-download"></i>&emsp;Vídeos</a> 
+        <a class="menuleft" href="#"><i class="fas fa-file-upload"></i>&emsp;FAQ</a>
+        <a class="menuleft" href="#"><i class="fas fa-file-upload"></i>&emsp;Arquivos</a>
+        <a class="menuleft" href="./cadastrarUsuario.php" id="enviar"><i class="fas fa-file-upload"></i>&emsp;Cadastrar Usuário</a>
+        <a class="menuleft" href="#" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Usuários Cadastrados</a>
+        <a class="deslogar" href="./logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
+    </div>
+    <!--barra azul do inicio-->
+    <div class="content">
+        <div class="barup">&nbsp;</div>
 
-        <img src="../images/login.png" class="usuario" width="100" height="100" alt="">
-        <div class="voltar">
-            <a href="./usuario.php">
-                <h1><i class="fas fa-sign-out-alt"></i></h1>
-            </a>
-            <p>Voltar</p>
+        <!-- nome da página barra cinza-->
+        <div class="nomepage">
+            <h4>HOME</h4><br>
+            <h5>Ultimas Noticias</h5>
         </div>
-        <h1>Cadastrar</h1>
+        <div id="divisaorodape">&nbsp;</div>
 
-        <form method="POST">
-            <!-- não apaga sa porra GABRIEL -->
-            <br>
-            <p>Nome</p>
-            <a class="popupbt"><i class="far fa-user"></i></a>&nbsp;&nbsp;<input type="text" id="name" name="nome" placeholder="Insira seu nome" maxlength="40" />
-            <p>E-mail</p>
-            <a class="popupbt"><i class="fas fa-envelope"></i></a>&nbsp;&nbsp;<input type="text" id="name" name="email" placeholder="Insira seu email" maxlength="30" />
-            <p>Telefone</p>
-            <a class="popupbt"><i class="fas fa-phone"></i></a>&nbsp;&nbsp;<input type="text" id="name" name="telefone" placeholder="Insira seu telefone " maxlength="15" />
-            <p>Senha</p>
-            <a class="popupbt"><i class="fa fa-lock"></i></a>&nbsp;&nbsp;<input type="password" id="senha" name="senha" placeholder="Insira sua senha" maxlength="15" />
-            <button id="mostrarsenha" type="button" onclick="mostrarSenha()" style="position: absolute;font-size:1.3em;"><i class="far fa-eye"></i></button>
-            <p>Confirma Senha</p>
-            <a class="popupbt"><i class="fas fa-lock"></i></a>&nbsp;&nbsp;<input type="password" id="senha2" name="Csenha" placeholder="Confirme sua senha" maxlength="15" />
+        <!--conteúdo da página-->
+        <!-- GRID NOTICIAS-->
+        <div class="noticias">
+            <div class="imagens">
+                <a href="../index.html"><img src="../images/download.jpg" width="90%" height="100%"></a>
+            </div>
+            <div class="textimagens"><a href="../index.html"><span><i class="far fa-clock"></i> 20/01/2020</span>
+          <h3>ESTE É O TITULO DA NOTICIA</h3>
+          <p>Aqueles que demonstrarem legítimo interesse na apuração, elucidação, conhecimento e divulgação dos fatos
+            ocorridos em torno da execução do plano de investimento e das atividades exercidas pela aludida sociedade
+            empresarial;
 
-            <select name="nivel">
-                <option value="">Selecione</option>
-                <option value="2">Usuario Comum</option>
-                <option value="1">Administrador</option>
-            </select><br />
+            3. Pessoas que de alguma forma sofreram ou ainda sofrem prejuízos, de ordem material ou não material, uma
+            vez
+            que, ao que tudo indica, assim como os diretores e fundadores da associação e tantos outros, também
+            acreditaram ou foram levados a acreditar na viabilidade da proposta de investimento de seus recursos na WS
+            CORPORATE.</p>
+        </a>
+            </div>
+            <div class="avaliacao">&emsp;Gostou disso?&emsp;<i class="fas fa-heart" style="color: red;"></i>&nbsp;1&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<i class="fas fa-comment">&nbsp;1</i>&emsp;<i class="fas fa-book"></i>&nbsp;Leia mais</div>
+        </div>
 
-            <input type="submit" id="enviar" value="Cadastrar"><br>
+        <!-- POP UP-->
+        <!--pop up conteúdo enviar arquivos-->
+        <div id="modal-promocao" class="modal-container">
+            <div class="modal">
+                <button class="fechar">X</button>
+                <h3 class="subtitulo">Enviar Arquivo</h3>
+                <div id="divisaorodape" style="opacity: .3;">&nbsp;</div>
 
-            <?php
-            if (isset($_POST['nome'])) {
-                $nome = addslashes($_POST['nome']);
-                $telefone = addslashes($_POST['telefone']);
-                $email = addslashes($_POST['email']);
-                $senha = addslashes($_POST['senha']);
-                $Csenha = addslashes($_POST['Csenha']);
-                $nivel = addslashes($_POST['nivel']);
+                <form>
+                    <label type="text">Nome do Arquivo</label><br><br>
+                    <input type="text" class="input" style="width: 80%; padding: 1.5% 1%;" placeholder="Informe o nome do arquivo."><br><br>
+                    <p><b>Arquivo:</b> Somente (jpg, png, pdf, docx, doc, jpeg)</p>
+                    <a class="popupbt"><i class="fas fa-file-upload"></i>&emsp;Escolher Arquivo</a><br><br>
 
-                //verifica se está tudo preenchido
-                if (!empty($nome) && !empty($telefone) && !empty($email) && !empty($senha) && !empty($Csenha) && !empty($nivel)) {
-                    $u->conectar("adprime", "localhost", "root", "");
-                    if ($u->msgErro == "") {
-                        if ($senha == $Csenha) {
-                            if ($u->cadastrar($nome, $telefone, $email, $senha, $nivel)) {
-            ?>
-                                <!--Nesta parte tudo é HTML, o PHP em nada interfere, você pode fazer seu CSS normalmente, apenas nas DIV-->
-                                <div style=" border-radius:10px; margin: 10px auto; padding: 10px; background-color: rgba(50, 205, 50, .2); border: 1px solid rgb(34, 139,34);">
-                                    Cadastrado com sucesso
-                                </div>
-                            <?php
-                            } else {
-                            ?>
-                                <div style="border-radius:10px; margin: 10px auto; padding: 10px; background-color: rgba(250, 128, 114, .2); border: 1px solid rgb(165, 42,42);">
-                                    Email já cadastrado
-                                </div>
-                            <?php
-                            }
-                        } else {
-                            ?>
-                            <div style="border-radius:10px; margin: 10px auto; padding: 10px; background-color: rgba(250, 128, 114, .2); border: 1px solid rgb(165, 42,42);">
-                                As senhas não correspondem
-                            </div>
-                        <?php
+                    <input class="popupbt" value="Enviar" style="background-color: red; padding: 2% 0 2% 0; border-radius: 5px;">
+                </form>
+            </div>
+        </div>
+        <!--pop up alterar senha-->
+        <div id="trocar-senha" class="modal-container">
+            <div class="modal">
+                <button class="fechar">X</button>
+                <h3 class="subtitulo">Alterar Senha</h3>
+                <div id="divisaorodape" style="opacity: .3;">&nbsp;</div>
+
+                <form>
+                    <label type="text">Nova Senha</label><br><br>
+                    <input type="password" id="show1" class="input" style="width: 80%; padding: 1.5% 1%;" placeholder="Informe a nova senha."><br><br>
+                    <button id="mostrarsenha2" type="button" onclick="mostrarSenha1()" style="position: absolute;font-size:1.3em;"><i class="far fa-eye"></i></button>
+                    <label type="text">Confirmar Senha</label><br><br>
+                    <input type="password" id="show2" class="input" style="width: 80%; padding: 1.5% 1%;" placeholder="Confirme a nova senha."><br><br>
+                    <input class="popupbt" value="Alterar" style="background-color: red; padding: 2% 0 2% 0; border-radius: 5px;">
+                </form>
+            </div>
+        </div>
+        <!--JAVA DO POP UP ENVIAR ARQUIVO-->
+        <script>
+            function iniciaModal(modalID) {
+                const modal = document.getElementById(modalID);
+                if (modal) {
+                    modal.classList.add('mostrar');
+                    modal.addEventListener('click', (e) => {
+                        if (e.target.id == modalID || e.target.className == 'fechar') {
+                            modal.classList.remove('mostrar');
                         }
-                    } else {
-                        ?>
-                        <div style="border-radius:10px; margin: 10px auto; padding: 10px; background-color: rgba(250, 128, 114, .2); border: 1px solid rgb(165, 42,42);">
-                            <?php echo "Erro: " . $u->msgErro; ?>
-                        </div>
-                    <?php
-                    }
-                } else {
-                    ?>
-                    <div style="border-radius:10px; margin: 10px auto; padding: 10px; background-color: rgba(250, 128, 114, .2); border: 1px solid rgb(165, 42,42);">
-                        Preencha todos os Campos
-                    </div>
-            <?php
+                    });
                 }
             }
-            ?>
+            const logo = document.querySelector('#enviar');
+            logo.addEventListener('click', () => iniciaModal('modal-promocao'));
 
-        </form>
+
+            // senha 
+            function iniciaSenha(senhaID) {
+                const senha = document.getElementById(senhaID);
+                if (senha) {
+                    senha.classList.add('mostrar');
+                    senha.addEventListener('click', (e) => {
+                        if (e.target.id == senhaID || e.target.className == 'fechar') {
+                            senha.classList.remove('mostrar');
+                        }
+                    });
+                }
+            }
+            const trc = document.querySelector('#trocarsenha');
+            trc.addEventListener('click', () => iniciaSenha('trocar-senha'));
+
+            // botão mostrar senha primeiro campo 
+            function mostrarSenha1() {
+                var tipo1 = document.getElementById("show1 and show2");
+                if (tipo1.type == "password") {
+                    tipo1.type = "text";
+                } else {
+                    tipo1.type = "password";
+                }
+            }
+        </script>
+
+        <!-- rodapé-->
+        <div id="divisaorodape">&nbsp;</div>
+
+        <div class="voltar-ao-topo">
+            <p><a href="#"><button class="button" id="voltar-ao-topo"><i class="fa fa-angle-up"
+              aria-hidden="true"></i></button></a></p>
+        </div>
+        <div class="Copyright">
+            <p style="font-size: 0.7em; margin-bottom: -2%;"> &#174 2020 Copyright Todos os direitos reservados AD Prime</p>
+        </div>
     </div>
-    <script>
-        function mostrarSenha() {
-            var tipo = document.getElementById("senha");
-            if (tipo.type == "password") {
-                tipo.type = "text";
-            } else {
-                tipo.type = "password";
-            }
-
-            var tipo2 = document.getElementById("senha2");
-            if (tipo2.type == "password") {
-                tipo2.type = "text";
-            } else {
-                tipo2.type = "password";
-            }
-        }
-    </script>
-
+</form>
 </body>
+
+<!-- final-->
 
 </html>

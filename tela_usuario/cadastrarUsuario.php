@@ -22,7 +22,7 @@ $u = new Usuario;
 
         <img src="../images/login.png" class="usuario" width="100" height="100" alt="">
         <div class="voltar">
-            <a href="./usuario.php">
+            <a href="./administrador.php">
                 <h1><i class="fas fa-sign-out-alt"></i></h1>
             </a>
             <p>Voltar</p>
