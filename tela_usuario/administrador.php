@@ -13,7 +13,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-    <link rel="stylesheet" href="../css/usuario.css">
+    <link rel="stylesheet" href="../css/administrador.css">
     <script src="../js/arquivo.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"></script>
 </head>
@@ -29,7 +29,7 @@
         <a class="menuleft" href="#"><i class="fas fa-question-circle"></i>&emsp;FAQ</a>
         <a class="menuleft" href="#"><i class="fas fa-file-upload"></i>&emsp;Arquivos</a>
         <a class="menuleft" href="./cadastrarUsuario.php" id="enviar"><i class="fas fa-user-plus"></i>&emsp;Cadastrar Usuário</a>
-        <a class="menuleft" href="#" id="trocarsenha"><i class="fas fa-user"></i>&emsp;Usuários Cadastrados</a>
+        <a class="menuleft" href="./listausuarios.html" id="trocarsenha"><i class="fas fa-user"></i>&emsp;Usuários Cadastrados</a>
         <a class="deslogar" href="./logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
     </div>
     <!--barra azul do inicio-->
@@ -100,49 +100,6 @@
                 </form>
             </div>
         </div>
-        <!--JAVA DO POP UP ENVIAR ARQUIVO-->
-        <script>
-            function iniciaModal(modalID) {
-                const modal = document.getElementById(modalID);
-                if (modal) {
-                    modal.classList.add('mostrar');
-                    modal.addEventListener('click', (e) => {
-                        if (e.target.id == modalID || e.target.className == 'fechar') {
-                            modal.classList.remove('mostrar');
-                        }
-                    });
-                }
-            }
-            const logo = document.querySelector('#enviar');
-            logo.addEventListener('click', () => iniciaModal('modal-promocao'));
-
-
-            // senha 
-            function iniciaSenha(senhaID) {
-                const senha = document.getElementById(senhaID);
-                if (senha) {
-                    senha.classList.add('mostrar');
-                    senha.addEventListener('click', (e) => {
-                        if (e.target.id == senhaID || e.target.className == 'fechar') {
-                            senha.classList.remove('mostrar');
-                        }
-                    });
-                }
-            }
-            const trc = document.querySelector('#trocarsenha');
-            trc.addEventListener('click', () => iniciaSenha('trocar-senha'));
-
-            // botão mostrar senha primeiro campo 
-            function mostrarSenha1() {
-                var tipo1 = document.getElementById("show1 and show2");
-                if (tipo1.type == "password") {
-                    tipo1.type = "text";
-                } else {
-                    tipo1.type = "password";
-                }
-            }
-        </script>
-
         <!-- rodapé-->
         <div id="divisaorodape">&nbsp;</div>
 

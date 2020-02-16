@@ -199,15 +199,12 @@ body {
       font-size: 0.5em;
   }
 
-#mostrarsenha1 {
-    margin-top:15%;
+
+  #mostrarsenha {
+    margin-top: -10%;
+    border: none;
     display: block;
     position: absolute;
-    color:red;
-    border: none;
-    font-size: 10em;
-    cursor: pointer;
-    padding: 1em 1em;
-    text-decoration: none;
-    font-size: 0.7em;
-}
+    color: white;
+    background-color: none;
+  }

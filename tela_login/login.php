@@ -8,8 +8,8 @@ $u = new Usuario;
 
 <head>
     <meta charset="utf-8">
-    <link rel="Stylesheet" type="text/css" href="../css/login.css"
-    <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="Stylesheet">
+    <link rel="Stylesheet" type="text/css" href="../css/login.css">
+    <link rel="Stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="Stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <title>Tela de Login</title>
@@ -33,9 +33,6 @@ $u = new Usuario;
             <a class="popupbt"><i class="far fa-user"></i></a>&nbsp;&nbsp;<input type="text" id="name" name="email" placeholder="Insira seu nome de Usuário " maxlength="30" />
             <p>Senha</p>
             <a class="popupbt"><i class="fas fa-lock"></i></a>&nbsp;&nbsp;<input type="password" id="senha" name="senha" placeholder="Insira sua senha" maxlength="15" />
-
-            <button id="mostrarsenha1" type="button" onclick="mostrarSenha()"><i class="far fa-eye"></i></button>
-
 
             <input type="submit" id="enviar" value="Login"><br>
 
@@ -77,16 +74,6 @@ $u = new Usuario;
             ?>
         </form>
     </div>
-    <script>
-        function mostrarSenha() {
-            var tipo = document.getElementById("senha");
-            if (tipo.type == "password") {
-                tipo.type = "text";
-            } else {
-                tipo.type = "password";
-            }
-        }
-    </script>
 </body>
 
 </html>
