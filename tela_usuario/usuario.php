@@ -60,6 +60,72 @@
         </a>
             </div>
             <div class="avaliacao">&emsp;Gostou disso?&emsp;<i class="fas fa-heart" style="color: red;"></i>&nbsp;1&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<i class="fas fa-comment">&nbsp;1</i>&emsp;<i class="fas fa-book"></i>&nbsp;Leia mais</div>
+            <div class="imagens">
+                <a href="../index.html"><img src="../images/download.jpg" width="90%" height="100%"></a>
+            </div>
+            <div class="textimagens"><a href="../index.html"><span><i class="far fa-clock"></i> 20/01/2020</span>
+          <h3>ESTE É O TITULO DA NOTICIA</h3>
+          <p>Aqueles que demonstrarem legítimo interesse na apuração, elucidação, conhecimento e divulgação dos fatos
+            ocorridos em torno da execução do plano de investimento e das atividades exercidas pela aludida sociedade
+            empresarial;
+
+            3. Pessoas que de alguma forma sofreram ou ainda sofrem prejuízos, de ordem material ou não material, uma
+            vez
+            que, ao que tudo indica, assim como os diretores e fundadores da associação e tantos outros, também
+            acreditaram ou foram levados a acreditar na viabilidade da proposta de investimento de seus recursos na WS
+            CORPORATE.</p>
+        </a>
+            </div>
+            <div class="avaliacao">&emsp;Gostou disso?&emsp;<i class="fas fa-heart" style="color: red;"></i>&nbsp;1&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<i class="fas fa-comment">&nbsp;1</i>&emsp;<i class="fas fa-book"></i>&nbsp;Leia mais</div>
+            <div class="imagens">
+                <a href="../index.html"><img src="../images/download.jpg" width="90%" height="100%"></a>
+            </div>
+            <div class="textimagens"><a href="../index.html"><span><i class="far fa-clock"></i> 20/01/2020</span>
+          <h3>ESTE É O TITULO DA NOTICIA</h3>
+          <p>Aqueles que demonstrarem legítimo interesse na apuração, elucidação, conhecimento e divulgação dos fatos
+            ocorridos em torno da execução do plano de investimento e das atividades exercidas pela aludida sociedade
+            empresarial;
+
+            3. Pessoas que de alguma forma sofreram ou ainda sofrem prejuízos, de ordem material ou não material, uma
+            vez
+            que, ao que tudo indica, assim como os diretores e fundadores da associação e tantos outros, também
+            acreditaram ou foram levados a acreditar na viabilidade da proposta de investimento de seus recursos na WS
+            CORPORATE.</p>
+        </a>
+            </div>
+            <div class="avaliacao">&emsp;Gostou disso?&emsp;<i class="fas fa-heart" style="color: red;"></i>&nbsp;1&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<i class="fas fa-comment">&nbsp;1</i>&emsp;<i class="fas fa-book"></i>&nbsp;Leia mais</div> <div class="imagens">
+                <a href="../index.html"><img src="../images/download.jpg" width="90%" height="100%"></a>
+            </div>
+            <div class="textimagens"><a href="../index.html"><span><i class="far fa-clock"></i> 20/01/2020</span>
+          <h3>ESTE É O TITULO DA NOTICIA</h3>
+          <p>Aqueles que demonstrarem legítimo interesse na apuração, elucidação, conhecimento e divulgação dos fatos
+            ocorridos em torno da execução do plano de investimento e das atividades exercidas pela aludida sociedade
+            empresarial;
+
+            3. Pessoas que de alguma forma sofreram ou ainda sofrem prejuízos, de ordem material ou não material, uma
+            vez
+            que, ao que tudo indica, assim como os diretores e fundadores da associação e tantos outros, também
+            acreditaram ou foram levados a acreditar na viabilidade da proposta de investimento de seus recursos na WS
+            CORPORATE.</p>
+        </a>
+            </div>
+            <div class="avaliacao">&emsp;Gostou disso?&emsp;<i class="fas fa-heart" style="color: red;"></i>&nbsp;1&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<i class="fas fa-comment">&nbsp;1</i>&emsp;<i class="fas fa-book"></i>&nbsp;Leia mais</div> <div class="imagens">
+                <a href="../index.html"><img src="../images/download.jpg" width="90%" height="100%"></a>
+            </div>
+            <div class="textimagens"><a href="../index.html"><span><i class="far fa-clock"></i> 20/01/2020</span>
+          <h3>ESTE É O TITULO DA NOTICIA</h3>
+          <p>Aqueles que demonstrarem legítimo interesse na apuração, elucidação, conhecimento e divulgação dos fatos
+            ocorridos em torno da execução do plano de investimento e das atividades exercidas pela aludida sociedade
+            empresarial;
+
+            3. Pessoas que de alguma forma sofreram ou ainda sofrem prejuízos, de ordem material ou não material, uma
+            vez
+            que, ao que tudo indica, assim como os diretores e fundadores da associação e tantos outros, também
+            acreditaram ou foram levados a acreditar na viabilidade da proposta de investimento de seus recursos na WS
+            CORPORATE.</p>
+        </a>
+            </div>
+            <div class="avaliacao">&emsp;Gostou disso?&emsp;<i class="fas fa-heart" style="color: red;"></i>&nbsp;1&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<i class="fas fa-comment">&nbsp;1</i>&emsp;<i class="fas fa-book"></i>&nbsp;Leia mais</div>
         </div>
 
         <!-- POP UP-->
@@ -90,7 +156,7 @@
                 <form>
                     <label type="text">Nova Senha</label><br><br>
                     <input type="password" id="show1" class="input" style="width: 80%; padding: 1.5% 1%;" placeholder="Informe a nova senha."><br><br>
-                    <button id="mostrarsenha2" type="button" onclick="mostrarSenha1()" style="position: absolute;font-size:1.3em;"><i class="far fa-eye"></i></button>
+                    <button id="mostrarsenha1" type="button" onclick="mostrarSenha1()" style="position: absolute;font-size:1.3em;"><i class="far fa-eye"></i></button>
                     <label type="text">Confirmar Senha</label><br><br>
                     <input type="password" id="show2" class="input" style="width: 80%; padding: 1.5% 1%;" placeholder="Confirme a nova senha."><br><br>
                     <input class="popupbt" value="Alterar" style="background-color: red; padding: 2% 0 2% 0; border-radius: 5px;">
@@ -131,15 +197,22 @@
 
             // botão mostrar senha primeiro campo 
             function mostrarSenha1() {
-                var tipo1 = document.getElementById("show1 and show2");
+                var tipo1 = document.getElementById("show1");
                 if (tipo1.type == "password") {
                     tipo1.type = "text";
                 } else {
                     tipo1.type = "password";
                 }
+
+                var tipo2 = document.getElementById("show2");
+                if (tipo2.type == "password") {
+                    tipo2.type = "text";
+                } else {
+                    tipo2.type = "password";
+                }
+
             }
         </script>
-
         <!-- rodapé-->
         <div id="divisaorodape">&nbsp;</div>
 

@@ -23,13 +23,13 @@
     <!--menu lateral-->
     <div class="sidebar">
         <a class="active" href="administrador.php"><i class="fas fa-home"></i>&emsp;Home</a>
-        <a class="menuleft" href="#"><i class="fas fa-upload"></i>&emsp;Agenda</a>
-        <a class="menuleft" href="#" id="enviar"><i class="fas fa-download"></i>&emsp;Imagens</a> 
-        <a class="menuleft" href="#" id="enviar"><i class="fas fa-download"></i>&emsp;Vídeos</a> 
-        <a class="menuleft" href="#"><i class="fas fa-file-upload"></i>&emsp;FAQ</a>
+        <a class="menuleft" href="#"><i class="fas fa-calendar-alt"></i>&emsp;Agenda</a>
+        <a class="menuleft" href="#" id="enviar"><i class="far fa-file-image"></i>&emsp;Imagens</a> 
+        <a class="menuleft" href="#" id="enviar"><i class="fas fa-file-video"></i>&emsp;Vídeos</a> 
+        <a class="menuleft" href="#"><i class="fas fa-question-circle"></i>&emsp;FAQ</a>
         <a class="menuleft" href="#"><i class="fas fa-file-upload"></i>&emsp;Arquivos</a>
-        <a class="menuleft" href="./cadastrarUsuario.php" id="enviar"><i class="fas fa-file-upload"></i>&emsp;Cadastrar Usuário</a>
-        <a class="menuleft" href="#" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Usuários Cadastrados</a>
+        <a class="menuleft" href="./cadastrarUsuario.php" id="enviar"><i class="fas fa-user-plus"></i>&emsp;Cadastrar Usuário</a>
+        <a class="menuleft" href="#" id="trocarsenha"><i class="fas fa-user"></i>&emsp;Usuários Cadastrados</a>
         <a class="deslogar" href="./logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
     </div>
     <!--barra azul do inicio-->

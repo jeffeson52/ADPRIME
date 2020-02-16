@@ -4,15 +4,14 @@ $u = new Usuario;
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-BR" dir="ltr">
+<html>
 
 <head>
     <meta charset="utf-8">
+    <link rel="Stylesheet" type="text/css" href="../css/login.css"
     <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="Stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"></script>
     <link rel="Stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-    <link rel="Stylesheet" href="../css/login.css">
     <title>Tela de Login</title>
 </head>
 
@@ -35,7 +34,7 @@ $u = new Usuario;
             <p>Senha</p>
             <a class="popupbt"><i class="fas fa-lock"></i></a>&nbsp;&nbsp;<input type="password" id="senha" name="senha" placeholder="Insira sua senha" maxlength="15" />
 
-            <button id="mostrarsenha" type="button" onclick="mostrarSenha()" style="position: absolute;font-size:1.3em;"><i class="far fa-eye"></i></button>
+            <button id="mostrarsenha1" type="button" onclick="mostrarSenha()"><i class="far fa-eye"></i></button>
 
 
             <input type="submit" id="enviar" value="Login"><br>
