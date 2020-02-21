@@ -1,11 +1,3 @@
-<?php
-    session_start();
-    if(!isset($_SESSION['id_usuario'])){
-        header("location: ../tela_login/login.php");
-        exit;
-    }
-?>
-
 
 <!DOCTYPE html>
 <html>
@@ -37,17 +29,50 @@
     <div class="barup">&nbsp;</div>
     <!-- nome da página barra cinza-->
     <div class="nomepage">
-      <h4>Ultimas Notícias</h4><br>
-      
+      <h4>Arquivos Enviados</h4><br>
+      <h5>Lista de todos os arquivos que você enviou.</h5>
     </div>
     <div id="divisaorodape">&nbsp;</div>
 
 
     <!-- conteúdo da página-->
+    <section class="container grid grid-template-columns-3">
+      <div class="item subgrid">
+        <div>ID</div>
+        <div>NOME</div>
+        <div>AÇÃO</div>
+      </div>
+    </section>
     
+    <?php
+      include("./arquivos_upload/db.php");
 
+      $consulta = mysql_query("SELECT * FROM `arquivos` ORDER BY `arquivo_nome` ASC");
+        if ($resultado = mysql_fetch_array($consulta)){
+          do { 
+    ?>
+      <section class="container grid grid-template-columns-3">
+        <div class="item subgrid">
+          <div>ID</div>
+          <div>
 
+          <?php 
+            echo "<a href=\"" . $resultado["arquivo_local"] . $resultado["arquivo_nome"] . "\">" . $resultado["arquivo_nome"] . "</a><br />";
+          ?>
 
+        </div>
+          <div><a class="popupbt"><i class="far fa-eye"></i></a> <a class="popupbt"><i class="fas fa-download"></i></a> <a class="popupbt"><i class="fas fa-trash-alt"></i></a> </div>
+        </div>
+      </section>
+
+        <?php
+          }
+          while($resultado = mysql_fetch_array($consulta));
+          } 
+        ?>
+    
+      
+      <div class="final">&nbsp;</div>
 
     <!-- POP UP-->
     <!--pop up conteúdo enviar arquivos-->

@@ -1,11 +1,3 @@
-<?php
-    session_start();
-    if(!isset($_SESSION['id_usuario'])){
-        header("location: ../tela_login/login.php");
-        exit;
-    }
-?>
-
 
 <!DOCTYPE html>
 <html>
@@ -25,29 +17,65 @@
 <body>
   <!--menu lateral-->
   <div class="sidebar">
-    <a class="active" href="usuario.php"><i class="fas fa-home"></i>&emsp;Home</a>
-    <a class="menuleft" href="enviados.php"><i class="fas fa-upload"></i>&emsp;Arquivos Enviados</a>
-    <a class="menuleft" href="recebidos.html"><i class="fas fa-download"></i>&emsp;Arquivos Recebidos</a>
-    <a class="menuleft" id="enviar"><i class="fas fa-file-upload"></i>&emsp;Enviar Arquivos</a>
-    <a class="menuleft" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
-    <a class="deslogar" href="./logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
+  <a class="active" href="administrador.php"><i class="fas fa-home"></i>&emsp;Home</a>
+        <a class="menuleft" href="#"><i class="fas fa-calendar-alt"></i>&emsp;Agenda</a>
+        <a class="menuleft" href="#" id="enviar"><i class="far fa-file-image"></i>&emsp;Imagens</a> 
+        <a class="menuleft" href="#" id="enviar"><i class="fas fa-file-video"></i>&emsp;Vídeos</a> 
+        <a class="menuleft" href="#"><i class="fas fa-question-circle"></i>&emsp;FAQ</a>
+        <a class="menuleft" href="arquivos.php"><i class="fas fa-file-upload"></i>&emsp;Arquivos</a>
+        <a class="menuleft" href="./cadastrarUsuario.php" id="enviar"><i class="fas fa-user-plus"></i>&emsp;Cadastrar Usuário</a>
+        <a class="menuleft" href="./listausuarios.html" id="trocarsenha"><i class="fas fa-user"></i>&emsp;Usuários Cadastrados</a>
+        <a class="deslogar" href="./logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
   </div>
   <!--barra azul do inicio-->
   <div class="content">
     <div class="barup">&nbsp;</div>
     <!-- nome da página barra cinza-->
     <div class="nomepage">
-      <h4>Ultimas Notícias</h4><br>
-      
+      <h4>Arquivos Recebidos</h4><br>
+      <h5>Lista de todos os arquivos que você recebeu.</h5>
     </div>
     <div id="divisaorodape">&nbsp;</div>
 
 
     <!-- conteúdo da página-->
+    <section class="container grid grid-template-columns-3">
+      <div class="item subgrid">
+        <div>ID</div>
+        <div>NOME</div>
+        <div>AÇÃO</div>
+      </div>
+    </section>
     
+    <?php
+      include("./arquivos_upload/db.php");
 
+      $consulta = mysql_query("SELECT * FROM `arquivos` ORDER BY `arquivo_nome` ASC");
+        if ($resultado = mysql_fetch_array($consulta)){
+          do { 
+    ?>
+      <section class="container grid grid-template-columns-3">
+        <div class="item subgrid">
+          <div>ID</div>
+          <div>
 
+          <?php 
+            echo "<a href=\"" . $resultado["arquivo_local"] . $resultado["arquivo_nome"] . "\">" . $resultado["arquivo_nome"] . "</a><br />";
+          ?>
 
+        </div>
+          <div><a class="popupbt"><i class="far fa-eye"></i></a> <a class="popupbt"><i class="fas fa-download"></i></a> <a class="popupbt"><i class="fas fa-trash-alt"></i></a> </div>
+        </div>
+      </section>
+
+        <?php
+          }
+          while($resultado = mysql_fetch_array($consulta));
+          } 
+        ?>
+    
+      
+      <div class="final">&nbsp;</div>
 
     <!-- POP UP-->
     <!--pop up conteúdo enviar arquivos-->
