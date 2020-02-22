@@ -6,7 +6,6 @@
     }
 ?>
 
-
 <!DOCTYPE html>
 <html>
 
@@ -16,7 +15,7 @@
   <meta name="keywords" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-  <link rel="stylesheet" href="../css/enviados.css">
+  <link rel="stylesheet" href="../css/usuario.css">
   <script src="../js/arquivo.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
@@ -36,19 +35,9 @@
   <div class="content">
     <div class="barup">&nbsp;</div>
     <!-- nome da página barra cinza-->
-    <div class="nomepage">
-      <h4>Ultimas Notícias</h4><br>
-      
-    </div>
     <div id="divisaorodape">&nbsp;</div>
-
-
     <!-- conteúdo da página-->
-    
-
-
-
-
+  
     <!-- POP UP-->
     <!--pop up conteúdo enviar arquivos-->
     <div id="modal-promocao" class="modal-container">
@@ -57,14 +46,32 @@
         <h3 class="subtitulo">Enviar Arquivo</h3>
         <div id="divisaorodape" style="opacity: .3;">&nbsp;</div>
         <form name="Form_Upload_Arquivo" action="./arquivos_upload/upload.php" method="post" enctype="multipart/form-data">
-          <p><b>Arquivo:</b>
-            <input type="file" name="Arquivo" /></br></br>
-            Somente (jpg, png, pdf, docx, doc, jpeg)</p>
-          <br>
-          <input class="popupbt" value="Enviar" type="submit" style="background-color: red; padding: 2% 2% 2% 2%; border-radius: 5px;">
+          <p><b>Arquivo:</b></p>
+            <input type="file" name="Arquivo" />
+            <p>Somente (jpg, png, pdf, docx, doc, jpeg)</p>
+          <input value="Enviar" type="submit" style="background-color: red; padding: 2% 2% 2% 2%; border-radius: 5px; border: none;">
         </form>
       </div>
     </div>
+
+    <!--pop up alterar senha-->
+    <div id="trocar-senha" class="modal-container">
+            <div class="modal">
+                <button class="fechar">X</button>
+                <h3 class="subtitulo">Alterar Senha</h3>
+                <div id="divisaorodape" style="opacity: .3;">&nbsp;</div>
+
+                <form>
+                    <label type="text">Nova Senha</label><br><br>
+                    <input type="password" id="show1" class="input" style="width: 80%; padding: 1.5% 1%;" placeholder="Informe a nova senha."><br><br>
+                    <button id="mostrarsenha2" type="button" onclick="mostrarSenha1()" style="position: absolute;font-size:1.3em;"><i class="far fa-eye"></i></button>
+                    <label type="text">Confirmar Senha</label><br><br>
+                    <input type="password" id="show2" class="input" style="width: 80%; padding: 1.5% 1%;" placeholder="Confirme a nova senha."><br><br>
+                    <input class="popupbt" value="Alterar" style="background-color: red; padding: 2% 0 2% 0; border-radius: 5px;">
+                </form>
+            </div>
+        </div>
+
     <!--JAVA DO POP UP ENVIAR ARQUIVO-->
     <script>
       function iniciaModal(modalID) {
@@ -82,7 +89,6 @@
       logo.addEventListener('click', () => iniciaModal('modal-promocao'));
     </script>
 
-
     <!-- rodapé-->
     <div id="divisaorodape">&nbsp;</div>
 
@@ -96,5 +102,4 @@
   </div>
 </body>
 <!-- final-->
-
 </html>

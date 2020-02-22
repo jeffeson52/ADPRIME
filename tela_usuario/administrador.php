@@ -79,7 +79,7 @@
                     <p><b>Arquivo:</b> Somente (jpg, png, pdf, docx, doc, jpeg)</p>
                     <a class="popupbt"><i class="fas fa-file-upload"></i>&emsp;Escolher Arquivo</a><br><br>
 
-                    <input class="popupbt" value="Enviar" style="background-color: red; padding: 2% 0 2% 0; border-radius: 5px;">
+                    <input class="popupbt" value="Enviar" style="background-color: red; padding: 2% 0 2% 0; border-radius: 5px; border:none;">
                 </form>
             </div>
         </div>

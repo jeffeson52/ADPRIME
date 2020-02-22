@@ -17,12 +17,12 @@ $u = new Usuario;
 
 <body>
     <div class="login">
-        <img src="../images/login.png" class="usuario" width="100" height="100" alt="">
+        <img src="../images/login.png" class="usuario" width="100" height="100" alt="" style="margin: 0 auto;">
         <div class="voltar">
             <a href="../index.html">
                 <h1><i class="fas fa-sign-out-alt"></i></h1>
             </a>
-            <p>voltar</p>
+            <p style="margin: 0 auto;">voltar</p>
         </div>
         <h1>Login</h1>
 

@@ -7,7 +7,7 @@ $u = new Usuario;
 <html lang="pt-BR" dir="ltr">
 
 <head>
-    <link rel="Stylesheet" type="text/css" href="../css/cadastrar.css">
+    <link rel="Stylesheet" type="text/css" href="../css/cadastrar.css"
     <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="Stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../js/arquivo.js"></script>
@@ -44,7 +44,7 @@ $u = new Usuario;
             <p>Confirma Senha</p>
             <a class="popupbt"><i class="fas fa-lock"></i></a>&nbsp;&nbsp;<input type="password" id="senha2" name="Csenha" placeholder="Confirme sua senha" maxlength="15" />
 
-            <select name="nivel">
+            <select name="nivel"  style="background-color:inherit; color:dodgerblue; border-color:#555555; font-weight:400;">
                 <option value="">Selecione</option>
                 <option value="2">Usuario Comum</option>
                 <option value="1">Administrador</option>
