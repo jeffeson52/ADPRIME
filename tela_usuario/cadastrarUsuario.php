@@ -4,23 +4,22 @@ $u = new Usuario;
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-BR" dir="ltr">
+<html lang="pt-BR">
 
 <head>
-    <link rel="Stylesheet" type="text/css" href="../css/cadastrar.css">
-    <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="Stylesheet">
+
+    <title>Cadastrar novo usuário</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/cadastrar.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../js/arquivo.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-    <meta charset="utf-8">
-    <title>Cadastrar novo usuário</title>
 </head>
 
 <body>
+    <div class="preencher" style="margin-top:100px;">&nbsp;</div>
     <div class="login">
-
-        <img src="../images/login.png" class="usuario" width="100" height="100" alt="">
         <div class="voltar">
             <a href="./administrador.php">
                 <h1><i class="fas fa-sign-out-alt"></i></h1>
@@ -44,7 +43,7 @@ $u = new Usuario;
             <p>Confirma Senha</p>
             <a class="popupbt"><i class="fas fa-lock"></i></a>&nbsp;&nbsp;<input type="password" id="senha2" name="Csenha" placeholder="Confirme sua senha" maxlength="15" />
 
-            <select name="nivel"  style="background-color:inherit; color:dodgerblue; border-color:#555555; font-weight:400;">
+            <select name="nivel"  style="background-color:inherit; color:dodgerblue; border-color:#555555; font-weight:400; margin-bottom: 20px;">
                 <option value="">Selecione</option>
                 <option value="2">Usuario Comum</option>
                 <option value="1">Administrador</option>
