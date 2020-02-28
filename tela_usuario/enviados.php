@@ -57,7 +57,7 @@
           <div>
 
           <?php 
-            echo "<a href=\"" . $resultado["arquivo_local"] . $resultado["arquivo_nome"] . "\">" . $resultado["arquivo_nome"] . "</a><br />";
+            echo "<a href=\"./arquivos_upload/" . $resultado["arquivo_local"] . $resultado["arquivo_nome"] . "\">" . $resultado["arquivo_nome"] . "</a><br />";
           ?>
 
         </div>
