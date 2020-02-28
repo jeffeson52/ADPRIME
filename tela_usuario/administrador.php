@@ -29,7 +29,7 @@
         <a class="menuleft" href="#"><i class="fas fa-question-circle"></i>&emsp;FAQ</a>
         <a class="menuleft" href="arquivos.php"><i class="fas fa-file-upload"></i>&emsp;Arquivos</a>
         <a class="menuleft" href="./cadastrarUsuario.php" id="enviar"><i class="fas fa-user-plus"></i>&emsp;Cadastrar Usuário</a>
-        <a class="menuleft" href="./listausuarios.html" id="trocarsenha"><i class="fas fa-user"></i>&emsp;Usuários Cadastrados</a>
+        <a class="menuleft" href="./listausuarios.php" id="trocarsenha"><i class="fas fa-user"></i>&emsp;Usuários Cadastrados</a>
         <a class="deslogar" href="./logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
     </div>
     <!--barra azul do inicio-->

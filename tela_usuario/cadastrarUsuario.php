@@ -7,7 +7,7 @@ $u = new Usuario;
 <html lang="pt-BR" dir="ltr">
 
 <head>
-    <link rel="Stylesheet" type="text/css" href="../css/cadastrar.css"
+    <link rel="Stylesheet" type="text/css" href="../css/cadastrar.css">
     <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="Stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../js/arquivo.js"></script>
