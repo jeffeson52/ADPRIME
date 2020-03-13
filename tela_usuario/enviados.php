@@ -1,3 +1,8 @@
+<?php 
+    session_start();
+    if(!isset($_SESSION['id_usuario'])){
+    }
+?>
 
 <!DOCTYPE html>
 <html>
@@ -19,9 +24,9 @@
   <div class="sidebar">
     <a class="active" href="usuario.php"><i class="fas fa-home"></i>&emsp;Home</a>
     <a class="menuleft" href="enviados.php"><i class="fas fa-upload"></i>&emsp;Arquivos Enviados</a>
-    <a class="menuleft" href="recebidos.html"><i class="fas fa-download"></i>&emsp;Arquivos Recebidos</a>
+    <a class="menuleft" href="recebidos.php"><i class="fas fa-download"></i>&emsp;Arquivos Recebidos</a>
     <a class="menuleft" id="enviar"><i class="fas fa-file-upload"></i>&emsp;Enviar Arquivos</a>
-    <a class="menuleft" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
+    <a class="menuleft" href="altera_senha.php" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
     <a class="deslogar" href="./logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
   </div>
   <!--barra azul do inicio-->
@@ -34,7 +39,6 @@
     </div>
     <div id="divisaorodape">&nbsp;</div>
 
-
     <!-- conteúdo da página-->
     <section class="container grid grid-template-columns-3">
       <div class="item subgrid">
@@ -46,22 +50,36 @@
     
     <?php
       include("./arquivos_upload/db.php");
+      $id_usuario = $_SESSION['id_usuario'];
 
-      $consulta = mysql_query("SELECT * FROM `arquivos` ORDER BY `arquivo_nome` ASC");
+      $consulta = mysql_query("SELECT arquivo_nome, arquivo_local, id_arquivo, fk_id_usuario FROM arquivos WHERE fk_id_usuario = '$id_usuario' ");
         if ($resultado = mysql_fetch_array($consulta)){
           do { 
     ?>
       <section class="container grid grid-template-columns-3">
         <div class="item subgrid">
-          <div>ID</div>
+          <div>
+          <?php
+            echo $resultado["id_arquivo"];
+          ?>
+          </div>
           <div>
 
           <?php 
-            echo "<a href=\"./arquivos_upload/" . $resultado["arquivo_local"] . $resultado["arquivo_nome"] . "\">" . $resultado["arquivo_nome"] . "</a><br />";
+            echo "<a href=\"./arquivos_upload/" . $resultado["arquivo_local"] . $resultado["arquivo_nome"] . "\" style='text-decoration:none; color: inherit'>" . $resultado["arquivo_nome"] . "</a><br />";
           ?>
 
         </div>
-          <div><a class="popupbt"><i class="far fa-eye"></i></a> <a class="popupbt"><i class="fas fa-download"></i></a> <a class="popupbt"><i class="fas fa-trash-alt"></i></a> </div>
+
+          <div>
+          <?php 
+            echo "<a class='popupbt' href=\"./arquivos_upload/" . $resultado["arquivo_local"] . $resultado["arquivo_nome"] . "\" style='text-decoration:none; color: inherit'><i class='far fa-eye' style='color:white;'></i></a>";
+          ?>
+           
+          <?php echo "<a href='./arquivos_upload/download.php?file=".$resultado['arquivo_local'] .$resultado['arquivo_nome'] . " ' "; ?><a class="popupbt"><i class="fas fa-download"></i></a> 
+          <?php echo "<a href='delete_arquivo_user.php?id=".$resultado['id_arquivo'] . " ' "; ?><a class="popupbt"><i class="fas fa-trash-alt">
+          
+          </i></a> </div>
         </div>
       </section>
 
@@ -70,12 +88,13 @@
           while($resultado = mysql_fetch_array($consulta));
           } 
         ?>
-    
-      
+
       <div class="final">&nbsp;</div>
+
 
     <!-- POP UP-->
     <!--pop up conteúdo enviar arquivos-->
+    
     <div id="modal-promocao" class="modal-container">
       <div class="modal">
         <button class="fechar">X</button>
@@ -86,10 +105,12 @@
             <input type="file" name="Arquivo" /></br></br>
             Somente (jpg, png, pdf, docx, doc, jpeg)</p>
           <br>
-          <input class="popupbt" value="Enviar" type="submit" style="background-color: red; padding: 2% 2% 2% 2%; border-radius: 5px;">
+          
+          <input class="popupbt" value="Enviar" type="submit" style="background-color: red; padding: 2% 2% 2% 2%; border-radius: 5px;" >
         </form>
       </div>
     </div>
+        
     <!--JAVA DO POP UP ENVIAR ARQUIVO-->
     <script>
       function iniciaModal(modalID) {

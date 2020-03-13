@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 
 <!DOCTYPE html>
 <html>
@@ -20,7 +21,7 @@
   <a class="active" href="administrador.php"><i class="fas fa-home"></i>&emsp;Home</a>
         <a class="menuleft" href="#"><i class="fas fa-calendar-alt"></i>&emsp;Agenda</a>
         <a class="menuleft" href="#" id="enviar"><i class="far fa-file-image"></i>&emsp;Imagens</a> 
-        <a class="menuleft" href="#" id="enviar"><i class="fas fa-file-video"></i>&emsp;Vídeos</a> 
+        <a class="menuleft" href="#" id="enviar"><i class="fas fa-file-video"></i>&emsp;Vídeos</a>
         <a class="menuleft" href="#"><i class="fas fa-question-circle"></i>&emsp;FAQ</a>
         <a class="menuleft" href="arquivos.php"><i class="fas fa-file-upload"></i>&emsp;Arquivos</a>
         <a class="menuleft" href="./cadastrarUsuario.php" id="enviar"><i class="fas fa-user-plus"></i>&emsp;Cadastrar Usuário</a>
@@ -49,32 +50,46 @@
     
     <?php
       include("./arquivos_upload/db.php");
+      
 
-      $consulta = mysql_query("SELECT * FROM `arquivos` ORDER BY `arquivo_nome` ASC");
+      $consulta = mysql_query("SELECT arquivos.arquivo_nome, arquivos.arquivo_local, id_arquivo, fk_id_usuario, usuarios.id_usuario, usuarios.nome FROM arquivos, usuarios GROUP BY id_usuario");
         if ($resultado = mysql_fetch_array($consulta)){
           do { 
     ?>
+
       <section class="container grid grid-template-columns-3">
         <div class="item subgrid">
-          <div>ID</div>
+          <div>
+          <?php 
+          echo "<a>" . $resultado["id_usuario"] . "</a><br />";
+        ?>
+          </div>
           <div>
 
           <?php 
-            echo "<a href=\"./arquivos_upload/" . $resultado["arquivo_local"] . $resultado["arquivo_nome"] . "\">" . $resultado["arquivo_nome"] . "</a><br />";
+            echo $resultado['nome'];
           ?>
 
         </div>
-          <div><a class="popupbt"><i class="far fa-eye"></i></a> <a class="popupbt"><i class="fas fa-download"></i></a> <a class="popupbt"><i class="fas fa-trash-alt"></i></a> </div>
+          <div>
+          <?php echo "<a href='listar_arquivos.php?id=".$resultado['id_usuario'] . " ' "; ?><a class="popupbt"><i class="far fa-eye"></i></a>
+
+          <?php 
+            $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+            $_SESSION['fk_id_usuario'] = $id;
+          ?>
+
+          <a class="popupbt"><i class="fas fa-download"></i></a> 
+          </div>
         </div>
       </section>
 
         <?php
           }
           while($resultado = mysql_fetch_array($consulta));
-          } 
+          }
         ?>
-    
-      
+
       <div class="final">&nbsp;</div>
 
     <!-- POP UP-->
@@ -110,7 +125,6 @@
       logo.addEventListener('click', () => iniciaModal('modal-promocao'));
     </script>
 
-
     <!-- rodapé-->
     <div id="divisaorodape">&nbsp;</div>
 
@@ -122,7 +136,7 @@
       <p style="font-size: 0.7em; margin-bottom: -2%;"> &#174 2020 Copyright Todos os direitos reservados AD Prime</p>
     </div>
   </div>
+
 </body>
 <!-- final-->
-
 </html>
