@@ -7,7 +7,7 @@
   <meta name="keywords" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-  <link rel="stylesheet" href="../css/recebidos.css">
+  <link rel="stylesheet" href="../css/enviados.css">
   <script src="../js/arquivo.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
@@ -16,12 +16,15 @@
 <body>
   <!--menu lateral-->
   <div class="sidebar">
-    <a class="active" href="usuario.php"><i class="fas fa-home"></i>&emsp;Home</a>
-    <a class="menuleft" href="enviados.php"><i class="fas fa-upload"></i>&emsp;Arquivos Enviados</a>
-    <a class="menuleft" href="recebidos.html"><i class="fas fa-download"></i>&emsp;Arquivos Recebidos</a>
-    <a class="menuleft" id="enviar"><i class="fas fa-file-upload"></i>&emsp;Enviar Arquivos</a>
-    <a class="menuleft" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
-    <a class="deslogar" href="./logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
+  <a class="active" href="administrador.php"><i class="fas fa-home"></i>&emsp;Home</a>
+        <a class="menuleft" href="#"><i class="fas fa-calendar-alt"></i>&emsp;Agenda</a>
+        <a class="menuleft" href="#" id="enviar"><i class="far fa-file-image"></i>&emsp;Imagens</a> 
+        <a class="menuleft" href="#" id="enviar"><i class="fas fa-file-video"></i>&emsp;Vídeos</a>
+        <a class="menuleft" href="#"><i class="fas fa-question-circle"></i>&emsp;FAQ</a>
+        <a class="menuleft" href="arquivos.php"><i class="fas fa-file-upload"></i>&emsp;Arquivos</a>
+        <a class="menuleft" href="./cadastrarUsuario.php" id="enviar"><i class="fas fa-user-plus"></i>&emsp;Cadastrar Usuário</a>
+        <a class="menuleft" href="./listausuarios.php" id="trocarsenha"><i class="fas fa-user"></i>&emsp;Usuários Cadastrados</a>
+        <a class="deslogar" href="./logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
   </div>
   <!--barra azul do inicio-->
   <div class="content">
@@ -42,23 +45,49 @@
         <div>AÇÃO</div>
       </div>
     </section>
-    <section class="container grid grid-template-columns-3">
-      <div class="item subgrid">
-        <div>ID</div>
-        <div>NOME</div>
-        <div><a class="popupbt"><i class="far fa-eye"></i></a> <a class="popupbt"><i class="fas fa-download"></i></a> <a
-            class="popupbt"><i class="fas fa-trash-alt"></i></a> </div>
-      </div>
-    </section>
-    <section class="container grid grid-template-columns-3">
-      <div class="item subgrid">
-        <div>ID</div>
-        <div>NOME</div>
-        <div><a class="popupbt"><i class="far fa-eye"></i></a> <a class="popupbt"><i class="fas fa-download"></i></a> <a
-            class="popupbt"><i class="fas fa-trash-alt"></i></a> </div>
-      </div>
-    </section>
-    <div class="final">&nbsp;</div>
+    
+    <?php
+      include("./arquivos_upload/db.php");
+      $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+      
+
+      $consulta = mysql_query("SELECT arquivo_nome, arquivo_local, id_arquivo, fk_id_usuario FROM arquivos WHERE fk_id_usuario = '$id' ");
+        if ($resultado = mysql_fetch_array($consulta)){
+          do { 
+    ?>
+      <section class="container grid grid-template-columns-3">
+        <div class="item subgrid">
+          <div>
+          <?php
+            echo $resultado["id_arquivo"];
+          ?>
+          </div>
+          <div>
+
+          <?php 
+            echo "<a href=\"./arquivos_upload/" . $resultado["arquivo_local"] . $resultado["arquivo_nome"] . "\" style='text-decoration:none; color: inherit'>" . $resultado["arquivo_nome"] . "</a><br />";
+          ?>
+
+        </div>
+
+          <div>
+          <?php 
+            echo "<a class='popupbt' href=\"./arquivos_upload/" . $resultado["arquivo_local"] . $resultado["arquivo_nome"] . "\" style='text-decoration:none; color: inherit'><i class='far fa-eye' style='color:white;'></i></a>";
+          ?>
+           
+          <?php echo "<a href='./arquivos_upload/download.php?file=".$resultado['arquivo_local'] .$resultado['arquivo_nome'] . " ' "; ?><a class="popupbt"><i class="fas fa-download"></i></a> 
+          <?php echo "<a href='delete_arquivo_adm.php?apagar=" .$resultado['id_arquivo'] . " ' "; ?><a class="popupbt"><i class="fas fa-trash-alt">
+          </i></a> </div>
+        </div>
+      </section>
+
+        <?php
+          }
+          while($resultado = mysql_fetch_array($consulta));
+          } 
+        ?>
+
+      <div class="final">&nbsp;</div>
 
     <!-- POP UP-->
     <!--pop up conteúdo enviar arquivos-->
@@ -105,6 +134,7 @@
       <p style="font-size: 0.7em; margin-bottom: -2%;"> &#174 2020 Copyright Todos os direitos reservados AD Prime</p>
     </div>
   </div>
+
 </body>
 <!-- final-->
 

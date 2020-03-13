@@ -62,7 +62,7 @@ $u = new Usuario;
 
                 //verifica se está tudo preenchido
                 if (!empty($nome) && !empty($telefone) && !empty($email) && !empty($senha) && !empty($Csenha) && !empty($nivel)) {
-                    $u->conectar("adprime", "localhost", "root", "");
+                    $u->conectar("adprime2", "localhost", "root", "");
                     if ($u->msgErro == "") {
                         if ($senha == $Csenha) {
                             if ($u->cadastrar($nome, $telefone, $email, $senha, $nivel)) {

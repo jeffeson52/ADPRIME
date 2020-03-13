@@ -1,3 +1,9 @@
+<?php 
+    session_start();
+    if(!isset($_SESSION['id_usuario'])){
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -7,7 +13,7 @@
   <meta name="keywords" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-  <link rel="stylesheet" href="../css/listausuarios.css">
+  <link rel="stylesheet" href="../css/recebidos.css">
   <script src="../js/arquivo.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
@@ -16,23 +22,20 @@
 <body>
   <!--menu lateral-->
   <div class="sidebar">
-    <a class="active" href="administrador.php"><i class="fas fa-home"></i>&emsp;Home</a>
-    <a class="menuleft" href="#"><i class="fas fa-calendar-alt"></i>&emsp;Agenda</a>
-    <a class="menuleft" href="#" id="enviar"><i class="far fa-file-image"></i>&emsp;Imagens</a> 
-    <a class="menuleft" href="#" id="enviar"><i class="fas fa-file-video"></i>&emsp;Vídeos</a> 
-    <a class="menuleft" href="#"><i class="fas fa-question-circle"></i>&emsp;FAQ</a>
-    <a class="menuleft" href="arquivos.php"><i class="fas fa-file-upload"></i>&emsp;Arquivos</a>
-    <a class="menuleft" href="./cadastrarUsuario.php" id="enviar"><i class="fas fa-user-plus"></i>&emsp;Cadastrar Usuário</a>
-    <a class="menuleft" href="./listausuarios.php" id="trocarsenha"><i class="fas fa-user"></i>&emsp;Usuários Cadastrados</a>
+    <a class="active" href="usuario.php"><i class="fas fa-home"></i>&emsp;Home</a>
+    <a class="menuleft" href="enviados.php"><i class="fas fa-upload"></i>&emsp;Arquivos Enviados</a>
+    <a class="menuleft" href="recebidos.php"><i class="fas fa-download"></i>&emsp;Arquivos Recebidos</a>
+    <a class="menuleft" id="enviar"><i class="fas fa-file-upload"></i>&emsp;Enviar Arquivos</a>
+    <a class="menuleft" href="altera_senha.php" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
     <a class="deslogar" href="./logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
-</div>
+  </div>
   <!--barra azul do inicio-->
   <div class="content">
     <div class="barup">&nbsp;</div>
     <!-- nome da página barra cinza-->
     <div class="nomepage">
-      <h4>Lista Usuários</h4><br>
-      <h5>Lista de todos os usuários.</h5>
+      <h4>Arquivos Recebidos</h4><br>
+      <h5>Lista de todos os arquivos que você recebeu.</h5>
     </div>
     <div id="divisaorodape">&nbsp;</div>
 
@@ -45,57 +48,39 @@
         <div>AÇÃO</div>
       </div>
     </section>
-
-    <?php
-      include("./arquivos_upload/db.php");
-      
-      $consulta = mysql_query("SELECT * FROM `usuarios` ORDER BY `id_usuario`, `nome`, `email` ASC ");
-      if ($resultado = mysql_fetch_array($consulta)){
-          do {
-            ?>
-            <section class="container grid grid-template-columns-3">
-              <div class="item subgrid">
-                <div>
-                  <?php
-                    echo $resultado["id_usuario"];
-                  ?>
-                </div>
-
-                <div>
-                  <?php
-                  echo $resultado["nome"];
-                  ?>
-                </div>
-
-        <div><?php echo "<a href='delete_usuario.php?id=".$resultado['id_usuario'] . " ' "; ?><a class="popupbt"><i class="fas fa-trash-alt"></i></a></div>
-
+    <section class="container grid grid-template-columns-3">
+      <div class="item subgrid">
+        <div>ID</div>
+        <div>NOME</div>
+        <div><a class="popupbt"><i class="far fa-eye"></i></a> <a class="popupbt"><i class="fas fa-download"></i></a> <a
+            class="popupbt"><i class="fas fa-trash-alt"></i></a> </div>
       </div>
     </section>
-
-        <?php
-          }
-          while($resultado = mysql_fetch_array($consulta));
-          }
-        ?>
+    <section class="container grid grid-template-columns-3">
+      <div class="item subgrid">
+        <div>ID</div>
+        <div>NOME</div>
+        <div><a class="popupbt"><i class="far fa-eye"></i></a> <a class="popupbt"><i class="fas fa-download"></i></a> <a
+            class="popupbt"><i class="fas fa-trash-alt"></i></a> </div>
+      </div>
+    </section>
     <div class="final">&nbsp;</div>
 
     <!-- POP UP-->
     <!--pop up conteúdo enviar arquivos-->
+    
     <div id="modal-promocao" class="modal-container">
       <div class="modal">
         <button class="fechar">X</button>
         <h3 class="subtitulo">Enviar Arquivo</h3>
         <div id="divisaorodape" style="opacity: .3;">&nbsp;</div>
-
-        <form>
-          <label type="text">Nome do Arquivo</label><br><br>
-          <input type="text" class="input" style="width: 80%; padding: 1.5% 1%;"
-            placeholder="Informe o nome do arquivo."><br><br>
+        <form name="Form_Upload_Arquivo" action="./arquivos_upload/upload.php" method="post" enctype="multipart/form-data">
           <p><b>Arquivo:</b>
+            <input type="file" name="Arquivo" /></br></br>
             Somente (jpg, png, pdf, docx, doc, jpeg)</p>
-          <a class="popupbt"><i class="fas fa-file-upload"></i>&emsp;Escolher Arquivo</a><br><br>
-
-          <input class="popupbt" value="Enviar" style="background-color: red; padding: 2% 0 2% 0; border-radius: 5px;">
+          <br>
+          
+          <input class="popupbt" value="Enviar" type="submit" style="background-color: red; padding: 2% 2% 2% 2%; border-radius: 5px;" >
         </form>
       </div>
     </div>
