@@ -14,7 +14,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
   <link rel="stylesheet" href="../css/recebidos.css">
-  <script src="../js/arquivo.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 </head>
@@ -22,7 +21,7 @@
 <body>
   <!--menu lateral-->
   <div class="sidebar">
-    <a class="active" href="usuario.php"><i class="fas fa-home"></i>&emsp;Home</a>
+    <a class="active"   href="usuario.php"><i class="fas fa-home"></i>&emsp;Home</a>
     <a class="menuleft" href="enviados.php"><i class="fas fa-upload"></i>&emsp;Arquivos Enviados</a>
     <a class="menuleft" href="recebidos.php"><i class="fas fa-download"></i>&emsp;Arquivos Recebidos</a>
     <a class="menuleft" id="enviar"><i class="fas fa-file-upload"></i>&emsp;Enviar Arquivos</a>
@@ -38,7 +37,6 @@
       <h5>Lista de todos os arquivos que você recebeu.</h5>
     </div>
     <div id="divisaorodape">&nbsp;</div>
-
 
     <!-- conteúdo da página-->
     <section class="container grid grid-template-columns-3">

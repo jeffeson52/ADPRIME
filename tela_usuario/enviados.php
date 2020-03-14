@@ -14,7 +14,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
   <link rel="stylesheet" href="../css/enviados.css">
-  <script src="../js/arquivo.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 </head>
@@ -52,9 +51,9 @@
       include("./arquivos_upload/db.php");
       $id_usuario = $_SESSION['id_usuario'];
 
-      $consulta = mysql_query("SELECT arquivo_nome, arquivo_local, id_arquivo, fk_id_usuario FROM arquivos WHERE fk_id_usuario = '$id_usuario' ");
-        if ($resultado = mysql_fetch_array($consulta)){
-          do { 
+        $consulta = mysql_query("SELECT arquivo_nome, arquivo_local, id_arquivo, fk_id_usuario FROM arquivos WHERE fk_id_usuario = '$id_usuario' ");
+          if ($resultado = mysql_fetch_array($consulta)){
+            do { 
     ?>
       <section class="container grid grid-template-columns-3">
         <div class="item subgrid">
@@ -110,7 +109,6 @@
         </form>
       </div>
     </div>
-        
     <!--JAVA DO POP UP ENVIAR ARQUIVO-->
     <script>
       function iniciaModal(modalID) {
@@ -127,7 +125,6 @@
       const logo = document.querySelector('#enviar');
       logo.addEventListener('click', () => iniciaModal('modal-promocao'));
     </script>
-
 
     <!-- rodapé-->
     <div id="divisaorodape">&nbsp;</div>
