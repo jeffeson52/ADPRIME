@@ -759,7 +759,9 @@ input[type="email"] {
     color: inherit;
 }
 
-
+#copyright p {
+    font-size: .7em;
+}
 /*botão voltar ao topo*/
 
 .voltar-ao-topo {

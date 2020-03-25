@@ -31,15 +31,6 @@ textarea {
     line-height: 1.65em;
 }
 
-strong,
-b {
-    font-weight: 700;
-}
-
-em,
-i {
-    font-style: italic;
-}
 
 p,
 ul,
@@ -110,6 +101,7 @@ header.major {
 }
 
 header.major h2 {
+    text-align: center;
     font-size: 2.6em;
     font-weight: 700;
 }
@@ -120,15 +112,6 @@ header.major .byline {
     letter-spacing: 1px;
     font-size: 1.4em;
 }
-
-footer> :last-child {
-    margin-bottom: 0;
-}
-
-footer.major {
-    padding-top: 3em;
-}
-
 
 /* Imagens */
 
@@ -387,10 +370,16 @@ input[type="button"].small,
     background: #f2f2f2;
 }
 
+.wrapper.style2 p, h2{
+    text-align:  justify;
+}
 .wrapper.style2 .major {
     text-align: left !important;
 }
 
+.row h2 {
+    font-weight: 400;
+}
 .wrapper.style2 .major h2 {
     display: block;
     margin-bottom: 0.70em;
@@ -418,11 +407,23 @@ input[type="button"].small,
     font-weight: 400;
 }
 
+.wrapper.style2 .button {
+    min-width: 95%;
+    max-width: 95%;
+    font-size: 1.3em;
+}
+
 .wrapper.style4 {
     background: white;
 }
 
-
+.wrapper.style4 h2{
+   text-align: center;
+}
+.wrapper.style4 p{
+    text-align: justify;
+ }
+ 
 /* cor equipe*/
 
 .wrapper.style5 {
@@ -664,17 +665,24 @@ input[type="button"].small,
 
 /* Formulário */
 
-form {
-    width: 45%;
-    margin-left: 27.5%;
-    margin-right: 27.5%;
+#formContact {
+    width: 50%;
+    margin: 0 auto;
     margin-bottom: 2%;
-    padding-left: 1%;
-    padding-right: 1%;
+    padding: 0 20px;
     border: 1px solid dodgerblue;
-    border-radius: 10px;
+    border-radius: 5px;
 }
-
+@media  screen and (max-width: 800px){
+    #formContact{
+        width: 80%;
+    }
+}
+#empresa {
+    background-color:#222222;
+    color:white; 
+    border-color:#555555;
+}
 .textform {
     color: dodgerblue;
     float: left;
@@ -686,22 +694,26 @@ form {
 
 input[type="text"],
 input[type="password"],
-input[type="email"],
-textarea {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    -o-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
+input[type="email"]{    
     background: none;
+    border: none;
     border: solid 1px dodgerblue;
-    color: inherit;
-    display: block;
     outline: 0;
-    padding: 0.75em;
+    color: #fff;
+    padding: 1em;
     text-decoration: none;
     width: 100%;
-    border-radius: 10px;
+}
+
+textarea {
+    background: none;
+    min-height: 150px;
+    border: solid 1px dodgerblue;
+    outline: 0;
+    color: #fff;
+    padding: 1em;
+    text-decoration: none;
+    width: 100%;
 }
 
 input[type="text"]:focus,
@@ -717,33 +729,11 @@ input[type="email"] {
     line-height: 1em;
 }
 
-::-webkit-input-placeholder {
+input::placeholder {
     color: inherit;
     opacity: 0.5;
-    position: relative;
     top: 3px;
 }
-
-:-moz-placeholder {
-    color: inherit;
-    opacity: 0.5;
-}
-
-::-moz-placeholder {
-    color: dodgerblue;
-    opacity: 0.5;
-}
-
-:-ms-input-placeholder {
-    color: inherit;
-    opacity: 0.5;
-}
-
-.formerize-placeholder {
-    color: rgba(85, 85, 85, 0.5) !important;
-}
-
-
 /* Copyright */
 
 #copyright {
@@ -759,6 +749,10 @@ input[type="email"] {
 #copyright a {
     text-decoration: none;
     color: inherit;
+}
+
+#copyright p {
+    font-size: .7em;
 }
 
 
@@ -817,7 +811,6 @@ input[type="email"] {
 }
 
 .buttoninf:hover {
-    margin-bottom: 2%;
     background-color: dodgerblue;
 }
 
@@ -843,6 +836,9 @@ input[type="email"] {
     margin-right: -50%;
 }
 
+.logoinf h2{
+    text-align: center;
+}
 
 /*divisão rodapé*/
 

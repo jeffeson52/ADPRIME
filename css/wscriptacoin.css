@@ -686,18 +686,10 @@ form {
     margin-bottom: 3 em;
 }
 
-input[type="text"],
-input[type="password"],
-input[type="email"],
-textarea {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    -o-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
+input, textarea {
     background: none;
     border: solid 1px dodgerblue;
-    color: inherit;
+    color: #fff;
     display: block;
     outline: 0;
     padding: 0.75em;
@@ -762,7 +754,9 @@ input[type="email"] {
     color: inherit;
 }
 
-
+#copyright p {
+    font-size: .7em;
+}
 /*botão voltar ao topo*/
 
 .voltar-ao-topo {
