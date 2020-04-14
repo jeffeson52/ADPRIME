@@ -44,7 +44,7 @@ $u = new Usuario;
                 $senha = addslashes($_POST['senha']);
 
                 if (!empty($email) && !empty($senha)) {
-                    $u->conectar("adprime2", "localhost", "root", "");
+                    $u->conectar("adprime3", "localhost", "root", "");
                     if ($u->msgErro == "") {
                         if ($u->logar($email, $senha)) {
                             
