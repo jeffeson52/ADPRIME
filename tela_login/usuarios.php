@@ -84,8 +84,6 @@
                 $sql->bindValue(":e", $empresa);
                 $sql->bindValue(":m", $mensagem);
                 $sql->execute();
-
-
                 
                 return true;
                 }

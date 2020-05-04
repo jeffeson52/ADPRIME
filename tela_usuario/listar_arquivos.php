@@ -22,8 +22,9 @@
         <a class="menuleft" href="#" id="enviar"><i class="fas fa-file-video"></i>&emsp;Vídeos</a>
         <a class="menuleft" href="#"><i class="fas fa-question-circle"></i>&emsp;FAQ</a>
         <a class="menuleft" href="arquivos.php"><i class="fas fa-file-upload"></i>&emsp;Arquivos</a>
+        <a class="menuleft" href="envia_arquivo_adm.php" id=""><i class="fas fa-file-upload"></i>&emsp;Enviar Arquivos</a>
         <a class="menuleft" href="./ativar_usuarios.php" id="enviar"><i class="fas fa-user-plus"></i>&emsp;Ativar Usuários</a>
-        <a class="menuleft" href="./listausuarios.php" id="trocarsenha"><i class="fas fa-user"></i>&emsp;Usuários Cadastrados</a>
+        <a class="menuleft" href="./listausuarios.php" id="trocarsenha"><i class="fas fa-users"></i>&emsp;Usuários Cadastrados</a>
         <a class="menuleft" href="altera_senha_adm.php" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
         <a class="deslogar" href="./logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
   </div>
@@ -52,7 +53,7 @@
       $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
       
 
-      $consulta = mysql_query("SELECT arquivo_nome, arquivo_local, id_arquivo, fk_id_usuario FROM arquivos WHERE fk_id_usuario = '$id' ");
+      $consulta = mysql_query("SELECT arquivo_nome, arquivo_local, id_arquivo, fk_id_usuario FROM arquivos WHERE fk_id_usuario = '$id' AND fk_id_adm = '0' ");
         if ($resultado = mysql_fetch_array($consulta)){
           do { 
     ?>

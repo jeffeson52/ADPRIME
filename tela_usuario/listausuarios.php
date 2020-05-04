@@ -29,6 +29,7 @@
     <a class="menuleft" href="#" id="enviar"><i class="fas fa-file-video"></i>&emsp;Vídeos</a> 
     <a class="menuleft" href="#"><i class="fas fa-question-circle"></i>&emsp;FAQ</a>
     <a class="menuleft" href="arquivos.php"><i class="fas fa-file-upload"></i>&emsp;Arquivos</a>
+    <a class="menuleft" href="envia_arquivo_adm.php" id=""><i class="fas fa-file-upload"></i>&emsp;Enviar Arquivos</a>
     <a class="menuleft" href="./ativar_usuarios.php" id="enviar"><i class="fas fa-user-plus"></i>&emsp;Ativar Usuários</a>
     <a class="menuleft" href="./listausuarios.php" id="trocarsenha"><i class="fas fa-users"></i>&emsp;Usuários Cadastrados</a>
     <a class="menuleft" href="altera_senha_adm.php" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
@@ -85,6 +86,7 @@
         <div>
         <?php echo "<a href='altera_nivel_adm.php?id=".$resultado['id_usuario'] . " ' "; ?><a class="popupbt">ADM</a>
         <?php echo "<a href='altera_nivel_user.php?id=".$resultado['id_usuario'] . " ' "; ?><a class="popupbt">USER</a>
+        <?php echo "<a href='../tela_atualiza_dados/adm_atualiza_dados_user.php?id=".$resultado['id_usuario'] . " ' "; ?><a class="popupbt"><i class="fas fa-edit"></i></a>
         <?php echo "<a href='delete_usuario.php?id=".$resultado['id_usuario'] . " ' "; ?><a class="popupbt"><i class="fas fa-trash-alt"></i></a>
         </div>
 

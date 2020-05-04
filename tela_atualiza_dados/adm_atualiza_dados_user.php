@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['id_usuario'])){
+        header("location: ../tela_login/login.php");
+        exit;
+    }
+    
+?>
 <!DOCTYPE html>
 <html>
 
@@ -16,17 +24,17 @@
 <body>
   <!--menu lateral-->
   <div class="sidebar">
-  <a class="active" href="administrador.php"><i class="fas fa-home"></i>&emsp;Home</a>
+  <a class="active" href="../tela_usuario/administrador.php"><i class="fas fa-home"></i>&emsp;Home</a>
         <a class="menuleft" href="#"><i class="fas fa-calendar-alt"></i>&emsp;Agenda</a>
         <a class="menuleft" href="#" id="enviar"><i class="far fa-file-image"></i>&emsp;Imagens</a> 
         <a class="menuleft" href="#" id="enviar"><i class="fas fa-file-video"></i>&emsp;Vídeos</a> 
         <a class="menuleft" href="#"><i class="fas fa-question-circle"></i>&emsp;FAQ</a>
-        <a class="menuleft" href="arquivos.php"><i class="fas fa-file-upload"></i>&emsp;Arquivos</a>
-        <a class="menuleft" href="envia_arquivo_adm.php" id=""><i class="fas fa-file-upload"></i>&emsp;Enviar Arquivos</a>
-        <a class="menuleft" href="./ativar_usuarios.php" id="enviar"><i class="fas fa-user-plus"></i>&emsp;Ativar Usuários</a>
-        <a class="menuleft" href="./listausuarios.php" id="trocarsenha"><i class="fas fa-users"></i>&emsp;Usuários Cadastrados</a>
-        <a class="menuleft" href="altera_senha_adm.php" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
-        <a class="deslogar" href="./logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
+        <a class="menuleft" href="../tela_usuario/arquivos.php"><i class="fas fa-file-upload"></i>&emsp;Arquivos</a>
+        <a class="menuleft" href="../tela_usuario/envia_arquivo_adm.php" id=""><i class="fas fa-file-upload"></i>&emsp;Enviar Arquivos</a>
+        <a class="menuleft" href="../tela_usuario/ativar_usuarios.php" id="enviar"><i class="fas fa-user-plus"></i>&emsp;Ativar Usuários</a>
+        <a class="menuleft" href="../tela_usuario/listausuarios.php" id="trocarsenha"><i class="fas fa-users"></i>&emsp;Usuários Cadastrados</a>
+        <a class="menuleft" href="../tela_usuario/altera_senha_adm.php" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
+        <a class="deslogar" href="../tela_usuario/logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
 
   </div>
   <!--barra azul do inicio-->
@@ -42,13 +50,31 @@
 
     <section class="container grid grid-template-columns-3">
       <div >
+
       <?php
-      include("./arquivos_upload/db.php");
+      include("../tela_usuario/arquivos_upload/db.php");
       $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+      
+      $consulta = mysql_query("SELECT * FROM usuarios WHERE id_usuario = '$id' ");
+      if ($resultado = mysql_fetch_array($consulta)){
+          do {
+              $_SESSION['id_user_update'] = $resultado['id_usuario'];
+          }
+          while($resultado = mysql_fetch_array($consulta));
+        }
+        ?>
+
+
+
+      <?php
+      include("../tela_usuario/arquivos_upload/db.php");
+      $id = $_SESSION['id_user_update'];      
       
       $consulta = mysql_query("SELECT * FROM usuarios, telefone WHERE id_usuario = '$id' and fk_id_usuario = '$id' ");
       if ($resultado = mysql_fetch_array($consulta)){
           do {
+              
+            
             ?>
                 <table border='3' style="width:100%">
                     <tr>
@@ -56,9 +82,9 @@
                     </tr>
                     <tr>
                         <td>
+                            
                             <b>Nome: </b><?php echo $resultado["nome"]; ?> <br/>
                             <b>Email: </b><?php echo $resultado["email"]; ?> <br/>
-                            
                             <b>RG: </b><?php echo $resultado["rg"]; ?> <br/>
                             <b>CPF: </b><?php echo $resultado["cpf"]; ?> <br/>
                             <b>Data de Aniversário: </b><?php echo $resultado["dataAniversario"]; ?> <br/>
@@ -67,16 +93,22 @@
                         </td>
                     </tr>
                 </table><br/><br/>
+
         <?php
           }
           while($resultado = mysql_fetch_array($consulta));
-          }
+        }
         ?>
 
+        <div class="bt-container">
+  <a href="adm_altera_dados_pessoais.php" style="background-color: #1E90FF; padding: 1% 2% 1% 2%; border-radius: 5px;" class="popupbt">Alterar Dados</a>
+  </div><br />
+
+  <div id="divisaorodape">&nbsp;</div><br />
 
 <?php
-      include("./arquivos_upload/db.php");
-      $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+      include("../tela_usuario/arquivos_upload/db.php");
+      $id = $_SESSION['id_user_update']; 
       
       $consulta = mysql_query("SELECT * FROM endereco WHERE fk_id_usuario = '$id' ");
       if ($resultado = mysql_fetch_array($consulta)){
@@ -105,9 +137,15 @@
           }
         ?>
 
+<div class="bt-container">
+          <a href="adm_altera_endereco.php" style="background-color: #1E90FF; padding: 1% 2% 1% 2%; border-radius: 5px;" class="popupbt">Alterar Dados</a>
+          </div><br />
+
+<div id="divisaorodape">&nbsp;</div><br />
+
 <?php
-      include("./arquivos_upload/db.php");
-      $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+      include("../tela_usuario/arquivos_upload/db.php");
+      $id = $_SESSION['id_user_update']; 
       
       $consulta = mysql_query("SELECT * FROM dadosgerais WHERE fk_id_usuario = '$id' ");
       if ($resultado = mysql_fetch_array($consulta)){
@@ -136,18 +174,16 @@
                     </tr>
                 </table><br/><br/>
 
-                <div class="bt-container">
-                <?php echo "<a href='ativa_usuario.php?id=".$resultado['fk_id_usuario'] . " ' "; ?>
-                <a style="background-color: #1E90FF; padding: 1% 2% 1% 2%; border-radius: 5px;" class="popupbt">Ativar Usuário</a>
-                </div>
-                
-            
         <?php
           }
           while($resultado = mysql_fetch_array($consulta));
           }
         ?>
     </section>
+
+    <div class="bt-container">
+          <a href="adm_altera_dados_gerais.php" style="background-color: #1E90FF; padding: 1% 2% 1% 2%; border-radius: 5px;" class="popupbt">Alterar Dados</a>
+          </div><br />
     
 
     <div class="final">&nbsp;</div>
