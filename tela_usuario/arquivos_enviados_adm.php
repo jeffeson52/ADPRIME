@@ -8,12 +8,16 @@
 <html>
 
 <head>
+
   <meta http-equiv="content-type" content="text/html; charset=utf-8" lang="pt-br" />
   <meta name="description" content="" />
   <meta name="keywords" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
   <link rel="stylesheet" href="../css/recebidos.css">
+  
+  <link href="../css/pop-up.css" rel="stylesheet">
+  <script defer src="../js/pop-up.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 </head>
@@ -21,12 +25,16 @@
 <body>
   <!--menu lateral-->
   <div class="sidebar">
-    <a class="active"   href="usuario.php"><i class="fas fa-home"></i>&emsp;Home</a>
-    <a class="menuleft" href="enviados.php"><i class="fas fa-upload"></i>&emsp;Arquivos Enviados</a>
-    <a class="menuleft" href="recebidos.php"><i class="fas fa-download"></i>&emsp;Arquivos Recebidos</a>
-    <a class="menuleft" id="enviar"><i class="fas fa-file-upload"></i>&emsp;Enviar Arquivos</a>
-    <a class="menuleft" href="../tela_atualiza_dados/atualiza_dados_user.php" id="trocarsenha"><i class="fas fa-user-edit"></i>&emsp;Atualizar dados</a>
-    <a class="menuleft" href="altera_senha.php" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
+  <a class="active" href="administrador.php"><i class="fas fa-home"></i>&emsp;Home</a>
+    <a class="menuleft" href="#"><i class="fas fa-calendar-alt"></i>&emsp;Agenda</a>
+    <a class="menuleft" href="#" id=""><i class="far fa-file-image"></i>&emsp;Imagens</a> 
+    <a class="menuleft" href="#" id=""><i class="fas fa-file-video"></i>&emsp;Vídeos</a> 
+    <a class="menuleft" href="#"><i class="fas fa-question-circle"></i>&emsp;FAQ</a>
+    <a class="menuleft" href="arquivos.php"><i class="fas fa-file-upload"></i>&emsp;Arquivos</a>
+    <a class="menuleft" href="envia_arquivo_adm.php" id=""><i class="fas fa-file-upload"></i>&emsp;Enviar Arquivos</a>
+    <a class="menuleft" href="./ativar_usuarios.php" id="enviar"><i class="fas fa-user-plus"></i>&emsp;Ativar Usuários</a>
+    <a class="menuleft" href="./listausuarios.php" id="trocarsenha"><i class="fas fa-users"></i>&emsp;Usuários Cadastrados</a>
+    <a class="menuleft" href="altera_senha_adm.php" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
     <a class="deslogar" href="./logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
   </div>
   <!--barra azul do inicio-->
@@ -39,62 +47,98 @@
     </div>
     <div id="divisaorodape">&nbsp;</div>
 
+    
+
     <!-- conteúdo da página-->
     <section class="container grid grid-template-columns-3">
       <div class="item subgrid">
-        <div>ADMINISTRADOR</div>
+        <div>ID</div>
         <div>NOME ARQUIVO</div>
         <div>AÇÃO</div>
       </div>
     </section>
+
+    <?php
+      include("./arquivos_upload/db.php");
+
+      $id_usuario = $_SESSION['id_usuario'];
+      $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+      
+      $consulta = mysql_query("SELECT * FROM arquivos WHERE fk_id_usuario = '$id' and fk_id_adm = '$id_usuario' ");
+              if ($resultado = mysql_fetch_array($consulta)){
+                do {
+                  $_SESSION['id_arquivo'] = $resultado['id_arquivo'];
+                  
+                }
+                while($resultado = mysql_fetch_array($consulta));
+                } 
+      ?>
+
     <?php
       include("./arquivos_upload/db.php");
       $id_usuario = $_SESSION['id_usuario'];
+      $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
-        $consulta = mysql_query("SELECT * from arquivos where fk_id_usuario = '$id_usuario' AND fk_id_adm != '0' ");
+        $consulta = mysql_query("SELECT * from arquivos where fk_id_adm = '$id_usuario' AND fk_id_usuario = '$id' ");
           if ($resultado = mysql_fetch_array($consulta)){
             do { 
-          $_SESSION['fk_id_adm'] = $resultado['fk_id_adm'];
-          $fk_id_adm = $_SESSION['fk_id_adm'];
+              //$_SESSION['teste'] = $resultado['id_arquivo'];
+              
     ?>
       <section class="container grid grid-template-columns-3">
         <div class="item subgrid">
           <div>
           <?php
-           $consulta_inner = mysql_query("SELECT usuarios.nome from usuarios INNER JOIN arquivos on (usuarios.id_usuario = '$fk_id_adm') LIMIT 1");
-            if($result = mysql_fetch_array($consulta_inner)){
-              do{
-                echo $result['nome'];
-              }
-              while($result = mysql_fetch_array($consulta_inner));
-            }
+           echo $resultado['id_arquivo'];
+           
           ?>
           </div>
           <div>
 
           <?php 
-            echo "<a href=\"./arquivos_upload/" . $resultado["arquivo_local"] . $resultado["arquivo_nome"] . "\" style='text-decoration:none; color: inherit'>" . $resultado["arquivo_nome"] . "</a><br />";
+            echo "<a href=\"./arquivos_upload/" . $resultado["arquivo_local"] . $resultado["arquivo_nome"] . "\" 
+            style='text-decoration:none; color: inherit'>" . $resultado["arquivo_nome"] . "</a><br />";
           ?>
 
         </div>
 
           <div>
           <?php 
-            echo "<a class='popupbt' href=\"./arquivos_upload/" . $resultado["arquivo_local"] . $resultado["arquivo_nome"] . "\" style='text-decoration:none; color: inherit'><i class='far fa-eye' style='color:white;'></i></a>";
+            echo "<a class='popupbt' href=\"./arquivos_upload/" . $resultado["arquivo_local"] . $resultado["arquivo_nome"] . "\" 
+            style='text-decoration:none; color: inherit'><i class='far fa-eye' style='color:white;'></i></a>";
           ?>
            
-          <?php echo "<a href='./arquivos_upload/download.php?file=".$resultado['arquivo_local'] .$resultado['arquivo_nome'] . " ' "; ?><a class="popupbt"><i class="fas fa-download"></i></a> 
-          
-          
-          </i></a> </div>
+          <?php echo "<a href='./arquivos_upload/download.php?file=".$resultado['arquivo_local'] .$resultado['arquivo_nome'] . " ' "; ?>
+          <a class="popupbt"><i class="fas fa-download"></i></a> 
+          <a data-modal-target="#modal" class="popupbt"><i class="fas fa-trash-alt">
+          </i></a> 
+
+          <div class="modal" id="modal">
+          <div class="modal-header">
+            <div class="title">Deseja excluir este arquivo?</div>
+            <button data-close-button class="close-button">&times;</button>
+          </div>
+            <div class="modal-body" style="text-align: center;"></br>
+              <?php
+              echo "<a href='delete_arquivos_enviados_adm.php?apagar=" .$resultado['id_arquivo'] . " ' "; ?>
+              <a style="background-color: #1E90FF; padding: 3% 3% 3% 3%; border-radius: 5px;" class="popupbt">Sim</a>
+              <?php echo "<a href='arquivos_enviados_adm.php?id=" .$resultado['fk_id_usuario'] . " ' "; ?>
+              <a style="background-color: #1E90FF; padding: 3% 3% 3% 3%; border-radius: 5px;" class="popupbt">Não</a>
+            </div>
+          </div>
+        <div id="overlay"></div>
+
+
+          </div>
         </div>
       </section>
 
+      
         <?php
           }
           while($resultado = mysql_fetch_array($consulta));
           } 
-        ?>
+        ?> 
     <div class="final">&nbsp;</div>
 
     <!-- POP UP-->
@@ -110,7 +154,7 @@
             <input type="file" name="Arquivo" /></br></br>
             Somente (jpg, png, pdf, docx, doc, jpeg)</p>
           <br>
-          
+
           <input class="popupbt" value="Enviar" type="submit" style="background-color: red; padding: 2% 2% 2% 2%; border-radius: 5px;" >
         </form>
       </div>

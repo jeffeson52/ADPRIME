@@ -1,0 +1,108 @@
+adm enviar aquivos, CPF não ser repetido, usuario alterar dados tela: exibe dados.button altera.tela de alterar, confirma delete usuario e arquivo, fazer noticias
+, outras empresas, email aturiza, historico de email, tornar invisvel, adm faz update, exibir dados para imprimir junto com data e hora, calculo do valor investido, 
+lista de todos usuarios para imprimir, mensagem entre ADM e USER
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+USE adprime3;
+
+CREATE TABLE usuarios(
+	id int AUTO_INCREMENT PRIMARY KEY,
+    nome varchar(100),
+    email varchar(100),
+    senha varchar(32),
+    rg varchar(30),
+    dataAniversario(15),
+    cpf int(11)
+);
+
+CREATE TABLE arquivos(
+	id_arquivo int AUTO_INCREMENT PRIMARY KEY,
+    arquivo_local varchar (500),
+    arquivo_nome varchar(50),
+    fk_id_usuario int,
+    fk_id_adm int,
+    FOREIGN KEY (fk_id_usuario) REFERENCES usuarios (id)
+);
+
+CREATE TABLE telefone(
+	id_telefone int AUTO_INCREMENT PRIMARY KEY,
+    telefone varchar (15),
+    celular varchar (20),
+    fk_id_usuario int,
+    FOREIGN KEY (fk_id_usuario) REFERENCES usuarios (id)
+);
+
+CREATE TABLE endereco(
+	id_endereco int AUTO_INCREMENT PRIMARY KEY,
+    endereco varchar(500),
+	Nresidencia varchar(100),
+    cep int (30),
+    pais varchar (100),
+    estado varchar (100),
+    complemento varchar (500),
+    bairro varchar (500),
+    cidade varchar (500),
+    fk_id_usuario int,
+    FOREIGN KEY (fk_id_usuario) REFERENCES usuarios (id)
+);
+
+CREATE TABLE dadosGerais(
+	id_dadosGerais int AUTO_INCREMENT PRIMARY KEY,
+    dadosWallStreet varchar (1000),
+    cotak1 varchar (10),
+    cotak3 varchar (10),
+    cotak21 varchar (10),
+    aporte varchar (50),
+    licenca varchar (10),
+    valorMineradora varchar (1000),
+    valorInvestimento varchar (1000),
+    valorTaxa varchar (100), 
+    pagBoleto varchar (100),
+    empresa varchar (50),
+    mensagem varchar (1000),
+    poder varchar(100)
+    fk_id_usuario int,
+    FOREIGN KEY (fk_id_usuario) REFERENCES usuarios (id)
+);
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+		$nome = addslashes($_POST['nome']);
+                $dataAniversario= addslashes($_POST['dataAniversario']);
+                $rg = addslashes($_POST['rg']);
+                $cpf = addslashes($_POST['cpf']);
+                $telefone = addslashes($_POST['telefone']);
+                $celular = addslashes($_POST['celular']);
+                $endereco = addslashes($_POST['endereco']);
+                $Nresidencia = addslashes($_POST['Nresidencia']);
+                $cep = addslashes($_POST['cep']);
+                $pais = addslashes($_POST['pais']);
+                $estado = addslashes($_POST['estado']);
+                $complemento = addslashes($_POST['complemento']);
+                $bairro = addslashes($_POST['bairro']);
+                $cidade = addslashes($_POST['cidade']);
+                $email = addslashes($_POST['email']);
+                $senha = addslashes($_POST['senha']);
+                $Csenha = addslashes($_POST['Csenha']);
+                $dadosWallStreet = addslashes($_POST['dadosWallStreet']);
+                $cotak1 = addslashes($_POST['cotak1']);
+                $cotak3 = addslashes($_POST['cotak3']);
+                $cotak21 = addslashes($_POST['cotak21']);
+                $aporte = addslashes($_POST['aporte']);
+                $licenca = addslashes($_POST['licenca']);
+                $valorMineradora = addslashes($_POST['valorMineradora']);
+                $valorInvestimento = addslashes($_POST['valorInvestimento']);
+                $valorTaxa = addslashes($_POST['valorTaxa']);
+                $pagBoleto = addslashes($_POST['pagBoleto']);
+                $empresa = addslashes($_POST['empresa']);
+                $mensagem = addslashes($_POST['mensagem']);
+		$poder = addslashes($_POST['poder']);
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+

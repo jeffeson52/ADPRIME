@@ -23,28 +23,42 @@
 <body>
   <!--menu lateral-->
   <div class="sidebar">
-    <a class="active" href="usuario.php"><i class="fas fa-home"></i>&emsp;Home</a>
-    <a class="menuleft" href="enviados.php"><i class="fas fa-upload"></i>&emsp;Arquivos Enviados</a>
-    <a class="menuleft" href="recebidos.php"><i class="fas fa-download"></i>&emsp;Arquivos Recebidos</a>
+  <a class="active" href="../tela_usuario/usuario.php"><i class="fas fa-home"></i>&emsp;Home</a>
+    <a class="menuleft" href="../tela_usuario/enviados.php"><i class="fas fa-upload"></i>&emsp;Arquivos Enviados</a>
+    <a class="menuleft" href="../tela_usuario/recebidos.php"><i class="fas fa-download"></i>&emsp;Arquivos Recebidos</a>
     <a class="menuleft" id="enviar"><i class="fas fa-file-upload"></i>&emsp;Enviar Arquivos</a>
-    <a class="menuleft" href="../tela_atualiza_dados/atualiza_dados_user.php" id="trocarsenha"><i class="fas fa-user-edit"></i>&emsp;Atualizar dados</a>
-    <a class="menuleft" href="altera_senha.php" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
-    <a class="deslogar" href="./logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
+    <a class="menuleft" href="atualiza_dados_user.php" id="trocarsenha"><i class="fas fa-user-edit"></i>&emsp;Atualizar dados</a>
+    <a class="menuleft" href="../tela_usuario/altera_senha.php" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
+    <a class="deslogar" href="../tela_usuario/logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
 
   </div>
   <!--barra azul do inicio-->
   <div class="content">
     <div class="barup">&nbsp;</div>
     <!-- nome da página barra cinza-->
+    
+
+    <div class="nomepage">
+      <h4>Atualizar Dados</h4><br>
+      <h5>OBS: NÃO é obrigatório preencher todos os campos, altere apenas o campo necessário.</h5>
+    </div>
     <div id="divisaorodape">&nbsp;</div>
 </br>
-    <form id="formsenha"action="processa_altera_senha.php" method="POST">
-        <label>Sua senha atual</label>
-        <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="senha_atual" placeholder="Digite sua atual senha">
-        <label>Sua nova senha</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" name="nova_senha" placeholder="Nova senha">
-        <label>Confirme sua nova senha</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" name="conf_senha" placeholder="Digite novamente sua nova senha">
+    <form id="formsenha"action="processa_update_dados_pessoais.php" method="POST">
+        <label>Nome: </label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nome" placeholder="Digite seu Nome Completo">
+        <label>Email: </label>
+        <input type="text" class="form-control" id="exampleInputPassword1" name="email" placeholder="Digite seu Email">
+        <label>RG: </label>
+        <input type="text" class="form-control" id="exampleInputPassword1" name="rg" placeholder="Digite seu RG">
+        <label>CPF: </label>
+        <input type="text" class="form-control" id="exampleInputPassword1" name="cpf" placeholder="Digite seu CPF">
+        <label>Data de Aniversário: </label>
+        <input type="text" class="form-control" id="exampleInputPassword1" name="dataAniversario" placeholder="Digite sua Data de Aniversário">
+        <label>Telefone: </label>
+        <input type="text" class="form-control" id="exampleInputPassword1" name="telefone" placeholder="Digite seu Telefone">
+        <label>Celular: </label>
+        <input type="text" class="form-control" id="exampleInputPassword1" name="celular" placeholder="Digite seu Celular">
         <button id="trocasenha"type="submit">Alterar</button>
       </form>
 

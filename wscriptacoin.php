@@ -13,13 +13,15 @@ $u = new Usuario;
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="css/awsmining.css" />
+    <link rel="stylesheet" href="css/wscriptacoin.css" />
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.dropotron.min.js"></script>
     <script src="js/skel.min.js"></script>
     <script src="js/skel-layers.min.js"></script>
     <script src="js/init.js"></script>
     <script src="js/arquivo.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <noscript>
@@ -206,14 +208,13 @@ $u = new Usuario;
                                 selecione: *</label><br /><br />
                             <div class="row double">
                                 <div class="4u">
-                                <select name="aporte"  style="background-color:inherit; color:dodgerblue; border-color:#555555; font-weight:400; margin-bottom: 20px;">
+                                <select name="aporte" type="option" style="background-color: #222222; color:white; border-color:#555555;">
                                     <option value="">Selecione</option>
                                     <option value="k1">Aporte k1</option>
                                     <option value="k3">Aporte k3</option>
                                     <option value="k21">Aporte k21</option>
                                 </select><br />
                                 </div>
-                                
                             </div><br>
                             <Br>
                             <div class="textform">
@@ -221,21 +222,21 @@ $u = new Usuario;
                                 <select id="estado" type="option" name="cotak1"
                                     style="background-color: #222222; color:white; border-color:#555555;">
                                     <option value="">Selecione</option>
-                                    <option value="01">01</option>
-                                    <option value="02">02</option>
-                                    <option value="03">03</option>
-                                    <option value="04">04</option>
-                                    <option value="05">05</option>
-                                    <option value="06">06</option>
-                                    <option value="07">07</option>
-                                    <option value="08">08</option>
-                                    <option value="09">09</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
+                                    <option value="K1-01">01</option>
+                                    <option value="K1-02">02</option>
+                                    <option value="K1-03">03</option>
+                                    <option value="K1-04">04</option>
+                                    <option value="K1-05">05</option>
+                                    <option value="K1-06">06</option>
+                                    <option value="K1-07">07</option>
+                                    <option value="K1-08">08</option>
+                                    <option value="K1-09">09</option>
+                                    <option value="K1-10">10</option>
+                                    <option value="K1-11">11</option>
+                                    <option value="K1-12">12</option>
+                                    <option value="K1-13">13</option>
+                                    <option value="K1-14">14</option>
+                                    <option value="K1-15">15</option>
                                 </select>
                             </div><br></br>
                             <div class="textform">
@@ -243,21 +244,21 @@ $u = new Usuario;
                                 <select id="estado" type="option" name="cotak3"
                                     style="background-color: #222222; color:white; border-color:#555555;">
                                     <option value="">Selecione</option>
-                                    <option value="01">01</option>
-                                    <option value="02">02</option>
-                                    <option value="03">03</option>
-                                    <option value="04">04</option>
-                                    <option value="05">05</option>
-                                    <option value="06">06</option>
-                                    <option value="07">07</option>
-                                    <option value="08">08</option>
-                                    <option value="09">09</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
+                                    <option value="K3-01">01</option>
+                                    <option value="K3-02">02</option>
+                                    <option value="K3-03">03</option>
+                                    <option value="K3-04">04</option>
+                                    <option value="K3-05">05</option>
+                                    <option value="K3-06">06</option>
+                                    <option value="K3-07">07</option>
+                                    <option value="K3-08">08</option>
+                                    <option value="K3-09">09</option>
+                                    <option value="K3-10">10</option>
+                                    <option value="K3-11">11</option>
+                                    <option value="K3-12">12</option>
+                                    <option value="K3-13">13</option>
+                                    <option value="K3-14">14</option>
+                                    <option value="K3-15">15</option>
                                 </select>
                             </div><br></br>
                             <div class="textform">
@@ -265,28 +266,28 @@ $u = new Usuario;
                                 <select id="estado" type="option" name="cotak21"
                                     style="background-color: #222222; color:white; border-color:#555555;">
                                     <option value="">Selecione</option>
-                                    <option value="01">01</option>
-                                    <option value="02">02</option>
-                                    <option value="03">03</option>
-                                    <option value="04">04</option>
-                                    <option value="05">05</option>
-                                    <option value="06">06</option>
-                                    <option value="07">07</option>
-                                    <option value="08">08</option>
-                                    <option value="09">09</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
+                                    <option value="K21-01">01</option>
+                                    <option value="K21-02">02</option>
+                                    <option value="K21-03">03</option>
+                                    <option value="K21-04">04</option>
+                                    <option value="K21-05">05</option>
+                                    <option value="K21-06">06</option>
+                                    <option value="K21-07">07</option>
+                                    <option value="K21-08">08</option>
+                                    <option value="K21-09">09</option>
+                                    <option value="K21-10">10</option>
+                                    <option value="K21-11">11</option>
+                                    <option value="K21-12">12</option>
+                                    <option value="K21-13">13</option>
+                                    <option value="K21-14">14</option>
+                                    <option value="K21-15">15</option>
                                 </select>
                             </div><br></br>
                             <label for="msg" class="textform">Você é detentor da licença de mineração
                                 (Kriptacoin)?: *</label><br /><br />
                             <div class="row double">
                                 <div class="3u">
-                                <select name="licenca"  style="background-color:inherit; color:dodgerblue; border-color:#555555; font-weight:400; margin-bottom: 20px;">
+                                <select name="licenca" type="option" style="background-color: #222222; color:white; border-color:#555555;">
                                     <option value="Sim">SIM</option>
                                     <option value="Não">NÃO</option>
                                 </select><br />
@@ -323,36 +324,23 @@ $u = new Usuario;
                                     CORPORATE
                                     + COMPRA DE COTAS + COMPRA DE MINERADORAS.</span>
                                 <input type="text" id="assunto" name="valorInvestimento" placeholder="Digite seu dados aqui">
-                            </div>
+                            </div><br/>
+
                             <div>
-                                <label for="assunto" class="textform">QUAL O VALOR TOTAL SOMANDO TODOS OS
-                                    INVESTIMENTOS? *</label>
-                                <br></br><span style="opacity: .4; text-align: left;">(Ex: para valor investido de R$
-                                    1.000,00
-                                    sera pago uma taxa de R$ 10,00, para valor igual ou acima de R$ 5.000,00 valor da
-                                    taxa
-                                    fixa de R$ 50,00).<br><br>
-                                    R$ 1.000,00 sera pago uma taxa de R$ 10,00</br>
-                                    R$ 2.000,00 sera pago uma taxa de R$ 20,00</br>
-                                    R$ 3.000,00 sera pago uma taxa de R$ 30,00</br>
-                                    R$ 4.000,00 sera pago uma taxa de R$ 40,00</br>
-                                    R$ 5.000,00 sera pago uma taxa de R$ 50,00</br>
-                                    <br>Selecione o valor abaixo (Valor será analisado podendo sofrer ajustes caso
-                                    desacordo
-                                    com
-                                    seu investimento).</br>
-                                </span>
-                                <select id="estado" type="option" name="valorTaxa"
-                                    style="background-color: #222222; color:white; border-color:#555555; float: left;">
-                                    <option value="">Selecione</option>
-                                    <option value="10">R$10,00</option>
-                                    <option value="20">R$20,00</option>
-                                    <option value="30">R$30,00</option>
-                                    <option value="40">R$40,00</option>
-                                    <option value="50">R$50,00</option>
-                                </select>
-                            </div><br />
-                            </br />
+                                <label for="assunto" class="textform">QUAL O VALOR TOTAL SOMANDO TODOS OS INVESTIMENTOS?</label><br/><br/>
+                                <span class="exemplos">(EX: PARA VALOR INVESTIDO DE R$ 1.000,00 SERA PAGO UMA TAXA DE R$ 10,00, PARA VALOR IGUAL OU ACIMA DE R$ 5.000,00 VALOR DA TAXA FIXA DE R$ 50,00).</span>
+                                    <div class="row"><br/>
+                                        <div class="col-sm">
+                                           Investido R$ <br/>
+                                           <input type="text" onchange="calcularTaxa()" id="valortotal">,00<br/><br/>
+                                        </div>
+                                        <div class="col-sm">
+                                            Taxa de R$ <br/>
+                                            <input type="text" id="valortaxa" name="valorTaxa" readonly>,00
+                                        </div>
+                                    </div>
+                            </div><br/>
+                                
                             <div class="textform">
                                 <label for="name">Melhor dia para pagamento do boleto: *</label><br /><br />
                                 <select id="estado" type="option" name="pagBoleto"
@@ -532,6 +520,17 @@ $u = new Usuario;
         </div>
         <p style="font-size: 0.7em; margin-bottom: -2%;"> &#174 2020 Copyright Todos os direitos reservados AD Prime</p>
     </div>
+
+    <script>
+        function calcularTaxa(){  
+            valor = document.getElementById("valortotal").value;
+            taxa = valor * 1/100    
+            campotaxa = document.getElementById("valortaxa");
+            document.getElementById("valortaxa").value = taxa;
+        }
+        
+    </script> 
+
 </body>
 
 </html>
