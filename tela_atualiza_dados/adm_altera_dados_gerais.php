@@ -23,13 +23,18 @@
 <body>
   <!--menu lateral-->
   <div class="sidebar">
-  <a class="active" href="../tela_usuario/usuario.php"><i class="fas fa-home"></i>&emsp;Home</a>
-    <a class="menuleft" href="../tela_usuario/enviados.php"><i class="fas fa-upload"></i>&emsp;Arquivos Enviados</a>
-    <a class="menuleft" href="../tela_usuario/recebidos.php"><i class="fas fa-download"></i>&emsp;Arquivos Recebidos</a>
-    <a class="menuleft" id="enviar"><i class="fas fa-file-upload"></i>&emsp;Enviar Arquivos</a>
-    <a class="menuleft" href="atualiza_dados_user.php" id="trocarsenha"><i class="fas fa-user-edit"></i>&emsp;Atualizar dados</a>
-    <a class="menuleft" href="../tela_usuario/altera_senha.php" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
-    <a class="deslogar" href="../tela_usuario/logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
+  <a class="active" href="../tela_usuario/administrador.php"><i class="fas fa-home"></i>&emsp;Home</a>
+        <a class="menuleft" href="#"><i class="fas fa-calendar-alt"></i>&emsp;Agenda</a>
+        <a class="menuleft" href="#" id="enviar"><i class="far fa-file-image"></i>&emsp;Imagens</a> 
+        <a class="menuleft" href="#" id="enviar"><i class="fas fa-file-video"></i>&emsp;Vídeos</a> 
+        <a class="menuleft" href="#"><i class="fas fa-question-circle"></i>&emsp;FAQ</a>
+        <a class="menuleft" href="../tela_usuario/arquivos.php"><i class="fas fa-file-upload"></i>&emsp;Arquivos</a>
+        <a class="menuleft" href="../tela_usuario/envia_arquivo_adm.php" id=""><i class="fas fa-file-upload"></i>&emsp;Enviar Arquivos</a>
+        <a class="menuleft" href="../tela_usuario/ativar_usuarios.php" id="enviar"><i class="fas fa-user-plus"></i>&emsp;Ativar Usuários</a>
+        <a class="menuleft" href="../tela_usuario/listausuarios.php" id="trocarsenha"><i class="fas fa-users"></i>&emsp;Usuários Cadastrados</a>
+        <a class="menuleft" href="../tela_pesquisar/tela_pesquisa.php" id="trocarsenha"><i class="fas fa-search"></i>&emsp;Pesquisa Personalizada</a>
+        <a class="menuleft" href="../tela_usuario/altera_senha_adm.php" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
+        <a class="deslogar" href="../tela_usuario/logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
 
   </div>
   <!--barra azul do inicio-->
@@ -40,7 +45,7 @@
 
     <div class="nomepage">
       <h4>Atualizar Dados</h4><br>
-      <h5>OBS: NÃO é obrigatório preencher todos os campos, altere apenas o campo necessário.</h5>
+      <h5>OBS: Insira apenas os dados no campo que deseja alterar !</h5>
     </div>
     <div id="divisaorodape">&nbsp;</div>
 </br>
