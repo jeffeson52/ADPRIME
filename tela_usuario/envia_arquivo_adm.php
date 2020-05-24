@@ -32,6 +32,7 @@
     <a class="menuleft" href="envia_arquivo_adm.php" id=""><i class="fas fa-file-upload"></i>&emsp;Enviar Arquivos</a>
     <a class="menuleft" href="./ativar_usuarios.php" id="enviar"><i class="fas fa-user-plus"></i>&emsp;Ativar Usuários</a>
     <a class="menuleft" href="./listausuarios.php" id="trocarsenha"><i class="fas fa-users"></i>&emsp;Usuários Cadastrados</a>
+    <a class="menuleft" href="../tela_pesquisar/tela_pesquisa.php" id="trocarsenha"><i class="fas fa-search"></i>&emsp;Pesquisa Personalizada</a>
     <a class="menuleft" href="altera_senha_adm.php" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
     <a class="deslogar" href="./logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
 </div>
@@ -42,6 +43,19 @@
     <div class="nomepage">
       <h4>Enviar Arquivos</h4><br>
       <h5>Escolha o usuário no qual deseje enviar algum arquivo</h5>
+      <?php
+      include("./arquivos_upload/db.php");
+
+      $id_usuario = $_SESSION['id_usuario'];
+      
+      $consulta = mysql_query("SELECT COUNT(id_usuario) as contador FROM usuarios where id_usuario != '$id_usuario' and status = 'Ativo' ");
+      if ($resultado = mysql_fetch_array($consulta)){
+          do {
+            echo "<h5> Usuários Listados " .$resultado['contador']. "</h5>";
+          }
+          while($resultado = mysql_fetch_array($consulta));
+        }
+        ?>
     </div>
     <div id="divisaorodape">&nbsp;</div>
 
@@ -49,7 +63,7 @@
     <!-- conteúdo da página-->
     <section class="container grid grid-template-columns-3">
       <div class="item subgrid">
-        <div>TIPO USUÁRIO</div>
+        <div>ID USUÁRIO</div>
         <div>NOME</div>
         <div>AÇÃO</div>
       </div>

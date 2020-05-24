@@ -40,7 +40,7 @@
 
     <div class="nomepage">
       <h4>Atualizar Dados</h4><br>
-      <h5>OBS: NÃO é obrigatório preencher todos os campos, altere apenas o campo necessário.</h5>
+      <h5>OBS: Insira apenas os dados no campo que deseja alterar !</h5>
     </div>
     <div id="divisaorodape">&nbsp;</div>
 </br>

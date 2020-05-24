@@ -15,6 +15,68 @@
             }
         }
 
+        
+        public function cadastroEmpresa($empresa){
+            global $pdo;
+            global $msgErro;
+            //verifica se já existe
+            $sql = $pdo->prepare("SELECT id_empresa FROM empresa WHERE empresa = :e");
+            $sql->bindValue(":e", $empresa);
+            $sql->execute();
+
+            if($sql->rowCount() > 0){
+                return false; 
+            }else{
+                //caso não exista, cria um novo usuario
+                $sql = $pdo->prepare("INSERT INTO empresa(empresa) VALUES (:e); ");
+                $sql->bindValue(":e", $empresa);
+                
+                $sql->execute();
+                
+                return true;
+                }
+        }
+
+        public function outrasEmpresas($nome, $email, $rg, $cpf, $dataAniversario, $telefone, $celular, $endereco, $Nresidencia, $cep, $pais, $estado,
+        $complemento, $bairro, $cidade, $mensagem, $comprovante){
+
+            global $pdo;
+            global $msgErro;
+            //verifica se já existe
+            $sql = $pdo->prepare("SELECT id_outras_empresas FROM outrasempresas WHERE email = :e");
+            $sql->bindValue(":e", $email);
+            $sql->execute();
+
+            if($sql->rowCount() > 0){
+                return false; 
+            }else{
+                //caso não exista, cria um novo usuario
+                $sql = $pdo->prepare("INSERT INTO outrasempresas(nome, email, rg, cpf, dataAniversario, telefone, celular, endereco, Nresidencia, cep, pais,
+                estado, complemento, bairro, cidade, mensagem, comprovante) VALUES (:n, :e, :rg, :cpf, :da, :t, :c, :en, :Nre, :cep, :pais, :es, 
+                :compl, :b, :cid, :msg, :compr); ");
+                $sql->bindValue(":n", $nome);
+                $sql->bindValue(":e", $email);
+                $sql->bindValue(":rg", $rg);
+                $sql->bindValue(":cpf", $cpf);
+                $sql->bindValue(":da", $dataAniversario);
+                $sql->bindValue(":t", $telefone);
+                $sql->bindValue(":c", $celular);
+                $sql->bindValue(":en", $endereco);
+                $sql->bindValue(":Nre", $Nresidencia);
+                $sql->bindValue(":cep", $cep);
+                $sql->bindValue(":pais", $pais);
+                $sql->bindValue(":es", $estado);
+                $sql->bindValue(":compl", $complemento);
+                $sql->bindValue(":b", $bairro);
+                $sql->bindValue(":cid", $cidade);
+                $sql->bindValue(":msg", $mensagem);
+                $sql->bindValue(":compr", $comprovante);
+                $sql->execute();
+                
+                return true;
+                }
+        }
+
         public function cadastrar($nome, $email, $senha, $rg, $cpf, $dataAniversario, $telefone, $celular, $endereco, $Nresidencia, $cep, $pais, $estado,
         $complemento, $bairro, $cidade, $dadosWallStreet, $cotak1, $cotak3, $cotak21, $aporte, $licenca, $poder, $valorMineradora, $valorInvestimento, 
         $valorTaxa, $pagBoleto, $empresa, $mensagem){

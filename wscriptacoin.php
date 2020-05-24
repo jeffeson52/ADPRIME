@@ -60,7 +60,7 @@ $u = new Usuario;
                             <ul>
                                 <li><a href="./wscriptacoin.php"><i class="fas fa-handshake"></i>WS Kriptacoin</a></li>
                                 <li><a href="./awsmining.html"><i class="fas fa-handshake"></i>AWS Mining</a></li>
-                                <li><a href="./outrasEmpresas.html"><i class="fas fa-handshake"></i>Outras Empresas</a>
+                                <li><a href="./outrasEmpresas.php"><i class="fas fa-handshake"></i>Outras Empresas</a>
                                 </li>
                             </ul>
                     </ul>
@@ -424,7 +424,7 @@ $u = new Usuario;
                 $empresa = addslashes($_POST['empresa']);
                 $mensagem = addslashes($_POST['mensagem']);
 
-                
+
 
                 //verifica se está tudo preenchido
                 if (!empty($nome) && !empty($email) && !empty($senha) && !empty($Csenha) && !empty($rg) && !empty($cpf) && !empty($dataAniversario)

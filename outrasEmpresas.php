@@ -1,3 +1,8 @@
+<?php
+require_once 'tela_login/usuarios.php';
+$u = new Usuario;
+?>
+
 <!DOCTYPE HTML>
 <html>
 
@@ -73,8 +78,6 @@
         </div>
     </div>
 
-
-
     <!-- Entre em Contato-->
 
     <div id="footer">
@@ -84,14 +87,40 @@
                 <span class="byline">Use o formulário para enviar mensagens</span>
             </header>
             <!--formulário-->
-            <form style="border-radius: 10px 10px 10px;
+            <form method="POST" style="border-radius: 10px 10px 10px;
           -webkit-border-radius: 10px;
-          -moz-border-radius: 10px; width: 75%; margin-left:12.5%;" class="form" action="./enviaEmailOutrasEmpresas.php" method="POST">
+          -moz-border-radius: 10px; width: 75%; margin-left:12.5%;" class="form">
                 <header class="major">
                     <br><span class="byline">Cadastro seguro, preencha os dados corretamente para melhor
                       análise</span><br>
                     <Br>
                     <div class="row double">
+                    <div class="textform 6u" >
+                        <label for="name" style="float: left;">Verifique se a empresa na qual investiu já esta registrada: </label><br><br>
+                        <select name="empresa" id="estado" type="option" style="background-color: #222222; color:white; border-color:#555555;">
+                        <option>EMPRESAS</option>
+
+                        <?php
+                            include("./tela_usuario/arquivos_upload/db.php");
+
+                            $consulta = mysql_query("SELECT empresa FROM empresa ");
+                                    if ($resultado = mysql_fetch_array($consulta)){
+                                    do {
+                                        ?>
+                                        <option><?php echo $resultado['empresa']; ?></option>
+                                        <?php 
+                                    }
+                                    while($resultado = mysql_fetch_array($consulta));
+                                    } 
+                        ?>
+                        </select>
+                    </div>
+                    <div class="textform 6u" >
+                        <label for="name" style="float: left;">Caso a empresa não esteja registrada, realize aqui seu cadastro: </label><br><br>
+
+                        <button type="button" onclick="window.location.href = './tela_outras_empresas/cadastrar_empresa.php' ">Cadastrar</button>
+                                        
+                    </div><br>
                         <div class="8u">
                             <label for="assunto" class="textform">&nbsp;</label>
                             <input type="text" id="name" name="nome" placeholder="Nome completo" />
@@ -143,12 +172,40 @@
                                 <label for="assunto" class="textform">&nbsp;</label>
                                 <input type="text" id="assunto" name="pais" placeholder="País" />
                             </div>
-                            <div class="4u">
-                                <div style="border-radius: 10px 20px 30px; width:100%;" class="6u">
-                                    <label for="assunto" class="textform">&nbsp;</label>
-                                    <input type="text" id="assunto" name="estado" placeholder="Estado" />
-                                </div>
-                            </div>
+                            <div class="textform">
+                                <label for="name">Estado:</label>
+                                <select id="estado" type="option" name="estado"
+                                    style="background-color: #222222; color:white; border-color:#555555;">
+                                    <option value="">Selecione</option>
+                                    <option value="AC">AC</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AP">AP</option>
+                                    <option value="AM">AM</option>
+                                    <option value="BA">BA</option>
+                                    <option value="CE">CE</option>
+                                    <option value="DF">DF</option>
+                                    <option value="ES">ES</option>
+                                    <option value="GO">GO</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MT">MT</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MG">MG</option>
+                                    <option value="PA">PA</option>
+                                    <option value="PB">PB</option>
+                                    <option value="PR">PR</option>
+                                    <option value="PE">PE</option>
+                                    <option value="PI">PI</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="RN">RN</option>
+                                    <option value="RS">RS</option>
+                                    <option value="RO">RO</option>
+                                    <option value="RR">RR</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SP">SP</option>
+                                    <option value="SE">SE</option>
+                                    <option value="TO">TO</option>
+                                </select>
+                            </div><br></br>
                         </div>
                     </div>
                     <div>
@@ -167,23 +224,86 @@
                     </div>
                     <div class="textform">
                         <label for="name" style="float: left;">Como você comprovará o investimento?</label><br><br>
-                        <select id="estado" type="option" name="contak1" style="background-color: #222222; color:white; border-color:#555555;">
-                                          <option>E-mail</option>
-                                          <option>Prints</option>
-                                          <option>Depósitos bancários</option>
-                                          <option>Caso sejá mais de um descreva no campo abaixo</option>
-                                      </select>
+                        <select name="comprovante" id="estado" type="option" style="background-color: #222222; color:white; border-color:#555555;">
+                            <option value="E-mail">E-mail</option>
+                            <option value="Prints">Prints</option>
+                            <option value="Depositos Bancarios">Depósitos bancários</option>
+                            <option value="Descrito na mensagem">Caso sejá mais de um descreva no campo abaixo</option>
+                        </select>
                     </div><br><br>
                     <br>
                     <br>
                     <label for="msg" class="textform">Mensagem:</label>
-                    <textarea id="text" name="mensagem" placeholder="Digite sua mensagem aqui"></textarea>
+                    <textarea name="mensagem" id="text" placeholder="Digite sua mensagem aqui"></textarea>
                     <div><br><br>
                         <input href="#" type="submit" class="button" id="enviar" placeholder="Enviar">
                     </div>
                 </header>
             </form><br>
     </div><br>
+
+
+    <?php
+            if (isset($_POST['nome'])) {
+                //Ligado a tabela USUARIO
+                $nome = addslashes($_POST['nome']);
+                $email = addslashes($_POST['email']);
+                $rg = addslashes($_POST['rg']);
+                $cpf = addslashes($_POST['cpf']);
+                $dataAniversario= addslashes($_POST['dataAniversario']);
+                //ligado a tabela telefone
+                $telefone = addslashes($_POST['telefone']);
+                $celular = addslashes($_POST['celular']);
+                //ligado a tabela endereco
+                $endereco = addslashes($_POST['endereco']);
+                $Nresidencia = addslashes($_POST['Nresidencia']);
+                $cep = addslashes($_POST['cep']);
+                $pais = addslashes($_POST['pais']);
+                $estado = addslashes($_POST['estado']);
+                $complemento = addslashes($_POST['complemento']);
+                $bairro = addslashes($_POST['bairro']);
+                $cidade = addslashes($_POST['cidade']);
+                $mensagem = addslashes($_POST['mensagem']);
+                $comprovante = addslashes($_POST['comprovante']);
+
+
+                //verifica se está tudo preenchido
+                if (!empty($nome) && !empty($email) && !empty($rg) && !empty($cpf) && !empty($dataAniversario)
+                && !empty($celular) && !empty($endereco) && !empty($Nresidencia) && !empty($cep) && !empty($pais) && !empty($estado) && !empty($complemento)
+                && !empty($bairro)  && !empty($cidade) && !empty($comprovante)) {
+                    $u->conectar("adprime3", "localhost", "root", "");
+                    if ($u->msgErro == "") {
+                            if ($u->outrasEmpresas($nome, $email, $rg, $cpf, $dataAniversario, $telefone, $celular, $endereco, $Nresidencia, $cep, $pais, $estado,
+                            $complemento, $bairro, $cidade, $mensagem, $comprovante)) {
+                            ?>
+                                <!--Nesta parte tudo é HTML, o PHP em nada interfere, você pode fazer seu CSS normalmente, apenas nas DIV-->
+                                <div style=" border-radius:10px; margin: 10px auto; padding: 10px; background-color: rgba(50, 205, 50, .2); border: 1px solid rgb(34, 139,34);">
+                                    Cadastrado com sucesso
+                                </div>
+                            <?php
+                            } else {
+                            ?>
+                                <div style="border-radius:10px; margin: 10px auto; padding: 10px; background-color: rgba(250, 128, 114, .2); border: 1px solid rgb(165, 42,42);">
+                                    Email já cadastrado
+                                </div>
+                            <?php
+                            }
+                        } else {
+                        ?>
+                        <div style="border-radius:10px; margin: 10px auto; padding: 10px; background-color: rgba(250, 128, 114, .2); border: 1px solid rgb(165, 42,42);">
+                            <?php echo "Erro: " . $u->msgErro; ?>
+                        </div>
+                    <?php
+                    }
+                } else {
+                    ?>
+                    <div style="border-radius:10px; margin: 10px auto; padding: 10px; background-color: rgba(250, 128, 114, .2); border: 1px solid rgb(165, 42,42);">
+                        Preencha todos os Campos
+                    </div>
+            <?php
+                }
+            }
+            ?>
 
 
     <!-- rodapé -->
