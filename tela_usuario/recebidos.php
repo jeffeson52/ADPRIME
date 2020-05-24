@@ -25,6 +25,7 @@
     <a class="menuleft" href="enviados.php"><i class="fas fa-upload"></i>&emsp;Arquivos Enviados</a>
     <a class="menuleft" href="recebidos.php"><i class="fas fa-download"></i>&emsp;Arquivos Recebidos</a>
     <a class="menuleft" id="enviar"><i class="fas fa-file-upload"></i>&emsp;Enviar Arquivos</a>
+    <a class="menuleft" href="../tela_atualiza_dados/atualiza_dados_user.php" id="trocarsenha"><i class="fas fa-user-edit"></i>&emsp;Atualizar dados</a>
     <a class="menuleft" href="altera_senha.php" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
     <a class="deslogar" href="./logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
   </div>
@@ -41,27 +42,59 @@
     <!-- conteúdo da página-->
     <section class="container grid grid-template-columns-3">
       <div class="item subgrid">
-        <div>ID</div>
-        <div>NOME</div>
+        <div>ADMINISTRADOR</div>
+        <div>NOME ARQUIVO</div>
         <div>AÇÃO</div>
       </div>
     </section>
-    <section class="container grid grid-template-columns-3">
-      <div class="item subgrid">
-        <div>ID</div>
-        <div>NOME</div>
-        <div><a class="popupbt"><i class="far fa-eye"></i></a> <a class="popupbt"><i class="fas fa-download"></i></a> <a
-            class="popupbt"><i class="fas fa-trash-alt"></i></a> </div>
-      </div>
-    </section>
-    <section class="container grid grid-template-columns-3">
-      <div class="item subgrid">
-        <div>ID</div>
-        <div>NOME</div>
-        <div><a class="popupbt"><i class="far fa-eye"></i></a> <a class="popupbt"><i class="fas fa-download"></i></a> <a
-            class="popupbt"><i class="fas fa-trash-alt"></i></a> </div>
-      </div>
-    </section>
+    <?php
+      include("./arquivos_upload/db.php");
+      $id_usuario = $_SESSION['id_usuario'];
+
+        $consulta = mysql_query("SELECT * from arquivos where fk_id_usuario = '$id_usuario' AND fk_id_adm != '0' ");
+          if ($resultado = mysql_fetch_array($consulta)){
+            do { 
+          $_SESSION['fk_id_adm'] = $resultado['fk_id_adm'];
+          $fk_id_adm = $_SESSION['fk_id_adm'];
+    ?>
+      <section class="container grid grid-template-columns-3">
+        <div class="item subgrid">
+          <div>
+          <?php
+           $consulta_inner = mysql_query("SELECT usuarios.nome from usuarios INNER JOIN arquivos on (usuarios.id_usuario = '$fk_id_adm') LIMIT 1");
+            if($result = mysql_fetch_array($consulta_inner)){
+              do{
+                echo $result['nome'];
+              }
+              while($result = mysql_fetch_array($consulta_inner));
+            }
+          ?>
+          </div>
+          <div>
+
+          <?php 
+            echo "<a href=\"./arquivos_upload/" . $resultado["arquivo_local"] . $resultado["arquivo_nome"] . "\" style='text-decoration:none; color: inherit'>" . $resultado["arquivo_nome"] . "</a><br />";
+          ?>
+
+        </div>
+
+          <div>
+          <?php 
+            echo "<a class='popupbt' href=\"./arquivos_upload/" . $resultado["arquivo_local"] . $resultado["arquivo_nome"] . "\" style='text-decoration:none; color: inherit'><i class='far fa-eye' style='color:white;'></i></a>";
+          ?>
+           
+          <?php echo "<a href='./arquivos_upload/download.php?file=".$resultado['arquivo_local'] .$resultado['arquivo_nome'] . " ' "; ?><a class="popupbt"><i class="fas fa-download"></i></a> 
+          
+          
+          </i></a> </div>
+        </div>
+      </section>
+
+        <?php
+          }
+          while($resultado = mysql_fetch_array($consulta));
+          } 
+        ?>
     <div class="final">&nbsp;</div>
 
     <!-- POP UP-->
@@ -73,7 +106,7 @@
         <h3 class="subtitulo">Enviar Arquivo</h3>
         <div id="divisaorodape" style="opacity: .3;">&nbsp;</div>
         <form name="Form_Upload_Arquivo" action="./arquivos_upload/upload.php" method="post" enctype="multipart/form-data">
-          <p><b>Arquivo:</b>
+          <p><b>Arquivo(NOME DO ARQUIVO NÃO PODE CONTER ESPAÇOS):</b>
             <input type="file" name="Arquivo" /></br></br>
             Somente (jpg, png, pdf, docx, doc, jpeg)</p>
           <br>

@@ -7,15 +7,15 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="css/awsmining.css" />
+    <link rel="stylesheet" href="css/wscriptacoin.css" />
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.dropotron.min.js"></script>
     <script src="js/skel.min.js"></script>
     <script src="js/skel-layers.min.js"></script>
     <script src="js/init.js"></script>
     <script src="js/arquivo.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <script src="jquery.min.js"></script>
+    <script src="jquery-3.3.1.min.js"></script>
     <noscript>
         <link rel="stylesheet" href="css/skel.css" />
         <link rel="stylesheet" href="css/awsmining.css" />
@@ -82,27 +82,25 @@
     <div id="footer">
         <section class="container">
             <header class="major">
-                <h2>Formulário de Cadastro de Associado <br><br>wscriptacoin</h2>
+                <h2>Formulário de Cadastro de Associado <br/><br/>wscriptacoin</h2>
                 <span class="byline">Use o formulário para enviar mensagens</span>
             </header>
             <!--formulário-->
-            <form style="border-radius: 10px 10px 10px;
-          -webkit-border-radius: 10px;
-          -moz-border-radius: 10px; width: 75%; margin-left:12.5%;" class="form" action="./enviaEmailWS.php" method="POST">
+            <form class="form" action="./enviaEmailWS.php" method="POST">
                 <header class="major">
-                    <br><span class="byline">Cadastro seguro, preencha os dados corretamente para melhor
-                        análise</span><br>
-                    <Br>
+                    <span class="byline">Cadastro seguro, preencha os dados corretamente para melhor análise</span><br/>
+
                     <div class="row double">
                         <div class="8u">
                             <label for="assunto" class="textform">&nbsp;</label>
                             <input type="text" id="name" name="nome" placeholder="Nome completo" />
                         </div>
                         <div class="4u">
-                            <label for="assunto" class="textform" style="width: 100%;">&nbsp;</label>
+                            <label for="assunto" class="textform">&nbsp;</label>
                             <input type="text" id="assunto" name="dataAniversario" placeholder="Data de Nascimento" />
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="6u">
                             <label for="mail" class="textform">&nbsp;</label>
@@ -113,10 +111,12 @@
                             <input type="text" id="assunto" name="cpf" placeholder="Cadastro de pessoa fisíca (CPF)" />
                         </div>
                     </div>
+
                     <div>
                         <label for="assunto" class="textform">&nbsp;</label>
                         <input type="email" id="mail" name="email" placeholder="E-mail" />
                     </div>
+                    
                     <div class="row double">
                         <div class="6u">
                             <label for="assunto" class="textform">&nbsp;</label>
@@ -126,8 +126,9 @@
                             <label for="assunto" class="textform">&nbsp;</label>
                             <input type="text" id="assunto" name="celular" placeholder="Celular" />
                         </div>
-                        <div class="row double">
-                        </div>
+
+                        <div class="row double"></div>
+
                         <div class="6u">
                             <label for="assunto" class="textform">&nbsp;</label>
                             <input type="text" id="assunto" name="endereco" placeholder="Endereço" />
@@ -136,27 +137,30 @@
                             <label for="assunto" class="textform">&nbsp;</label>
                             <input type="text" id="assunto" name="Nresidencia" placeholder="Número da residência" />
                         </div>
-                        <div class="row double" style="float: left;">
+
+                        <div class="row double" >
                             <div class="3u">
-                                <label for="assunto" class="textform" style="width: 100%;">&nbsp;</label>
+                                <label for="assunto" class="textform">&nbsp;</label>
                                 <input type="text" id="assunto" name="cep" placeholder="CEP" />
                             </div>
-                            <div style="border-radius: 10px 20px 30px;" class="5u">
+                            <div  class="5u">
                                 <label for="assunto" class="textform">&nbsp;</label>
                                 <input type="text" id="assunto" name="pais" placeholder="País" />
                             </div>
                             <div class="4u">
-                                <div style="border-radius: 10px 20px 30px; width:100%;" class="6u">
+                                <div class="12u">
                                     <label for="assunto" class="textform">&nbsp;</label>
                                     <input type="text" id="assunto" name="estado" placeholder="Estado" />
                                 </div>
                             </div>
-                        </div>
+                        </div>  
                     </div>
+                    
                     <div>
                         <label for="assunto" class="textform">&nbsp;</label>
                         <input type="text" id="assunto" name="complemento" placeholder="Complemento" />
                     </div>
+
                     <div class="row double">
                         <div class="6u">
                             <label for="assunto" class="textform" class="fa fa-square">&nbsp;</label>
@@ -166,56 +170,47 @@
                             <label for="assunto" class="textform" class="fa fa-square">&nbsp;</label>
                             <input type="text" id="assunto" name="cidade" placeholder="Cidade" />
                         </div>
-                    </div>
-                    <br><br>
-                    <Br>
+                    </div><br>
+
                     <div>
                         <label for="assunto" class="textform">E-MAIL para acesso na área do associado AD PRIME
-                            (LOGIN):</label><br /><br />
-                        <span style="text-align: justify; opacity: .4; text-align: left;">OBS. DEVE SER INDICADO UM
-                            EMAIL POR ASSOCIADO, CASO
-                            TENHA MAIS DE UM INVESTIDOR NA FAMÍLIA OU AMIGOS PRECISA SER DIFERENTES OS E-MAILS:</span>
+                            (LOGIN):</label><br/><br/>
+
+                        <span class="exemplos">OBS. DEVE SER INDICADO UM EMAIL POR ASSOCIADO, CASO TENHA MAIS DE UM INVESTIDOR NA FAMÍLIA OU AMIGOS PRECISA SER DIFERENTES OS E-MAILS:</span><br/><br/>
                         <input type="text" id="assunto" name="email2" placeholder="Digite seu email aqui" />
                     </div>
+
                     <div class="row double">
                         <div class="6u">
-                            <label for="assunto" class="textform">Senha para acesso na área do associado:</label>
+                            <label for="assunto" class="textform">Senha para acesso na área do associado:</label><br/><br/>
                             <input type="password" id="assunto" name="senha" placeholder="Senha com 6 digitos" />
                         </div>
                         <div class="6u">
-                            <label for="assunto" class="textform">&nbsp;</label>
+                            <label for="assunto" class="textform">&nbsp;</label><br/><br/>
                             <input type="password" id="assunto" name="Csenha" placeholder="Confirmar senha" />
                         </div><br><br>
                         <div>
-                            <label for="msg" class="textform" style="text-align: justify;">Qual seu ID na Wall Street
-                                Corporate
-                                + Valor (E-mail) de
-                                acesso na KRIPTACASH, Valor TOTAL em seu CPF: (OBS.Sua senha poderá ser solicitado
-                                posteriormente):</label>
-                            <textarea id="text" name="dadosWallStreet" placeholder="Digite seus dados aqui"></textarea>
-                        </div>
+                            <label for="msg" class="textform">Qual seu ID na Wall Street Corporate + Valor (E-mail) de acesso na KRIPTACASH, Valor TOTAL em seu CPF: (OBS.Sua senha poderá ser solicitado posteriormente):</label><br/>
+                            <br/><br/><br/><textarea id="text" name="dadosWallStreet" placeholder="Digite seus dados aqui"></textarea>
+                        </div><br/>
                         <div>
-                            <label for="msg" class="textform" style="text-align: justify;">Qual foi o seu aporte na
-                                empresa
-                                Wall
-                                Street Corporate
-                                selecione:</label><br /><br />
+                            <label for="msg" class="textform">Qual foi o seu aporte na empresa Wall Street Corporate selecione:</label><br /><br />
                             <div class="row double">
                                 <div class="4u">
-                                    <input type="checkbox" style="text-align: left;">Aporte K1</input><br />
+                                    <input type="checkbox" >Aporte K1</input><br />
                                 </div>
                                 <div class="4u">
-                                    <input type="checkbox" style="text-align: left;">Aporte K3</input><br />
+                                    <input type="checkbox" >Aporte K3</input><br />
                                 </div>
                                 <div class="4u">
-                                    <input type="checkbox" style="text-align: left;">Aporte K21</input><br />
+                                    <input type="checkbox" >Aporte K21</input><br />
                                 </div>
-                            </div><br>
-                            <Br>
-                            <div class="textform">
-                                <label for="name">Cota K1:</label>
-                                <select id="estado" type="option" name="contak1"
-                                    style="background-color: #222222; color:white; border-color:#555555;">
+                            </div><br/><br/>
+                            <!--Cotas-->
+                            <div class="row double">
+                                <div class="4u">
+                                <label for="name"> Cota K1:</label>
+                                <select type="option" name="contak1">
                                     <option>01</option>
                                     <option>02</option>
                                     <option>03</option>
@@ -232,11 +227,10 @@
                                     <option>14</option>
                                     <option>15</option>
                                 </select>
-                            </div><br></br>
-                            <div class="textform">
-                                <label for="name">Cota K3:</label>
-                                <select id="estado" type="option" name="contak3"
-                                    style="background-color: #222222; color:white; border-color:#555555;">
+                            </div>
+                            <div class="4u">
+                                <label for="name"> Cota K3:</label>
+                                <select type="option" name="contak3">
                                     <option>01</option>
                                     <option>02</option>
                                     <option>03</option>
@@ -253,11 +247,10 @@
                                     <option>14</option>
                                     <option>15</option>
                                 </select>
-                            </div><br></br>
-                            <div class="textform">
-                                <label for="name">Cota K21:</label>
-                                <select id="estado" type="option" name="contak21"
-                                    style="background-color: #222222; color:white; border-color:#555555;">
+                            </div>
+                            <div class="4u">
+                                <label for="name"> Cota K21:</label>
+                                <select type="option" name="contak21">
                                     <option>01</option>
                                     <option>02</option>
                                     <option>03</option>
@@ -274,21 +267,20 @@
                                     <option>14</option>
                                     <option>15</option>
                                 </select>
+                            </div>
                             </div><br></br>
-                            <label for="msg" class="textform">Você é detentor da licença de mineração
-                                (Kriptacoin)?:</label><br /><br />
+                            <label for="msg" class="textform">Você é detentor da licença de mineração (Kriptacoin)?:</label><br /><br />
                             <div class="row double">
                                 <div class="3u">
-                                    <input type="checkbox" style="text-align: left;">Sim</input><br />
+                                    <input type="checkbox">Sim</input><br/>
                                 </div>
                                 <div class="3u">
-                                    <input type="checkbox" style="text-align: left;">Não</input><br />
+                                    <input type="checkbox">Não</input><br/>
                                 </div>
                             </div>
                             <div class="textform">
                                 <label for="name">Qual o poder de mineração diária?:</label><br /><br />
-                                <select id="estado" type="option" name="poder"
-                                    style="background-color: #222222; color:white; border-color:#555555; float: left;">
+                                <select id="estado" type="option" name="poder">
                                     <option>01</option>
                                     <option>02</option>
                                     <option>04</option>
@@ -296,85 +288,51 @@
                                     <option>12</option>
                                     <option>20</option>
                                 </select>
-                            </div><br />
-                            </br />
+                            </div><br/><br/><br/><br/>
                             <div>
-                                <label for="assunto" class="textform">Informe o valor de cada mineradora e o valor TOTAL
-                                    INVESTIDO EM MINERADORAS:</label><br></br>
-                                <br></br><span style="opacity: .4; text-align: left;">Ex. Comprei 2 mineradora que
-                                    produz 2
-                                    moedas por dia, valor de cada mineradora R$10.000,00 e o valor total
-                                    R$20.000,00.</span>
+                                <label for="assunto" class="textform">Informe o valor de cada mineradora e o valor TOTAL INVESTIDO EM MINERADORAS:</label><br/><br/><br/>
+                                <span class="exemplos">Ex. Comprei 2 mineradora que produz 2 moedas por dia, valor de cada mineradora R$10.000,00 e o valor total R$20.000,00.</span><br/><br/>
                                 <input type="text" id="assunto" name="assunto" placeholder="Digite seu dados aqui">
                             </div>
                             <div>
-                                <label for="assunto" class="textform">QUAL O VALOR TOTAL SOMANDO TODOS OS
-                                    INVESTIMENTOS?</label>
-                                <br></br><span style="opacity: .4; text-align: left;">Ex: COMPRA DE MOEDAS WALL STREET
-                                    CORPORATE
-                                    + COMPRA DE COTAS + COMPRA DE MINERADORAS.</span>
+                                <label for="assunto" class="textform">QUAL O VALOR TOTAL SOMANDO TODOS OS INVESTIMENTOS?</label><br/><br/><br/>
+                                <span class="exemplos">Ex: COMPRA DE MOEDAS WALL STREET CORPORATE + COMPRA DE COTAS + COMPRA DE MINERADORAS.</span><br/><br/>
                                 <input type="text" id="assunto" name="assunto" placeholder="Digite seu dados aqui">
-                            </div>
+                            </div><br/>
                             <div>
-                                <label for="assunto" class="textform">QUAL O VALOR TOTAL SOMANDO TODOS OS
-                                    INVESTIMENTOS?</label>
-                                <br></br><span style="opacity: .4; text-align: left;">(Ex: para valor investido de R$
-                                    1.000,00
-                                    sera pago uma taxa de R$ 10,00, para valor igual ou acima de R$ 5.000,00 valor da
-                                    taxa
-                                    fixa de R$ 50,00).<br><br>
-                                    R$ 1.000,00 sera pago uma taxa de R$ 10,00</br>
-                                    R$ 2.000,00 sera pago uma taxa de R$ 20,00</br>
-                                    R$ 3.000,00 sera pago uma taxa de R$ 30,00</br>
-                                    R$ 4.000,00 sera pago uma taxa de R$ 40,00</br>
-                                    R$ 5.000,00 sera pago uma taxa de R$ 50,00</br>
-                                    <br>Selecione o valor abaixo (Valor será analisado podendo sofrer ajustes caso
-                                    desacordo
-                                    com
-                                    seu investimento).</br>
-                                </span>
-                                <select id="estado" type="option" name="poder"
-                                    style="background-color: #222222; color:white; border-color:#555555; float: left;">
-                                    <option>R$10,00</option>
-                                    <option>R$20,00</option>
-                                    <option>R$30,00</option>
-                                    <option>R$40,00</option>
-                                    <option>R$50,00</option>
-                                </select>
-                            </div><br />
-                            </br />
+                                <label for="assunto" class="textform">QUAL O VALOR TOTAL SOMANDO TODOS OS INVESTIMENTOS?</label><br/><br/>
+                                <span class="exemplos">(EX: PARA VALOR INVESTIDO DE R$ 1.000,00 SERA PAGO UMA TAXA DE R$ 10,00, PARA VALOR IGUAL OU ACIMA DE R$ 5.000,00 VALOR DA TAXA FIXA DE R$ 50,00).</span>
+                                    <div class="row"><br/>
+                                        <div class="col-sm">
+                                            R$<input type="text" onchange="calcularTaxa()" id="valortotal">,00<br/><br/>
+                                        </div>
+                                        <div class="col-sm">
+                                             R$<input type="text" id="valortaxa" disabled="" >,00
+                                        </div>
+                                    </div>
+                            </div><br/>
                             <div class="textform">
-                                <label for="name">Melhor dia para pagamento do boleto:</label><br /><br />
-                                <select id="estado" type="option" name="poder"
-                                    style="background-color: #222222; color:white; border-color:#555555; float: left;">
+                                <label for="name">Melhor dia para pagamento do boleto:</label><br/><br/>
+                                <select id="diapag">
                                     <option>10</option>
                                     <option>20</option>
                                     <option>30</option>
                                 </select>
-                            </div><br />
-                            </br />
-                            <div>
-                                <div>
-                                    <label for="msg" class="textform"
-                                        style="text-align: justify; color: red; font-size: 1.3em;">Sou responsável pelos
-                                        dados
-                                        descritos e anexados neste
-                                        cadastro, aceito receber e-mails informativos da AD PRIME:</label><br><br><br>
-                                    <br><br><input type="checkbox" style="text-align: left;">Cliente e
-                                    aceito</input><br>
+                            </div><br/><br/>
+                                <div><br/><br/><br/>
+                                    <label class="aviso">Sou responsável pelos dados descritos e anexados neste cadastro, aceito receber e-mails informativos da AD PRIME:</label><br/><br/>
+                                    
+                                    <input type="checkbox">Cliente e aceito</input>
                                 </div>
-                                <label for="msg" class="textform">Mensagem:</label>
+                                <label for="msg" class="textform">Mensagem:</label><br/><br/>
                                 <textarea id="text" placeholder="Digite sua mensagem aqui"></textarea>
                             </div>
-                            <div><br><br>
-                                
-                                <input href="#" type="submit" class="button" id="enviar" placeholder="Enviar">
+                            <div><br/><br/> 
+                                <input type="submit" class="button" id="enviar" placeholder="Enviar">
                             </div>
                 </header>
             </form>
     </div><br>
-    </div><br>
-
 
     <!-- rodapé -->
 
@@ -395,7 +353,7 @@
                         <li>Links Importantes</li>
                         <li><a href="index.html"><button class="buttoninf">HOME</button></a></li>
                         <li><a href="./tela_login/login.php"><button class="buttoninf">ENTRAR</button></a></li>
-                        <li><a href="#"><button class="buttoninf">FAQ</button></a></li>
+                        <li><a href="faq.html"><button class="buttoninf">FAQ</button></a></li>
                     </div>
                 </div>
                 <div class="4u">
@@ -414,11 +372,17 @@
         </div>
         <div id="divisaorodape">&nbsp;</div>
 
-        <div class="voltar-ao-topo">
-            <p><button class="button" id="voltar-ao-topo"><i class="fa fa-angle-up" aria-hidden="true"></i></button></p>
-        </div>
         <p>Copyright &copy 2020 Todos os direitos reservados AD Prime</p>
     </div>
+    <script>
+        function calcularTaxa(){  
+            valor = document.getElementById("valortotal").value;
+            taxa = valor * 1/100    
+            campotaxa = document.getElementById("valortaxa");
+            document.getElementById("valortaxa").value = taxa;
+        }
+        
+    </script> 
 </body>
 
 </html>

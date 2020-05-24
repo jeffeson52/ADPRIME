@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php
+    session_start();
+    if(!isset($_SESSION['id_usuario'])){
+        header("location: ../tela_login/login.php");
+        exit;
+    }
+?>
 
 <!DOCTYPE html>
 <html>
@@ -24,8 +30,11 @@
         <a class="menuleft" href="#" id="enviar"><i class="fas fa-file-video"></i>&emsp;Vídeos</a>
         <a class="menuleft" href="#"><i class="fas fa-question-circle"></i>&emsp;FAQ</a>
         <a class="menuleft" href="arquivos.php"><i class="fas fa-file-upload"></i>&emsp;Arquivos</a>
-        <a class="menuleft" href="./cadastrarUsuario.php" id="enviar"><i class="fas fa-user-plus"></i>&emsp;Cadastrar Usuário</a>
-        <a class="menuleft" href="./listausuarios.php" id="trocarsenha"><i class="fas fa-user"></i>&emsp;Usuários Cadastrados</a>
+        <a class="menuleft" href="envia_arquivo_adm.php" id=""><i class="fas fa-file-upload"></i>&emsp;Enviar Arquivos</a>
+        <a class="menuleft" href="./ativar_usuarios.php" id="enviar"><i class="fas fa-user-plus"></i>&emsp;Ativar Usuários</a>
+        <a class="menuleft" href="./listausuarios.php" id="trocarsenha"><i class="fas fa-users"></i>&emsp;Usuários Cadastrados</a>
+        <a class="menuleft" href="../tela_pesquisar/tela_pesquisa.php" id="trocarsenha"><i class="fas fa-search"></i>&emsp;Pesquisa Personalizada</a>
+        <a class="menuleft" href="altera_senha_adm.php" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
         <a class="deslogar" href="./logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
   </div>
   <!--barra azul do inicio-->
@@ -35,6 +44,19 @@
     <div class="nomepage">
       <h4>Arquivos Recebidos</h4><br>
       <h5>Lista de todos os arquivos que você recebeu.</h5>
+      <?php
+      include("./arquivos_upload/db.php");
+
+      $id_usuario = $_SESSION['id_usuario'];
+      
+      $consulta = mysql_query("SELECT COUNT(id_usuario) as contador FROM usuarios where id_usuario != '$id_usuario' and status = 'Ativo' ");
+      if ($resultado = mysql_fetch_array($consulta)){
+          do {
+            echo "<h5> Usuários Listados " .$resultado['contador']. "</h5>";
+          }
+          while($resultado = mysql_fetch_array($consulta));
+        }
+        ?>
     </div>
     <div id="divisaorodape">&nbsp;</div>
 
@@ -51,8 +73,10 @@
     <?php
       include("./arquivos_upload/db.php");
       
-
-      $consulta = mysql_query("SELECT arquivos.arquivo_nome, arquivos.arquivo_local, id_arquivo, fk_id_usuario, usuarios.id_usuario, usuarios.nome FROM arquivos, usuarios GROUP BY id_usuario");
+      $id_usuario = $_SESSION['id_usuario'];
+      
+      $consulta = mysql_query("SELECT arquivos.arquivo_nome, arquivos.arquivo_local, id_arquivo, fk_id_usuario, usuarios.id_usuario, usuarios.nome, usuarios.status FROM arquivos, usuarios 
+      WHERE id_usuario != '$id_usuario' AND status = 'Ativo' GROUP BY nome");
         if ($resultado = mysql_fetch_array($consulta)){
           do { 
     ?>
@@ -79,7 +103,7 @@
             $_SESSION['fk_id_usuario'] = $id;
           ?>
 
-          <a class="popupbt"><i class="fas fa-download"></i></a> 
+<?php echo "<a href='download_zip.php?download=" .$resultado['id_usuario'] ." ' "; ?><a class="popupbt"><i class="fas fa-download"></i></a> 
           </div>
         </div>
       </section>
