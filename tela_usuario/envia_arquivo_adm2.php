@@ -44,21 +44,18 @@
       <h4>Enviar Arquivos</h4><br>
       <h5>Escolha o arquivo</h5>
     </div>
-    <div id="divisaorodape">&nbsp;</div>
+    <div id="divisaorodape" style="background: rgba(68, 68, 68, 0.3);">&nbsp;</div>
 
 
     <!-- conteúdo da página-->
-    
-      
-        
-        
-        
+        <div class="content-page" style="margin-left:5%;">
         <form name="Form_Upload_Arquivo" action="./arquivos_upload/upload_adm.php" method="post" enctype="multipart/form-data">
           <p><b>Arquivo(NOME DO ARQUIVO NÃO PODE CONTER ESPAÇOS):</b></p>
             <input type="file" name="Arquivo" />
             <p>Somente (jpg, png, pdf, docx, doc, jpeg)</p>
-          <input value="Enviar" type="submit" style="background-color: red; padding: 2% 2% 2% 2%; border-radius: 5px; border: none;">
+          <input value="Enviar" type="submit" style="background-color: dodgerblue; padding:20px; border-radius: 5px; border: none; margin-bottom: 5%;">
         </form>
+        </div>
       
     
 
@@ -101,7 +98,7 @@
 
 
     <!-- rodapé-->
-    <div id="divisaorodape">&nbsp;</div>
+    <div id="divisaorodape" style="background: rgba(68, 68, 68, 0.3);">&nbsp;</div>
 
     <div class="voltar-ao-topo">
       <p><a href="#"><button class="button" id="voltar-ao-topo"><i class="fa fa-angle-up"

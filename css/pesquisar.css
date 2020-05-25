@@ -6,6 +6,11 @@ body {
     font-family: 'Open Sans', sans-serif;
     width: 100%;
     height: 100%;
+    background: mintcream!important;
+  }
+
+  .col-sm, .row, .container {
+    background: mintcream!important;
   }
 
   /* Botão */

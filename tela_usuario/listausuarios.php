@@ -1,10 +1,13 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['id_usuario'])){
-        header("location: ../tela_login/login.php");
-        exit;
-    }
+session_start();
+if (!isset($_SESSION['id_usuario'])) {
+  header("location: ../tela_login/login.php");
+  exit;
+}
 ?>
+<style>
+  <?php include '../css/listausuarios.css'; ?>
+</style>
 <!DOCTYPE html>
 <html>
 
@@ -25,8 +28,8 @@
   <div class="sidebar">
     <a class="active" href="administrador.php"><i class="fas fa-home"></i>&emsp;Home</a>
     <a class="menuleft" href="#"><i class="fas fa-calendar-alt"></i>&emsp;Agenda</a>
-    <a class="menuleft" href="#" id="enviar"><i class="far fa-file-image"></i>&emsp;Imagens</a> 
-    <a class="menuleft" href="#" id="enviar"><i class="fas fa-file-video"></i>&emsp;Vídeos</a> 
+    <a class="menuleft" href="#" id="enviar"><i class="far fa-file-image"></i>&emsp;Imagens</a>
+    <a class="menuleft" href="#" id="enviar"><i class="fas fa-file-video"></i>&emsp;Vídeos</a>
     <a class="menuleft" href="#"><i class="fas fa-question-circle"></i>&emsp;FAQ</a>
     <a class="menuleft" href="arquivos.php"><i class="fas fa-file-upload"></i>&emsp;Arquivos</a>
     <a class="menuleft" href="envia_arquivo_adm.php" id=""><i class="fas fa-file-upload"></i>&emsp;Enviar Arquivos</a>
@@ -35,30 +38,38 @@
     <a class="menuleft" href="../tela_pesquisar/tela_pesquisa.php" id="trocarsenha"><i class="fas fa-search"></i>&emsp;Pesquisa Personalizada</a>
     <a class="menuleft" href="altera_senha_adm.php" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
     <a class="deslogar" href="./logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
-</div>
+  </div>
   <!--barra azul do inicio-->
   <div class="content">
     <div class="barup">&nbsp;</div>
     <!-- nome da página barra cinza-->
     <div class="nomepage">
-      <h4>Lista Usuários</h4><br>
-      
-      <?php
-      include("./arquivos_upload/db.php");
+      <div class="menu-top">
 
-      $id_usuario = $_SESSION['id_usuario'];
-      
-      $consulta = mysql_query("SELECT COUNT(id_usuario) as contador FROM usuarios where id_usuario != '$id_usuario' and status = 'Ativo' ");
-      if ($resultado = mysql_fetch_array($consulta)){
-          do {
-            echo "<h5>Lista de todos os usuários ATIVOS.</h5> ";
-            echo "<h5> Usuários Listados " .$resultado['contador']. "</h5>";
+        <div class="list-top">
+          <h4>Lista Usuários</h4>
+          <p>Lista de todos os usuários ATIVOS.</p><br/>
+          <?php
+          include("./arquivos_upload/db.php");
+
+          $id_usuario = $_SESSION['id_usuario'];
+
+          $consulta = mysql_query("SELECT COUNT(id_usuario) as contador FROM usuarios where id_usuario != '$id_usuario' and status = 'Ativo' ");
+          if ($resultado = mysql_fetch_array($consulta)) {
+            do {
+
+              echo "<h5> Usuários Listados " . $resultado['contador'] . "</h5>";
+            } while ($resultado = mysql_fetch_array($consulta));
           }
-          while($resultado = mysql_fetch_array($consulta));
-        }
-        ?>
-      
-      <a href="relatorio_todos_usuarios.php"><button type="button">Gerar Relatório</button></a>
+          ?>
+        </div>
+        <div >
+          &nbsp;
+        </div>
+        <div class="btn-top">
+          <a href="relatorio_todos_usuarios.php"><button type="button" class="btn-gerar">Gerar Relatório</button></a>
+        </div>
+      </div>
     </div>
     <div id="divisaorodape">&nbsp;</div>
 
@@ -73,49 +84,48 @@
     </section>
 
     <?php
-      include("./arquivos_upload/db.php");
+    include("./arquivos_upload/db.php");
 
-      $id_usuario = $_SESSION['id_usuario'];
-      
-      $consulta = mysql_query("SELECT * FROM `usuarios` WHERE status = 'Ativo' and id_usuario != '$id_usuario' ORDER BY `nome` ASC ");
-      if ($resultado = mysql_fetch_array($consulta)){
-          do {
-            ?>
-            <section class="container grid grid-template-columns-3">
-              <div class="item subgrid">
-                <div>
-                  <?php
-                  $nivel = $resultado['nivel'];
-                  if($nivel == 1){
-                    echo "ADM";
-                  }else{
-                    echo "USER";
-                  }
-                  ?>
-                </div>
+    $id_usuario = $_SESSION['id_usuario'];
 
-                <div>
-                  <?php
-                  echo $resultado["nome"];
-                  ?>
-                </div>
+    $consulta = mysql_query("SELECT * FROM `usuarios` WHERE status = 'Ativo' and id_usuario != '$id_usuario' ORDER BY `nome` ASC ");
+    if ($resultado = mysql_fetch_array($consulta)) {
+      do {
+    ?>
+        <section class="container grid grid-template-columns-3">
+          <div class="item subgrid">
+            <div>
+              <?php
+              $nivel = $resultado['nivel'];
+              if ($nivel == 1) {
+                echo "ADM";
+              } else {
+                echo "USER";
+              }
+              ?>
+            </div>
 
-        <div>
-        <?php echo "<a href='altera_nivel_adm.php?id=".$resultado['id_usuario'] . " ' "; ?><a class="popupbt">ADM</a>
-        <?php echo "<a href='altera_nivel_user.php?id=".$resultado['id_usuario'] . " ' "; ?><a class="popupbt">USER</a>
-        <?php echo "<a href='../tela_atualiza_dados/adm_atualiza_dados_user.php?id=".$resultado['id_usuario'] . " ' "; ?><a class="popupbt"><i class="fas fa-edit"></i></a>
-        <?php echo "<a href='relatorio_user_especifico.php?id=".$resultado['id_usuario'] . " ' "; ?><a class="popupbt"><i class="fas fa-clipboard-list"></i></a>
-        <?php echo "<a href='delete_usuario.php?id=".$resultado['id_usuario'] . " ' "; ?><a class="popupbt"><i class="fas fa-trash-alt"></i></a>
-        </div>
+            <div>
+              <?php
+              echo $resultado["nome"];
+              ?>
+            </div>
 
-      
-    </section>
+            <div>
+              <?php echo "<a href='altera_nivel_adm.php?id=" . $resultado['id_usuario'] . " ' "; ?><a class="popupbt">ADM</a>
+              <?php echo "<a href='altera_nivel_user.php?id=" . $resultado['id_usuario'] . " ' "; ?><a class="popupbt">USER</a>
+              <?php echo "<a href='../tela_atualiza_dados/adm_atualiza_dados_user.php?id=" . $resultado['id_usuario'] . " ' "; ?><a class="popupbt"><i class="fas fa-edit"></i></a>
+              <?php echo "<a href='relatorio_user_especifico.php?id=" . $resultado['id_usuario'] . " ' "; ?><a class="popupbt"><i class="fas fa-clipboard-list"></i></a>
+              <?php echo "<a href='delete_usuario.php?id=" . $resultado['id_usuario'] . " ' "; ?><a class="popupbt"><i class="fas fa-trash-alt"></i></a>
+            </div>
 
-        <?php
-          }
-          while($resultado = mysql_fetch_array($consulta));
-          }
-        ?>
+
+        </section>
+
+    <?php
+      } while ($resultado = mysql_fetch_array($consulta));
+    }
+    ?>
 
     <div class="final">&nbsp;</div>
 
@@ -129,8 +139,7 @@
 
         <form>
           <label type="text">Nome do Arquivo</label><br><br>
-          <input type="text" class="input" style="width: 80%; padding: 1.5% 1%;"
-            placeholder="Informe o nome do arquivo."><br><br>
+          <input type="text" class="input" style="width: 80%; padding: 1.5% 1%;" placeholder="Informe o nome do arquivo."><br><br>
           <p><b>Arquivo:</b>
             Somente (jpg, png, pdf, docx, doc, jpeg)</p>
           <a class="popupbt"><i class="fas fa-file-upload"></i>&emsp;Escolher Arquivo</a><br><br>
@@ -161,8 +170,7 @@
     <div id="divisaorodape">&nbsp;</div>
 
     <div class="voltar-ao-topo">
-      <p><a href="#"><button class="button" id="voltar-ao-topo"><i class="fa fa-angle-up"
-              aria-hidden="true"></i></button></a></p>
+      <p><a href="#"><button class="button" id="voltar-ao-topo"><i class="fa fa-angle-up" aria-hidden="true"></i></button></a></p>
     </div>
     <div class="Copyright">
       <p style="font-size: 0.7em; margin-bottom: -2%;"> &#174 2020 Copyright Todos os direitos reservados AD Prime</p>
