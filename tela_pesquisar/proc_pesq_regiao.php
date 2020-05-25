@@ -15,5 +15,5 @@ if(($resultado_user) AND ($resultado_user->num_rows != 0 )){
 		echo "<li>".$row_user['nome']."</li>";
 	}
 }else{
-	echo "Nenhum usuário encontrado ...";
+	echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nenhum usuário encontrado ...";
 }

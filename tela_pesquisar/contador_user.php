@@ -12,7 +12,7 @@ $resultado_user = mysqli_query($conn, $result_user);
 
 if(($resultado_user) AND ($resultado_user->num_rows != 0 )){
 	while($row_user = mysqli_fetch_assoc($resultado_user)){
-		echo $row_user['contador'];
+		echo "<span class='number-conta'> - ".$row_user['contador']."</span>";
 		
 	}
 }else{

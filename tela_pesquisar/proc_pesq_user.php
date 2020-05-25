@@ -16,7 +16,7 @@ if(($resultado_user) AND ($resultado_user->num_rows != 0 )){
 		
 	}
 }else{
-	echo "Nenhum usuário encontrado ...";
+	echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nenhum usuário encontrado ...";
 }
 
 
