@@ -52,12 +52,7 @@ $u = new Usuario;
                                 <li><a href="#"><i class="fas fa-question"></i>Faq</a></li>
                             </ul>
                         </li>
-                        <li><a href=""><i class="fas fa-handshake"></i>Associe-se</a>
-                            <ul>
-                                <li><a href="./wscriptacoin.php"><i class="fas fa-handshake"></i>WS Kriptacoin</a></li>
-                                <li><a href="./awsmining.html"><i class="fas fa-handshake"></i>AWS Mining</a></li>
-                                <li><a href="./outrasEmpresas.html"><i class="fas fa-handshake"></i>Outras Empresas</a></li>
-                            </ul>
+                        <li><a href="./outrasEmpresas.php"><i class="fas fa-handshake"></i>Associe-se</a>
                     </ul>
                 </nav>
             </div>
@@ -83,7 +78,7 @@ $u = new Usuario;
     <div id="footer">
         <section class="container">
             <header class="major">
-                <h2>Formulário de Cadastro de Associado <br><br>outras empresas</h2>
+                <h2>Formulário de Cadastro de Associado <br><br></h2>
                 <span class="byline">Use o formulário para enviar mensagens</span>
             </header>
             <!--formulário-->
@@ -145,6 +140,16 @@ $u = new Usuario;
                         <input type="email" id="mail" name="email" placeholder="E-mail" />
                     </div>
                     <div class="row double">
+                        <div class="6u">
+                            <label for="assunto" class="textform">&nbsp;</label>
+                            <input type="password" id="assunto" name="senha" placeholder="Digite sua senha " />
+                        </div>
+                        <div class=6u>
+                            <label for="assunto" class="textform">&nbsp;</label>
+                            <input type="password" id="assunto" name="Csenha" placeholder="Confirme sua senha" />
+                        </div>
+                    <div class="row double">
+                            </div>
                         <div class="6u">
                             <label for="assunto" class="textform">&nbsp;</label>
                             <input type="text" id="assunto" name="telefone" placeholder="Telefone " />
@@ -235,19 +240,17 @@ $u = new Usuario;
                     <br>
                     <label for="msg" class="textform">Mensagem:</label>
                     <textarea name="mensagem" id="text" placeholder="Digite sua mensagem aqui"></textarea>
-                    <div><br><br>
-                        <input href="#" type="submit" class="button" id="enviar" placeholder="Enviar">
-                    </div>
-                </header>
-            </form><br>
-    </div><br>
+                    <br><br>
+                        <input type="submit" id="enviar" placeholder="Enviar">
+                    
 
-
-    <?php
+        <?php
             if (isset($_POST['nome'])) {
                 //Ligado a tabela USUARIO
                 $nome = addslashes($_POST['nome']);
                 $email = addslashes($_POST['email']);
+                $senha = addslashes($_POST['senha']);
+                $Csenha = addslashes($_POST['Csenha']);
                 $rg = addslashes($_POST['rg']);
                 $cpf = addslashes($_POST['cpf']);
                 $dataAniversario= addslashes($_POST['dataAniversario']);
@@ -268,12 +271,13 @@ $u = new Usuario;
 
 
                 //verifica se está tudo preenchido
-                if (!empty($nome) && !empty($email) && !empty($rg) && !empty($cpf) && !empty($dataAniversario)
+                if (!empty($nome) && !empty($email) && !empty($senha) && !empty($Csenha) && !empty($rg) && !empty($cpf) && !empty($dataAniversario)
                 && !empty($celular) && !empty($endereco) && !empty($Nresidencia) && !empty($cep) && !empty($pais) && !empty($estado) && !empty($complemento)
                 && !empty($bairro)  && !empty($cidade) && !empty($comprovante)) {
                     $u->conectar("adprime3", "localhost", "root", "");
                     if ($u->msgErro == "") {
-                            if ($u->outrasEmpresas($nome, $email, $rg, $cpf, $dataAniversario, $telefone, $celular, $endereco, $Nresidencia, $cep, $pais, $estado,
+                        if ($senha == $Csenha) {
+                            if ($u->outrasEmpresas($nome, $email, $senha, $rg, $cpf, $dataAniversario, $telefone, $celular, $endereco, $Nresidencia, $cep, $pais, $estado,
                             $complemento, $bairro, $cidade, $mensagem, $comprovante)) {
                             ?>
                                 <!--Nesta parte tudo é HTML, o PHP em nada interfere, você pode fazer seu CSS normalmente, apenas nas DIV-->
@@ -289,6 +293,13 @@ $u = new Usuario;
                             <?php
                             }
                         } else {
+                            ?>
+                            <div style="border-radius:10px; margin: 10px auto; padding: 10px; background-color: rgba(250, 128, 114, .2); border: 1px solid rgb(165, 42,42);">
+                                As senhas não correspondem
+                            </div>
+                        <?php
+                        }
+                    } else {
                         ?>
                         <div style="border-radius:10px; margin: 10px auto; padding: 10px; background-color: rgba(250, 128, 114, .2); border: 1px solid rgb(165, 42,42);">
                             <?php echo "Erro: " . $u->msgErro; ?>
@@ -305,6 +316,9 @@ $u = new Usuario;
             }
             ?>
 
+                </header>
+            </form><br>
+    </div><br>
 
     <!-- rodapé -->
 

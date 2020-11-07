@@ -33,6 +33,7 @@
         <a class="menuleft" href="../tela_usuario/ativar_usuarios.php" id="enviar"><i class="fas fa-user-plus"></i>&emsp;Ativar Usuários</a>
         <a class="menuleft" href="../tela_usuario/listausuarios.php" id="trocarsenha"><i class="fas fa-users"></i>&emsp;Usuários Cadastrados</a>
         <a class="menuleft" href="../tela_pesquisar/tela_pesquisa.php" id="trocarsenha"><i class="fas fa-search"></i>&emsp;Pesquisa Personalizada</a>
+        
         <a class="menuleft" href="../tela_usuario/altera_senha_adm.php" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
         <a class="deslogar" href="../tela_usuario/logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
 
@@ -41,7 +42,6 @@
   <div class="content">
     <div class="barup">&nbsp;</div>
     <!-- nome da página barra cinza-->
-    
 
     <div class="nomepage">
       <h4>Atualizar Dados</h4><br>
@@ -49,7 +49,17 @@
     </div>
     <div id="divisaorodape">&nbsp;</div>
 </br>
-    <form id="formsenha"action="adm_processa_update_dados_gerais.php" method="POST">
+    
+<?php
+      include("../tela_usuario/arquivos_upload/db.php");
+      $id = $_SESSION['id_user_update']; 
+      
+      $consulta = mysql_query("SELECT * FROM dadosgerais, usuarios WHERE fk_id_usuario = '$id' AND id_usuario = '$id' ");
+      if ($resultado = mysql_fetch_array($consulta)){
+          do {
+            if($resultado['novo'] == 'Antigo'){
+              ?>
+              <form id="formsenha"action="adm_processa_update_dados_gerais.php" method="POST">
         <label>Dados Wall Street: </label>
         <input type="text" class="form-control" id="exampleInputEmail1" name="dadosWallStreet" placeholder="Digite os dados Wall Street">
         <label>Cota K1: </label>
@@ -125,6 +135,29 @@
         <input type="text" class="form-control" id="exampleInputPassword1" name="mensagem" placeholder="Digite sua mensagem">
         <button id="trocasenha"type="submit">Alterar</button>
       </form>
+
+      <?php
+            }else{
+              ?>
+              <form id="formsenha"action="adm_processa_update_dados_gerais.php" method="POST">
+                <label>Mensagem: </label>
+                <input type="text" class="form-control" id="exampleInputPassword1" name="mensagem" placeholder="Digite sua mensagem">
+                <label>Comprovante: </label>
+                <select type="option" name="comprovante" style="background-color: #222222; color:white; border-color:#555555;">
+                  <option value="">Selecione</option>
+                  <option value="Prints">Prints</option>
+                  <option value="Depositos Bancarios">Depositos Bancário</option>
+                  <option value="Descrito na Mensagem">Descrito na Mensagem</option>
+                </select><br /><br />
+                
+                <button id="trocasenha"type="submit">Alterar</button>
+              </form>
+      <?php
+            }
+          }
+          while($resultado = mysql_fetch_array($consulta));
+          }
+        ?>
 
  <!-- POP UP-->
     <!--pop up conteúdo enviar arquivos-->
