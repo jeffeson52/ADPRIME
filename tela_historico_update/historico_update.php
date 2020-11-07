@@ -28,14 +28,14 @@
         <a class="menuleft" href="#" id="enviar"><i class="far fa-file-image"></i>&emsp;Imagens</a> 
         <a class="menuleft" href="#" id="enviar"><i class="fas fa-file-video"></i>&emsp;Vídeos</a> 
         <a class="menuleft" href="#"><i class="fas fa-question-circle"></i>&emsp;FAQ</a>
-        <a class="menuleft" href="arquivos.php"><i class="fas fa-file-upload"></i>&emsp;Arquivos</a>
-        <a class="menuleft" href="envia_arquivo_adm.php" id=""><i class="fas fa-file-upload"></i>&emsp;Enviar Arquivos</a>
-        <a class="menuleft" href="./ativar_usuarios.php" id="enviar"><i class="fas fa-user-plus"></i>&emsp;Ativar Usuários</a>
-        <a class="menuleft" href="./listausuarios.php" id="trocarsenha"><i class="fas fa-users"></i>&emsp;Usuários Cadastrados</a>
+        <a class="menuleft" href="../tela_usuario/arquivos.php"><i class="fas fa-file-upload"></i>&emsp;Arquivos</a>
+        <a class="menuleft" href="../tela_usuario/envia_arquivo_adm.php" id=""><i class="fas fa-file-upload"></i>&emsp;Enviar Arquivos</a>
+        <a class="menuleft" href="../tela_usuario/ativar_usuarios.php" id="enviar"><i class="fas fa-user-plus"></i>&emsp;Ativar Usuários</a>
+        <a class="menuleft" href="../tela_usuario/listausuarios.php" id="trocarsenha"><i class="fas fa-users"></i>&emsp;Usuários Cadastrados</a>
         <a class="menuleft" href="../tela_pesquisar/tela_pesquisa.php" id="trocarsenha"><i class="fas fa-search"></i>&emsp;Pesquisa Personalizada</a>
-        
-        <a class="menuleft" href="altera_senha_adm.php" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
-        <a class="deslogar" href="./logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
+        <a class="menuleft" href="../tela_historico_update/historico_update.php" id="trocarsenha"><i class="fas fa-pencil-alt"></i>&emsp;Registros de Alteração</a>
+        <a class="menuleft" href="../tela_usuario/altera_senha_adm.php" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
+        <a class="deslogar" href="../tela_usuario/logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
 
   </div>
   <!--barra azul do inicio-->
@@ -46,31 +46,18 @@
 
 <div class="nomepage">
       <h4>Lista de usuários ativos/inativos</h4><br>
-      <?php
-      include("./arquivos_upload/db.php");
-      
-      $id_usuario = $_SESSION['id_usuario'];
-      
-      $consulta = mysql_query("SELECT COUNT(id_usuario) as contador FROM usuarios where id_usuario != '$id_usuario' and status != 'Invisivel'  ");
-      if ($resultado = mysql_fetch_array($consulta)){
-          do {
-            echo "<h5> Usuarios Listados " .$resultado['contador']. "</h5>";
-          }
-          while($resultado = mysql_fetch_array($consulta));
-        }
-        ?>
     </div>
     <div id="divisaorodape">&nbsp;</div>
 
     <section class="container grid grid-template-columns-3">
       <div class="item subgrid">
-        <div>STATUS</div>
+        <div>ID</div>
         <div>NOME</div>
         <div>AÇÃO</div>
       </div>
     </section>
     <?php
-      include("./arquivos_upload/db.php");
+      include("../tela_usuario/arquivos_upload/db.php");
 
       $id_usuario = $_SESSION['id_usuario'];
       
@@ -83,7 +70,7 @@
               <div class="item subgrid">
                 <div>
                   <?php
-                    echo $resultado["status"];
+                    echo $resultado["id_usuario"];
                   ?>
                 </div>
 
@@ -94,10 +81,7 @@
                 </div>
 
         <div>
-        <?php echo "<a href='ativa_usuario.php?id=".$resultado['id_usuario'] . " ' "; ?><a class="popupbt"><i class="fas fa-check"></i></a> 
-        <?php echo "<a href='desativa_usuario.php?id=".$resultado['id_usuario'] . " ' "; ?><a class="popupbt"><i class="fas fa-times"></i></a> 
-        <?php echo "<a href='dados_usuario.php?id=".$resultado['id_usuario'] . " ' "; ?><a class="popupbt"><i class="far fa-eye"></i></a>
-        <?php echo "<a href='user_invisivel.php?id=".$resultado['id_usuario'] . " ' "; ?><a class="popupbt"><i class="fas fa-user-slash"></i></a>
+        <?php echo "<a href='historico_user.php?id=".$resultado['id_usuario'] . " ' "; ?><a class="popupbt"><i class="fas fa-pencil-alt"></i></a> 
         </div>
 
       </div>
@@ -109,67 +93,6 @@
           }
         ?></br></br>
 
-<div class="nomepage">
-      <h4>Lista de usuários invisíveis</h4><br>
-      <?php
-      include("./arquivos_upload/db.php");
-      
-      $id_usuario = $_SESSION['id_usuario'];
-      
-      $consulta = mysql_query("SELECT COUNT(id_usuario) as contador FROM usuarios where id_usuario != '$id_usuario' and status = 'Invisivel'  ");
-      if ($resultado = mysql_fetch_array($consulta)){
-          do {
-            echo "<h5> Usuarios Listados " .$resultado['contador']. "</h5>";
-          }
-          while($resultado = mysql_fetch_array($consulta));
-        }
-        ?>
-    </div>
-    <div id="divisaorodape">&nbsp;</div>
-
-    <section class="container grid grid-template-columns-3">
-      <div class="item subgrid">
-        <div>STATUS</div>
-        <div>NOME</div>
-        <div>AÇÃO</div>
-      </div>
-    </section>
-    <?php
-      include("./arquivos_upload/db.php");
-
-      $id_usuario = $_SESSION['id_usuario'];
-      
-      $consulta = mysql_query("SELECT * FROM usuarios WHERE status = 'Invisivel' and id_usuario != '$id_usuario' ORDER BY nome ASC");
-      if ($resultado = mysql_fetch_array($consulta)){
-          do {
-            ?>
-            <section class="container grid grid-template-columns-3">
-              <div class="item subgrid">
-                <div>
-                  <?php
-                    echo $resultado["status"];
-                  ?>
-                </div>
-
-                <div>
-                  <?php
-                  echo $resultado["nome"];  
-                  ?>
-                </div>
-
-        <div>
-        <?php echo "<a href='user_visivel.php?id=".$resultado['id_usuario'] . " ' "; ?><a class="popupbt"><i class="fas fa-user"></i></a>
-        <?php echo "<a href='dados_usuario.php?id=".$resultado['id_usuario'] . " ' "; ?><a class="popupbt"><i class="far fa-eye"></i></a>
-        </div>
-
-      </div>
-    </section>
-
-        <?php
-          }
-          while($resultado = mysql_fetch_array($consulta));
-          }
-        ?></br></br>
 
     <div class="final">&nbsp;</div>
 

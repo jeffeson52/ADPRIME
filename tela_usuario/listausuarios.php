@@ -36,6 +36,7 @@ if (!isset($_SESSION['id_usuario'])) {
     <a class="menuleft" href="./ativar_usuarios.php" id="enviar"><i class="fas fa-user-plus"></i>&emsp;Ativar Usuários</a>
     <a class="menuleft" href="./listausuarios.php" id="trocarsenha"><i class="fas fa-users"></i>&emsp;Usuários Cadastrados</a>
     <a class="menuleft" href="../tela_pesquisar/tela_pesquisa.php" id="trocarsenha"><i class="fas fa-search"></i>&emsp;Pesquisa Personalizada</a>
+    
     <a class="menuleft" href="altera_senha_adm.php" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
     <a class="deslogar" href="./logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
   </div>
@@ -67,7 +68,9 @@ if (!isset($_SESSION['id_usuario'])) {
           &nbsp;
         </div>
         <div class="btn-top">
-          <a href="relatorio_todos_usuarios.php"><button type="button" class="btn-gerar">Gerar Relatório</button></a>
+          <a href="relatorio_todos_usuarios_novos.php"><button type="button" class="btn-gerar">Relatório Novos Users</button></a>
+          <a href="relatorio_todos_usuarios_antigos.php"><button type="button" class="btn-gerar">Relatório Antigos Users</button></a>
+          <a href="relatorio_geral.php"><button type="button" class="btn-gerar">Relatório Geral</button></a>
         </div>
       </div>
     </div>
@@ -116,7 +119,6 @@ if (!isset($_SESSION['id_usuario'])) {
               <?php echo "<a href='altera_nivel_user.php?id=" . $resultado['id_usuario'] . " ' "; ?><a class="popupbt">USER</a>
               <?php echo "<a href='../tela_atualiza_dados/adm_atualiza_dados_user.php?id=" . $resultado['id_usuario'] . " ' "; ?><a class="popupbt"><i class="fas fa-edit"></i></a>
               <?php echo "<a href='relatorio_user_especifico.php?id=" . $resultado['id_usuario'] . " ' "; ?><a class="popupbt"><i class="fas fa-clipboard-list"></i></a>
-              <?php echo "<a href='delete_usuario.php?id=" . $resultado['id_usuario'] . " ' "; ?><a class="popupbt"><i class="fas fa-trash-alt"></i></a>
             </div>
 
 

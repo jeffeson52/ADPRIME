@@ -34,6 +34,7 @@
         <a class="menuleft" href="../tela_usuario/ativar_usuarios.php" id="enviar"><i class="fas fa-user-plus"></i>&emsp;Ativar Usuários</a>
         <a class="menuleft" href="../tela_usuario/listausuarios.php" id="trocarsenha"><i class="fas fa-users"></i>&emsp;Usuários Cadastrados</a>
         <a class="menuleft" href="../tela_pesquisar/tela_pesquisa.php" id="trocarsenha"><i class="fas fa-search"></i>&emsp;Pesquisa Personalizada</a>
+        
         <a class="menuleft" href="../tela_usuario/altera_senha_adm.php" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
         <a class="deslogar" href="../tela_usuario/logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
 
@@ -45,8 +46,26 @@
     
 
 <div class="nomepage">
-      <h4>Dados do Usuário</h4><br>
-    </div>
+      <h4>Dados do Usuário</h4><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+      <?php
+      include("../tela_usuario/arquivos_upload/db.php");
+      $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+      
+      $consulta = mysql_query("SELECT * FROM usuarios WHERE id_usuario = '$id' ");
+      if ($resultado = mysql_fetch_array($consulta)){
+          do {
+            echo "<a href='../tela_usuario/delete_usuario_cadastrado.php?id=" . $resultado['id_usuario'] . " ' "; ?><a class="popupbt">Excluir Usuário</a>
+          <?php 
+          }
+          while($resultado = mysql_fetch_array($consulta));
+        }
+        ?>
+      
+      
+      
+
+</div></br>
     <div id="divisaorodape">&nbsp;</div>
 
     <section class="container grid grid-template-columns-3">
@@ -142,49 +161,74 @@
           <a href="adm_altera_endereco.php" style="background-color: #1E90FF; padding: 1% 2% 1% 2%; border-radius: 5px;" class="popupbt">Alterar Dados</a>
           </div><br />
 
-<div id="divisaorodape">&nbsp;</div><br />
+
 
 <?php
       include("../tela_usuario/arquivos_upload/db.php");
       $id = $_SESSION['id_user_update']; 
       
-      $consulta = mysql_query("SELECT * FROM dadosgerais WHERE fk_id_usuario = '$id' ");
+      $consulta = mysql_query("SELECT * FROM dadosgerais, usuarios WHERE fk_id_usuario = '$id' AND id_usuario = '$id' ");
       if ($resultado = mysql_fetch_array($consulta)){
           do {
-            ?>
-                <table border='3' style="width:100%">
-                    <tr>
-                        <th>Dados Gerais</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <b>Dados Wall Street: </b><?php echo $resultado["dadosWallStreet"]; ?> <br/>
-                            <b>Aporte na empresa: </b> <i style="text-transform: uppercase;"><?php echo $resultado["aporte"]; ?> </i><br/>
-                            <b>Cota: </b><?php echo $resultado["cotak1"].$resultado["cotak3"].$resultado["cotak21"]; ?> <br/>
-                            <b>Possui licença de mineração: </b><?php echo $resultado["licenca"]; ?> <br/>
-                            <b>Poder de mineração diária: </b><?php echo $resultado["poder"]; ?> <br/>
-                            <b>Valor de cada mineradora e o valor total investido em mineradoras: </b><?php echo $resultado["valorMineradora"]; ?> <br/>
-                            <b>Valor total de todos investimento: </b><i>R$ </i><?php echo $resultado["valorInvestimento"]; ?> <br/>
-                            <b>Valor total dos investimentos (taxa): </b><i>R$ </i><?php echo $resultado["valorTaxa"]; ?> <br/>
-                            <b>Melhor data para pagamento do boleto: </b>Dia <?php echo $resultado["pagBoleto"]; ?> <br/>
-                            <b>Empresa: </b><?php echo $resultado["empresa"]; ?> <br/>
-                            <b>Mesangem: </b><?php echo $resultado["mensagem"]; ?> <br/>
-                            
-                            
-                        </td>
-                    </tr>
-                </table><br/><br/>
+            if($resultado['novo'] == 'Antigo'){
+              ?>
+              <div id="divisaorodape">&nbsp;</div><br />
+              <table border='3' style="width:100%">
+                  <tr>
+                      <th>Dados Gerais</th>
+                  </tr>
+                  <tr>
+                      <td>
+                          <b>Dados Wall Street: </b><?php echo $resultado["dadosWallStreet"]; ?> <br/>
+                          <b>Aporte na empresa: </b> <i style="text-transform: uppercase;"><?php echo $resultado["aporte"]; ?> </i><br/>
+                          <b>Cota: </b><?php echo $resultado["cotak1"].$resultado["cotak3"].$resultado["cotak21"]; ?> <br/>
+                          <b>Possui licença de mineração: </b><?php echo $resultado["licenca"]; ?> <br/>
+                          <b>Poder de mineração diária: </b><?php echo $resultado["poder"]; ?> <br/>
+                          <b>Valor de cada mineradora e o valor total investido em mineradoras: </b><?php echo $resultado["valorMineradora"]; ?> <br/>
+                          <b>Valor total de todos investimento: </b><i>R$ </i><?php echo $resultado["valorInvestimento"]; ?> <br/>
+                          <b>Valor total dos investimentos (taxa): </b><i>R$ </i><?php echo $resultado["valorTaxa"]; ?> <br/>
+                          <b>Melhor data para pagamento do boleto: </b>Dia <?php echo $resultado["pagBoleto"]; ?> <br/>
+                          <b>Empresa: </b><?php echo $resultado["empresa"]; ?> <br/>
+                          <b>Mesangem: </b><?php echo $resultado["mensagem"]; ?> <br/>
+                          
+                          
+                      </td>
+                  </tr>
+              </table><br/><br/>
 
-        <?php
+              <div class="bt-container">
+          <a href="adm_altera_dados_gerais.php" style="background-color: #1E90FF; padding: 1% 2% 1% 2%; border-radius: 5px;" class="popupbt">Alterar Dados</a>
+          </div><br />
+
+      <?php
+            }else{
+              ?>
+              <div id="divisaorodape">&nbsp;</div><br />
+              <table border='3' style="width:100%">
+                  <tr>
+                      <th>Outras Informações</th>
+                  </tr>
+                  <tr>
+                      <td>
+                          <b>Método de Comprovação: </b><?php echo $resultado["comprovante"]; ?> <br/>
+                          <b>Mesangem: </b><?php echo $resultado["mensagem"]; ?> <br/>
+                      </td>
+                  </tr>
+              </table><br/><br/>
+
+              <div class="bt-container">
+          <a href="adm_altera_dados_gerais.php" style="background-color: #1E90FF; padding: 1% 2% 1% 2%; border-radius: 5px;" class="popupbt">Alterar Dados</a>
+          </div><br />
+
+      <?php
+            }
           }
           while($resultado = mysql_fetch_array($consulta));
           }
         ?>
     </section>
 
-    <div class="bt-container">
-          <a href="adm_altera_dados_gerais.php" style="background-color: #1E90FF; padding: 1% 2% 1% 2%; border-radius: 5px;" class="popupbt">Alterar Dados</a>
-          </div><br />
+    
     
 
     <div class="final">&nbsp;</div>

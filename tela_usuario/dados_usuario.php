@@ -26,6 +26,7 @@
         <a class="menuleft" href="./ativar_usuarios.php" id="enviar"><i class="fas fa-user-plus"></i>&emsp;Ativar Usuários</a>
         <a class="menuleft" href="./listausuarios.php" id="trocarsenha"><i class="fas fa-users"></i>&emsp;Usuários Cadastrados</a>
         <a class="menuleft" href="../tela_pesquisar/tela_pesquisa.php" id="trocarsenha"><i class="fas fa-search"></i>&emsp;Pesquisa Personalizada</a>
+        
         <a class="menuleft" href="altera_senha_adm.php" id="trocarsenha"><i class="fas fa-key"></i>&emsp;Alterar Senha</a>
         <a class="deslogar" href="./logout.php"><i class="fas fa-sign-out-alt"></i>&emsp;Deslogar</a>
 
@@ -37,8 +38,24 @@
     
 
 <div class="nomepage">
-      <h4>Dados do Usuário</h4><br>
+      <h4>Dados do Usuário</h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+      <?php
+      include("../tela_usuario/arquivos_upload/db.php");
+      $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+      
+      $consulta = mysql_query("SELECT * FROM usuarios WHERE id_usuario = '$id' ");
+      if ($resultado = mysql_fetch_array($consulta)){
+          do {
+            echo "<a href='delete_usuario.php?id=" . $resultado['id_usuario'] . " ' "; ?><a class="popupbt">Excluir Usuário</a>
+          <?php 
+          }
+          while($resultado = mysql_fetch_array($consulta));
+        }
+        ?> 
+
     </div>
+    </br>
     <div id="divisaorodape">&nbsp;</div>
 
     <section class="container grid grid-template-columns-3">
@@ -110,10 +127,11 @@
       include("./arquivos_upload/db.php");
       $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
       
-      $consulta = mysql_query("SELECT * FROM dadosgerais WHERE fk_id_usuario = '$id' ");
+      $consulta = mysql_query("SELECT * FROM dadosgerais, usuarios WHERE fk_id_usuario = '$id' AND id_usuario = '$id' ");
       if ($resultado = mysql_fetch_array($consulta)){
           do {
-            ?>
+            if($resultado['novo'] == 'Antigo'){
+              ?>
                 <table border='3' style="width:100%">
                     <tr>
                         <th>Dados Gerais</th>
@@ -141,9 +159,34 @@
                 <?php echo "<a href='ativa_usuario.php?id=".$resultado['fk_id_usuario'] . " ' "; ?>
                 <a style="background-color: #1E90FF; padding: 1% 2% 1% 2%; border-radius: 5px;" class="popupbt">Ativar Usuário</a>
                 </div>
+
+
+        <?php
+            }else{
+              ?>
+                <table border='3' style="width:100%">
+                    <tr>
+                        <th>Dados Gerais</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Comprovante: </b><?php echo $resultado["comprovante"]; ?> <br/>
+                            <b>Mesangem: </b><?php echo $resultado["mensagem"]; ?> <br/>
+                        </td>
+                    </tr>
+                </table><br/><br/>
+
+                <div class="bt-container">
+                <?php echo "<a href='ativa_usuario.php?id=".$resultado['fk_id_usuario'] . " ' "; ?>
+                <a style="background-color: #1E90FF; padding: 1% 2% 1% 2%; border-radius: 5px;" class="popupbt">Ativar Usuário</a>
+                </div>
+
+                
                 
             
         <?php
+            }
+          
           }
           while($resultado = mysql_fetch_array($consulta));
           }

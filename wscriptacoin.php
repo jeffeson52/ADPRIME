@@ -56,13 +56,8 @@ $u = new Usuario;
                                 <li><a href="#"><i class="fas fa-question"></i>Faq</a></li>
                             </ul>
                         </li>
-                        <li><a href=""><i class="fas fa-handshake"></i>Associe-se</a>
-                            <ul>
-                                <li><a href="./wscriptacoin.php"><i class="fas fa-handshake"></i>WS Kriptacoin</a></li>
-                                <li><a href="./awsmining.html"><i class="fas fa-handshake"></i>AWS Mining</a></li>
-                                <li><a href="./outrasEmpresas.php"><i class="fas fa-handshake"></i>Outras Empresas</a>
-                                </li>
-                            </ul>
+                        <li><a href="./outrasEmpresas.php"><i class="fas fa-handshake"></i>Associe-se</a>
+                            
                     </ul>
                 </nav>
             </div>

@@ -121,65 +121,89 @@
           <a href="altera_endereco.php" style="background-color: #1E90FF; padding: 1% 2% 1% 2%; border-radius: 5px;" class="popupbt">Alterar Dados</a>
           </div><br />
 
-<div id="divisaorodape">&nbsp;</div><br />
+
 
 <?php
       include("../tela_usuario/arquivos_upload/db.php");
       $id = $_SESSION['id_usuario'];
       
-      $consulta = mysql_query("SELECT * FROM dadosgerais WHERE fk_id_usuario = '$id' ");
+      $consulta = mysql_query("SELECT * FROM dadosgerais, usuarios WHERE fk_id_usuario = '$id' AND id_usuario = '$id' ");
       if ($resultado = mysql_fetch_array($consulta)){
           do {
-            ?>
-                <table border='3' style="width:100%">
-                    <tr>
-                        <th>Dados Gerais</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <b>Dados Wall Street: </b><?php echo $resultado["dadosWallStreet"]; ?> <br/>
-                            <b>Aporte na empresa: </b> <i style="text-transform: uppercase;"><?php echo $resultado["aporte"]; ?> </i><br/>
-                            <b>Cota: </b>
-                            <?php 
-                              $cotak1DB = $resultado['cotak1'];
-                              $cotak3DB = $resultado['cotak3'];
-                              $cotak21DB = $resultado['cotak21'];
-                              if($cotak1DB == ''){
-                                echo "";
-                              }else{
-                                echo $cotak1DB.",";
-                              }
-                              if($cotak3DB == ''){
-                                echo "";
-                              }else{
-                                echo $cotak3DB.",";
-                              }
-                              if($cotak21DB == ''){
-                                echo "";
-                              }else{
-                                echo $cotak21DB.",";
-                              }
-                            ?> <br/>
-                            <b>Possui licença de mineração: </b><?php echo $resultado["licenca"]; ?> <br/>
-                            <b>Poder de mineração diária: </b><?php echo $resultado["poder"]; ?> <br/>
-                            <b>Valor de cada mineradora e o valor total investido em mineradoras: </b><?php echo $resultado["valorMineradora"]; ?> <br/>
-                            <b>Valor total de todos investimento: </b><i>R$ </i><?php echo $resultado["valorInvestimento"]; ?> <br/>
-                            <b>Valor total dos investimentos (taxa): </b><i>R$ </i><?php echo $resultado["valorTaxa"]; ?> <br/>
-                            <b>Melhor data para pagamento do boleto: </b>Dia <?php echo $resultado["pagBoleto"]; ?> <br/>
-                            <b>Empresa: </b><?php echo $resultado["empresa"]; ?> <br/>
-                            <b>Mesangem: </b><?php echo $resultado["mensagem"]; ?> <br/>
-                            
-                            
-                        </td>
-                    </tr>
-                </table><br/><br/>
+            if($resultado['novo'] == "Antigo"){
+              ?>
+              <div id="divisaorodape">&nbsp;</div><br />
+              <table border='3' style="width:100%">
+                  <tr>
+                      <th>Dados Gerais</th>
+                  </tr>
+                  <tr>
+                      <td>
+                          <b>Dados Wall Street: </b><?php echo $resultado["dadosWallStreet"]; ?> <br/>
+                          <b>Aporte na empresa: </b> <i style="text-transform: uppercase;"><?php echo $resultado["aporte"]; ?> </i><br/>
+                          <b>Cota: </b>
+                          <?php 
+                            $cotak1DB = $resultado['cotak1'];
+                            $cotak3DB = $resultado['cotak3'];
+                            $cotak21DB = $resultado['cotak21'];
+                            if($cotak1DB == ''){
+                              echo "";
+                            }else{
+                              echo $cotak1DB.",";
+                            }
+                            if($cotak3DB == ''){
+                              echo "";
+                            }else{
+                              echo $cotak3DB.",";
+                            }
+                            if($cotak21DB == ''){
+                              echo "";
+                            }else{
+                              echo $cotak21DB.",";
+                            }
+                          ?> <br/>
+                          <b>Possui licença de mineração: </b><?php echo $resultado["licenca"]; ?> <br/>
+                          <b>Poder de mineração diária: </b><?php echo $resultado["poder"]; ?> <br/>
+                          <b>Valor de cada mineradora e o valor total investido em mineradoras: </b><?php echo $resultado["valorMineradora"]; ?> <br/>
+                          <b>Valor total de todos investimento: </b><i>R$ </i><?php echo $resultado["valorInvestimento"]; ?> <br/>
+                          <b>Valor total dos investimentos (taxa): </b><i>R$ </i><?php echo $resultado["valorTaxa"]; ?> <br/>
+                          <b>Melhor data para pagamento do boleto: </b>Dia <?php echo $resultado["pagBoleto"]; ?> <br/>
+                          <b>Empresa: </b><?php echo $resultado["empresa"]; ?> <br/>
+                          <b>Mesangem: </b><?php echo $resultado["mensagem"]; ?> <br/>
+                          
+                          
+                      </td>
+                  </tr>
+              </table><br/><br/>
 
-          <!-- <div class="bt-container">
-          <a href="altera_dados_gerais.php" style="background-color: #1E90FF; padding: 1% 2% 1% 2%; border-radius: 5px;" class="popupbt">Alterar Dados</a>
-          </div><br /> -->
-                
-            
-        <?php
+        <!-- <div class="bt-container">
+        <a href="altera_dados_gerais.php" style="background-color: #1E90FF; padding: 1% 2% 1% 2%; border-radius: 5px;" class="popupbt">Alterar Dados</a>
+        </div><br /> -->
+              
+          
+      <?php
+            }else{
+              ?>
+              <div id="divisaorodape">&nbsp;</div><br />
+              <table border='3' style="width:100%">
+                  <tr>
+                      <th>Outras Informações</th>
+                  </tr>
+                  <tr>
+                      <td>
+                          <b>Método de Comprovação: </b><?php echo $resultado["comprovante"]; ?> <br/>
+                          <b>Mesangem: </b><?php echo $resultado["mensagem"]; ?> <br/>
+                      </td>
+                  </tr>
+              </table><br/><br/>
+
+        <!-- <div class="bt-container">
+        <a href="altera_dados_gerais.php" style="background-color: #1E90FF; padding: 1% 2% 1% 2%; border-radius: 5px;" class="popupbt">Alterar Dados</a>
+        </div><br /> -->
+              
+          
+      <?php
+            }
           }
           while($resultado = mysql_fetch_array($consulta));
           }

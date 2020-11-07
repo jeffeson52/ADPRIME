@@ -69,7 +69,7 @@
         ON e.fk_id_usuario = u.id_usuario
         INNER JOIN dadosgerais as d
         on d.fk_id_usuario = u.id_usuario
-        WHERE u.id_usuario != '$id_usuario' ";
+        WHERE u.id_usuario != '$id_usuario' AND u.status = 'Ativo' AND u.novo = 'Antigo' ORDER BY nome ";
 		$relatorio = mysqli_query($conn , $resultado);
 		
 		while($row_relatorio = mysqli_fetch_assoc($relatorio)){

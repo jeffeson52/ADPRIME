@@ -37,13 +37,13 @@
                 }
         }
 
-        public function outrasEmpresas($nome, $email, $rg, $cpf, $dataAniversario, $telefone, $celular, $endereco, $Nresidencia, $cep, $pais, $estado,
+        public function outrasEmpresas($nome, $email, $senha, $rg, $cpf, $dataAniversario, $telefone, $celular, $endereco, $Nresidencia, $cep, $pais, $estado,
         $complemento, $bairro, $cidade, $mensagem, $comprovante){
 
             global $pdo;
             global $msgErro;
             //verifica se já existe
-            $sql = $pdo->prepare("SELECT id_outras_empresas FROM outrasempresas WHERE email = :e");
+            $sql = $pdo->prepare("SELECT id_usuario FROM usuarios WHERE email = :e");
             $sql->bindValue(":e", $email);
             $sql->execute();
 
@@ -51,16 +51,27 @@
                 return false; 
             }else{
                 //caso não exista, cria um novo usuario
-                $sql = $pdo->prepare("INSERT INTO outrasempresas(nome, email, rg, cpf, dataAniversario, telefone, celular, endereco, Nresidencia, cep, pais,
-                estado, complemento, bairro, cidade, mensagem, comprovante) VALUES (:n, :e, :rg, :cpf, :da, :t, :c, :en, :Nre, :cep, :pais, :es, 
-                :compl, :b, :cid, :msg, :compr); ");
+
+                $sql = $pdo->prepare("INSERT INTO usuarios(nome, email, senha, rg, cpf, dataAniversario, nivel, status, novo) VALUES (:n, :e, :s, :rg, :cpf, :da, :l, :st, :new);
+                SELECT LAST_INSERT_ID() INTO @id; ");
                 $sql->bindValue(":n", $nome);
                 $sql->bindValue(":e", $email);
+                $sql->bindValue(":s", md5($senha));
                 $sql->bindValue(":rg", $rg);
                 $sql->bindValue(":cpf", $cpf);
                 $sql->bindValue(":da", $dataAniversario);
+                $sql->bindValue(":l", 2);
+                $sql->bindValue(":st", 'Inativo');
+                $sql->bindValue(":new", 'Novo');
+                $sql->execute();
+
+                $sql = $pdo->prepare("INSERT INTO telefone(telefone, celular, fk_id_usuario) VALUES (:t, :c, (SELECT max(id_usuario) FROM usuarios) )");
                 $sql->bindValue(":t", $telefone);
                 $sql->bindValue(":c", $celular);
+                $sql->execute();
+
+                $sql = $pdo->prepare("INSERT INTO endereco(endereco, Nresidencia, cep, pais, estado, complemento, bairro, cidade, fk_id_usuario) VALUES (:en, :Nre, :cep, :pais, :es, :compl,
+                :b, :cid, (SELECT max(id_usuario) FROM usuarios)) ");
                 $sql->bindValue(":en", $endereco);
                 $sql->bindValue(":Nre", $Nresidencia);
                 $sql->bindValue(":cep", $cep);
@@ -69,6 +80,9 @@
                 $sql->bindValue(":compl", $complemento);
                 $sql->bindValue(":b", $bairro);
                 $sql->bindValue(":cid", $cidade);
+                $sql->execute();
+
+                $sql = $pdo->prepare("INSERT INTO dadosgerais(mensagem, comprovante, fk_id_usuario) VALUES (:msg, :compr, (SELECT max(id_usuario) FROM usuarios))");
                 $sql->bindValue(":msg", $mensagem);
                 $sql->bindValue(":compr", $comprovante);
                 $sql->execute();
